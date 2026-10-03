@@ -1,0 +1,143 @@
+@import "tailwindcss";
+@import "./holo/cards.css";
+@import "./holo/base.css";
+@import "./holo/regular-holo.css";
+@import "./holo/rainbow-holo.css";
+@import "./holo/secret-rare.css";
+@import "./holo/reverse-holo.css";
+@import "./holo/amazing-rare.css";
+@import "./holo/basic.css";
+@import "./holo/cosmos-holo.css";
+@import "./holo/radiant-holo.css";
+@import "./holo/rainbow-alt.css";
+@import "./holo/shiny-rare.css";
+@import "./holo/shiny-v.css";
+@import "./holo/shiny-vmax.css";
+@import "./holo/swsh-pikachu.css";
+@import "./holo/trainer-full-art.css";
+@import "./holo/trainer-gallery-holo.css";
+@import "./holo/trainer-gallery-secret-rare.css";
+@import "./holo/trainer-gallery-v-max.css";
+@import "./holo/trainer-gallery-v-regular.css";
+@import "./holo/v-full-art.css";
+@import "./holo/v-max.css";
+@import "./holo/v-regular.css";
+@import "./holo/v-star.css";
+
+/* ------------------------------------------------------------------
+   Sistema de diseño de Lina Pokémon Libre 2.
+   Una sola fuente de verdad: todo lo demás sale de aquí.
+   Dirección: la limpieza de Pokellector (baldosas iguales, cintas de
+   color, logos oficiales) con la pulcritud de una app de hoy.
+   ------------------------------------------------------------------ */
+:root {
+  --azul:      #c8641e;
+  --azul-alto: #e0803a;
+  --azul-bajo: #a24d12;
+  --verde:     #23a45e;
+  --verde-bajo:#178048;
+  --naranja:   #f0782a;
+  --oro:       #f1b722;
+  --oro-bajo:  #c98f0a;
+  --tinta:     #14203a;
+  --tinta-2:   #4b5875;
+  --tinta-3:   #7f8ba3;
+  --papel:     #ffffff;
+  --hueco:     #f8f1e8;
+  --linea:     #eadccb;
+  --placa:     rgba(8, 14, 28, .74);
+
+  --fondo: url("/fondo.svg");
+  --fondo-color: #f2c28a;
+  color-scheme: light;
+
+  --sombra-1: 0 1px 2px rgba(70, 40, 20, .10), 0 4px 14px rgba(70, 40, 20, .08);
+  --sombra-2: 0 2px 4px rgba(70, 40, 20, .12), 0 14px 34px rgba(70, 40, 20, .18);
+
+  --radio-s: 10px;
+  --radio-m: 16px;
+  --radio-l: 22px;
+
+  --f: "Segoe UI Variable", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+
+  /* variables que mueve el efecto holográfico */
+  --pointer-x: 50%;
+  --pointer-y: 50%;
+  --card-scale: 1;
+  --card-opacity: 0;
+  --translate-x: 0px;
+  --translate-y: 0px;
+  --rotate-x: 0deg;
+  --rotate-y: 0deg;
+  --background-x: 50%;
+  --background-y: 50%;
+  --pointer-from-center: 0;
+  --pointer-from-top: 0.5;
+  --pointer-from-left: 0.5;
+}
+
+/* Oscuro: el del sistema si se eligió «Automático», o el elegido a mano. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-tema="claro"]):not([data-tema="oscuro"]) {
+  --azul:      #f0a05a;
+  --azul-alto: #e0803a;
+  --azul-bajo: #b45618;
+  --oro:       #f2bd2a;
+  --tinta:     #f7efe6;
+  --tinta-2:   #cdbba8;
+  --tinta-3:   #a08c78;
+  --papel:     #2a2019;
+  --hueco:     #33271e;
+  --linea:     #4a3a2c;
+  --placa:     rgba(4, 8, 18, .8);
+  --sombra-1: 0 1px 2px rgba(0, 0, 0, .35), 0 4px 14px rgba(0, 0, 0, .28);
+  --sombra-2: 0 2px 4px rgba(0, 0, 0, .4), 0 14px 34px rgba(0, 0, 0, .5);
+  --fondo: url("/fondo-oscuro.svg");
+  --fondo-color: #1c120b;
+  color-scheme: dark;
+}
+}
+:root[data-tema="oscuro"] {
+  --azul:      #f0a05a;
+  --azul-alto: #e0803a;
+  --azul-bajo: #b45618;
+  --oro:       #f2bd2a;
+  --tinta:     #f7efe6;
+  --tinta-2:   #cdbba8;
+  --tinta-3:   #a08c78;
+  --papel:     #2a2019;
+  --hueco:     #33271e;
+  --linea:     #4a3a2c;
+  --placa:     rgba(4, 8, 18, .8);
+  --sombra-1: 0 1px 2px rgba(0, 0, 0, .35), 0 4px 14px rgba(0, 0, 0, .28);
+  --sombra-2: 0 2px 4px rgba(0, 0, 0, .4), 0 14px 34px rgba(0, 0, 0, .5);
+  --fondo: url("/fondo-oscuro.svg");
+  --fondo-color: #1c120b;
+  color-scheme: dark;
+}
+
+html, body, #app { height: 100%; }
+body {
+  margin: 0;
+  font-family: var(--f);
+  color: var(--tinta);
+  background: var(--fondo-color) var(--fondo) center top / cover fixed no-repeat;
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior-y: none;
+}
+button { font: inherit; color: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+img { display: block; }
+
+/* El vuelo de la carta desde su celda hasta la ficha: lo hace el navegador. */
+::view-transition-group(carta) {
+  animation-duration: .46s;
+  animation-timing-function: cubic-bezier(.2, .8, .2, 1);
+}
+::view-transition-old(carta), ::view-transition-new(carta) { animation: none; mix-blend-mode: normal; height: 100%; object-fit: contain; }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: .22s; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) {
+    animation-duration: .001s !important; transition-duration: .001s !important;
+  }
+}

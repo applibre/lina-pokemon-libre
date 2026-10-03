@@ -1,0 +1,36 @@
+[
+ {
+  "slug": "eevee-sun-moon-sum-101a",
+  "url": "https://pkmncards.com/card/eevee-sun-moon-sum-101a/",
+  "img": "https://pkmncards.com/wp-content/uploads/en_US-SM1-101a-eevee-yaa.jpg",
+  "n": "Eevee",
+  "num": "101a",
+  "tot": 149,
+  "r": "Common",
+  "rel": "2018-11-02",
+  "ill": "Saya Tsuruta",
+  "ps": 60,
+  "etapa": "Basic",
+  "txt": "Possessing an unbalanced and unstable genetic makeup, it conceals many possible evolutions.",
+  "set": "sm1",
+  "set_n": null,
+  "id": "sm1-101a"
+ },
+ {
+  "slug": "alolan-vulpix-guardians-rising-gri-21a",
+  "url": "https://pkmncards.com/card/alolan-vulpix-guardians-rising-gri-21a/",
+  "img": "https://pkmncards.com/wp-content/uploads/en_US-SM2-21a-alolan_vulpix-yaa.jpg",
+  "n": "Alolan Vulpix",
+  "num": "21a",
+  "tot": 145,
+  "r": "Common",
+  "rel": "2018-02-02",
+  "ill": "kirisAki",
+  "ps": 60,
+  "etapa": "Basic",
+  "txt": "It exhales air colder than -58 degrees Fahrenheit. Elderly people in Alola call this Pokémon by an older name—Keokeo.",
+  "set": "sm2",
+  "set_n": null,
+  "id": "sm2-21a"
+ }
+]

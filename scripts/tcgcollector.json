@@ -1,0 +1,2750 @@
+{
+ "mfb-1": {
+  "tc": 42763,
+  "slug": "bulbasaur-my-first-battle-bulbasaur-no-001"
+ },
+ "mfb-2": {
+  "tc": 42765,
+  "slug": "ivysaur-my-first-battle-bulbasaur-no-004"
+ },
+ "mfb-9": {
+  "tc": 42775,
+  "slug": "charmander-my-first-battle-charmander-no-001"
+ },
+ "mfb-10": {
+  "tc": 42777,
+  "slug": "charmeleon-my-first-battle-charmander-no-004"
+ },
+ "mfb-17": {
+  "tc": 42787,
+  "slug": "pikachu-my-first-battle-pikachu-no-001"
+ },
+ "mfb-18": {
+  "tc": 42789,
+  "slug": "raichu-my-first-battle-pikachu-no-004"
+ },
+ "mfb-25": {
+  "tc": 42799,
+  "slug": "squirtle-my-first-battle-squirtle-no-001"
+ },
+ "mfb-26": {
+  "tc": 42801,
+  "slug": "wartortle-my-first-battle-squirtle-no-004"
+ },
+ "cel25cc-CC001": {
+  "tc": 35610,
+  "slug": "blastoise-celebrations-2-102"
+ },
+ "cel25cc-CC002": {
+  "tc": 35611,
+  "slug": "charizard-celebrations-4-102"
+ },
+ "cel25cc-CC003": {
+  "tc": 35609,
+  "slug": "venusaur-celebrations-15-102"
+ },
+ "cel25cc-CC008": {
+  "tc": 35613,
+  "slug": "s-pikachu-celebrations-24"
+ },
+ "mep-Museum": {
+  "tc": 54348,
+  "slug": "pikachu-at-the-museum-mega-evolution-promos-no-500"
+ },
+ "ex13-104": {
+  "tc": 3196,
+  "slug": "pikachu-star-ex-holon-phantoms-104-110"
+ },
+ "ex15-100": {
+  "tc": 3424,
+  "slug": "charizard-star-ex-dragon-frontiers-100-101"
+ },
+ "dpp-DP45": {
+  "tc": 4922,
+  "slug": "charizard-g-lv-x-diamond-and-pearl-promos-dp45"
+ },
+ "30th-c-001": {
+  "tc": 89675,
+  "slug": "charizard-30th-celebration-4-102"
+ },
+ "30th-c-008": {
+  "tc": 89699,
+  "slug": "pikachu-and-zekrom-gx-30th-celebration-33-181"
+ },
+ "30th-c-014": {
+  "tc": 89676,
+  "slug": "pikachu-30th-celebration-58-102"
+ },
+ "30th-c-018": {
+  "tc": 89700,
+  "slug": "gengar-30th-celebration-94-102"
+ },
+ "base1-12": {
+  "tc": 1241,
+  "slug": "ninetales-base-set-12-102"
+ },
+ "base1-12~shadowless": {
+  "tc": 1241,
+  "slug": "ninetales-base-set-12-102"
+ },
+ "base1-68": {
+  "tc": 1902,
+  "slug": "vulpix-base-set-68-102"
+ },
+ "base1-68~shadowless": {
+  "tc": 1902,
+  "slug": "vulpix-base-set-68-102"
+ },
+ "base2-3": {
+  "tc": 575,
+  "slug": "flareon-jungle-3-64"
+ },
+ "base2-4": {
+  "tc": 802,
+  "slug": "jolteon-jungle-4-64"
+ },
+ "base2-12": {
+  "tc": 1860,
+  "slug": "vaporeon-jungle-12-64"
+ },
+ "base2-19": {
+  "tc": 580,
+  "slug": "flareon-jungle-19-64"
+ },
+ "base2-20": {
+  "tc": 807,
+  "slug": "jolteon-jungle-20-64"
+ },
+ "base2-28": {
+  "tc": 1862,
+  "slug": "vaporeon-jungle-28-64"
+ },
+ "base2-51": {
+  "tc": 441,
+  "slug": "eevee-jungle-51-64"
+ },
+ "basep-11": {
+  "tc": 439,
+  "slug": "eevee-wizards-of-the-coast-promos-11"
+ },
+ "base4-13": {
+  "tc": 9463,
+  "slug": "ninetales-base-set-2-13-130"
+ },
+ "base4-99": {
+  "tc": 9370,
+  "slug": "vulpix-base-set-2-99-130"
+ },
+ "base5-35": {
+  "tc": 314,
+  "slug": "dark-flareon-team-rocket-35-82"
+ },
+ "base5-38": {
+  "tc": 327,
+  "slug": "dark-jolteon-team-rocket-38-82"
+ },
+ "base5-45": {
+  "tc": 359,
+  "slug": "dark-vaporeon-team-rocket-45-82"
+ },
+ "base5-55": {
+  "tc": 443,
+  "slug": "eevee-team-rocket-55-82"
+ },
+ "gym1-65": {
+  "tc": 124,
+  "slug": "blaines-vulpix-gym-heroes-65-132"
+ },
+ "gym1-73": {
+  "tc": 167,
+  "slug": "brocks-vulpix-gym-heroes-73-132"
+ },
+ "gym2-3": {
+  "tc": 153,
+  "slug": "brocks-ninetales-gym-challenge-3-132"
+ },
+ "gym2-21": {
+  "tc": 115,
+  "slug": "blaines-ninetales-gym-challenge-21-132"
+ },
+ "gym2-28": {
+  "tc": 958,
+  "slug": "lt-surges-jolteon-gym-challenge-28-132"
+ },
+ "gym2-37": {
+  "tc": 166,
+  "slug": "brocks-vulpix-gym-challenge-37-132"
+ },
+ "gym2-37~w-stamped": {
+  "tc": 166,
+  "slug": "brocks-vulpix-gym-challenge-37-132"
+ },
+ "gym2-51": {
+  "tc": 953,
+  "slug": "lt-surges-eevee-gym-challenge-51-132"
+ },
+ "gym2-66": {
+  "tc": 125,
+  "slug": "blaines-vulpix-gym-challenge-66-132"
+ },
+ "neo2-1": {
+  "tc": 525,
+  "slug": "espeon-neo-discovery-1-75"
+ },
+ "neo2-13": {
+  "tc": 1821,
+  "slug": "umbreon-neo-discovery-13-75"
+ },
+ "neo2-20": {
+  "tc": 529,
+  "slug": "espeon-neo-discovery-20-75"
+ },
+ "neo2-32": {
+  "tc": 1826,
+  "slug": "umbreon-neo-discovery-32-75"
+ },
+ "neo2-38": {
+  "tc": 440,
+  "slug": "eevee-neo-discovery-38-75"
+ },
+ "neo4-4": {
+  "tc": 310,
+  "slug": "dark-espeon-neo-destiny-4-105"
+ },
+ "neo4-46": {
+  "tc": 921,
+  "slug": "light-flareon-neo-destiny-46-105"
+ },
+ "neo4-48": {
+  "tc": 923,
+  "slug": "light-jolteon-neo-destiny-48-105"
+ },
+ "neo4-50": {
+  "tc": 928,
+  "slug": "light-ninetales-neo-destiny-50-105"
+ },
+ "neo4-52": {
+  "tc": 933,
+  "slug": "light-vaporeon-neo-destiny-52-105"
+ },
+ "neo4-91": {
+  "tc": 1903,
+  "slug": "vulpix-neo-destiny-91-105"
+ },
+ "lc-9": {
+  "tc": 358,
+  "slug": "dark-vaporeon-legendary-collection-9-110"
+ },
+ "lc-10": {
+  "tc": 579,
+  "slug": "flareon-legendary-collection-10-110"
+ },
+ "lc-14": {
+  "tc": 806,
+  "slug": "jolteon-legendary-collection-14-110"
+ },
+ "lc-17": {
+  "tc": 1242,
+  "slug": "ninetales-legendary-collection-17-110"
+ },
+ "lc-74": {
+  "tc": 444,
+  "slug": "eevee-legendary-collection-74-110"
+ },
+ "lc-98": {
+  "tc": 1904,
+  "slug": "vulpix-legendary-collection-98-110"
+ },
+ "ecard1-21": {
+  "tc": 1243,
+  "slug": "ninetales-expedition-base-set-21-165"
+ },
+ "ecard1-57": {
+  "tc": 1245,
+  "slug": "ninetales-expedition-base-set-57-165"
+ },
+ "ecard1-136": {
+  "tc": 1906,
+  "slug": "vulpix-expedition-base-set-136-165"
+ },
+ "ecard2-11": {
+  "tc": 527,
+  "slug": "espeon-aquapolis-11-147"
+ },
+ "ecard2-25": {
+  "tc": 1247,
+  "slug": "ninetales-aquapolis-25-147"
+ },
+ "ecard2-41": {
+  "tc": 1827,
+  "slug": "umbreon-aquapolis-41-147"
+ },
+ "ecard2-75": {
+  "tc": 445,
+  "slug": "eevee-aquapolis-75-147"
+ },
+ "ecard2-116": {
+  "tc": 1905,
+  "slug": "vulpix-aquapolis-116-147"
+ },
+ "ecard2-H09": {
+  "tc": 526,
+  "slug": "espeon-aquapolis-h9-h32"
+ },
+ "ecard2-H19": {
+  "tc": 1246,
+  "slug": "ninetales-aquapolis-h19-h32"
+ },
+ "ecard2-H29": {
+  "tc": 1823,
+  "slug": "umbreon-aquapolis-h29-h32"
+ },
+ "ecard3-8": {
+  "tc": 578,
+  "slug": "flareon-skyridge-8-144"
+ },
+ "ecard3-13": {
+  "tc": 805,
+  "slug": "jolteon-skyridge-13-144"
+ },
+ "ecard3-32": {
+  "tc": 1825,
+  "slug": "umbreon-skyridge-32-144"
+ },
+ "ecard3-33": {
+  "tc": 1864,
+  "slug": "vaporeon-skyridge-33-144"
+ },
+ "ecard3-54": {
+  "tc": 442,
+  "slug": "eevee-skyridge-54-144"
+ },
+ "ecard3-H07": {
+  "tc": 577,
+  "slug": "flareon-skyridge-h7-h32"
+ },
+ "ecard3-H12": {
+  "tc": 804,
+  "slug": "jolteon-skyridge-h12-h32"
+ },
+ "ecard3-H30": {
+  "tc": 1824,
+  "slug": "umbreon-skyridge-h30-h32"
+ },
+ "ecard3-H31": {
+  "tc": 1863,
+  "slug": "vaporeon-skyridge-h31-h32"
+ },
+ "ex2-5": {
+  "tc": 576,
+  "slug": "flareon-ex-sandstorm-5-100"
+ },
+ "ex2-6": {
+  "tc": 803,
+  "slug": "jolteon-ex-sandstorm-6-100"
+ },
+ "ex2-16": {
+  "tc": 528,
+  "slug": "espeon-ex-sandstorm-16-100"
+ },
+ "ex2-24": {
+  "tc": 1822,
+  "slug": "umbreon-ex-sandstorm-24-100"
+ },
+ "ex2-25": {
+  "tc": 1861,
+  "slug": "vaporeon-ex-sandstorm-25-100"
+ },
+ "ex2-63": {
+  "tc": 433,
+  "slug": "eevee-ex-sandstorm-63-100"
+ },
+ "ex5-22": {
+  "tc": 2103,
+  "slug": "ninetales-ex-hidden-legends-22-101"
+ },
+ "ex5-81": {
+  "tc": 2162,
+  "slug": "vulpix-ex-hidden-legends-81-101"
+ },
+ "ex5-96": {
+  "tc": 2177,
+  "slug": "ninetales-ex-ex-hidden-legends-96-101"
+ },
+ "ex9-38": {
+  "tc": 2606,
+  "slug": "ninetales-ex-emerald-38-106"
+ },
+ "ex9-72": {
+  "tc": 2640,
+  "slug": "vulpix-ex-emerald-72-106"
+ },
+ "ex10-5": {
+  "tc": 2680,
+  "slug": "flareon-ex-unseen-forces-5-115"
+ },
+ "ex10-8": {
+  "tc": 2683,
+  "slug": "jolteon-ex-unseen-forces-8-115"
+ },
+ "ex10-19": {
+  "tc": 2694,
+  "slug": "vaporeon-ex-unseen-forces-19-115"
+ },
+ "ex10-55": {
+  "tc": 2730,
+  "slug": "eevee-ex-unseen-forces-55-115"
+ },
+ "ex10-102": {
+  "tc": 2777,
+  "slug": "espeon-ex-ex-unseen-forces-102-115"
+ },
+ "ex10-102~mundial-2006-jimmy-ballard": {
+  "tc": 2777,
+  "slug": "espeon-ex-ex-unseen-forces-102-115"
+ },
+ "ex10-102~mundial-2007-tom-roos": {
+  "tc": 2777,
+  "slug": "espeon-ex-ex-unseen-forces-102-115"
+ },
+ "ex10-112": {
+  "tc": 2787,
+  "slug": "umbreon-ex-ex-unseen-forces-112-115"
+ },
+ "ex10-112~mundial-2006-jimmy-ballard": {
+  "tc": 2787,
+  "slug": "umbreon-ex-ex-unseen-forces-112-115"
+ },
+ "ex11-4": {
+  "tc": 2843,
+  "slug": "espeon-ex-delta-species-4-113"
+ },
+ "ex11-5": {
+  "tc": 2844,
+  "slug": "flareon-ex-delta-species-5-113"
+ },
+ "ex11-7": {
+  "tc": 2846,
+  "slug": "jolteon-ex-delta-species-7-113"
+ },
+ "ex11-17": {
+  "tc": 2856,
+  "slug": "umbreon-ex-delta-species-17-113"
+ },
+ "ex11-18": {
+  "tc": 2857,
+  "slug": "vaporeon-ex-delta-species-18-113"
+ },
+ "ex11-68": {
+  "tc": 2907,
+  "slug": "eevee-ex-delta-species-68-113"
+ },
+ "ex11-69": {
+  "tc": 2908,
+  "slug": "eevee-ex-delta-species-69-113"
+ },
+ "ex11-69~mundial-2006-jimmy-ballard": {
+  "tc": 2908,
+  "slug": "eevee-ex-delta-species-69-113"
+ },
+ "ex11-69~mundial-2007-tom-roos": {
+  "tc": 2908,
+  "slug": "eevee-ex-delta-species-69-113"
+ },
+ "ex11-108": {
+  "tc": 2947,
+  "slug": "flareon-ex-ex-delta-species-108-113"
+ },
+ "ex11-108~mundial-2006-jimmy-ballard": {
+  "tc": 2947,
+  "slug": "flareon-ex-ex-delta-species-108-113"
+ },
+ "ex11-109": {
+  "tc": 2948,
+  "slug": "jolteon-ex-ex-delta-species-109-113"
+ },
+ "ex11-109~mundial-2006-jimmy-ballard": {
+  "tc": 2948,
+  "slug": "jolteon-ex-ex-delta-species-109-113"
+ },
+ "ex11-109~mundial-2007-jun-hasebe": {
+  "tc": 2948,
+  "slug": "jolteon-ex-ex-delta-species-109-113"
+ },
+ "ex11-109~mundial-2007-tom-roos": {
+  "tc": 2948,
+  "slug": "jolteon-ex-ex-delta-species-109-113"
+ },
+ "ex11-110": {
+  "tc": 2949,
+  "slug": "vaporeon-ex-ex-delta-species-110-113"
+ },
+ "ex11-110~mundial-2006-jimmy-ballard": {
+  "tc": 2949,
+  "slug": "vaporeon-ex-ex-delta-species-110-113"
+ },
+ "ex11-110~mundial-2007-jun-hasebe": {
+  "tc": 2949,
+  "slug": "vaporeon-ex-ex-delta-species-110-113"
+ },
+ "ex11-110~mundial-2007-tom-roos": {
+  "tc": 2949,
+  "slug": "vaporeon-ex-ex-delta-species-110-113"
+ },
+ "tk-ex-m-7": {
+  "tc": 3065,
+  "slug": "vulpix-ex-trainer-kit-2-minun-7-12"
+ },
+ "pop3-2": {
+  "tc": 3077,
+  "slug": "flareon-pop-series-3-2-17"
+ },
+ "pop3-3": {
+  "tc": 3078,
+  "slug": "jolteon-pop-series-3-3-17"
+ },
+ "pop3-6": {
+  "tc": 3081,
+  "slug": "vaporeon-pop-series-3-6-17"
+ },
+ "pop3-13": {
+  "tc": 3088,
+  "slug": "eevee-pop-series-3-13-17"
+ },
+ "ex15-8": {
+  "tc": 3332,
+  "slug": "ninetales-ex-dragon-frontiers-8-101"
+ },
+ "ex15-70": {
+  "tc": 3394,
+  "slug": "vulpix-ex-dragon-frontiers-70-101"
+ },
+ "ex16-19": {
+  "tc": 3447,
+  "slug": "ninetales-ex-power-keepers-19-108"
+ },
+ "ex16-69": {
+  "tc": 3497,
+  "slug": "vulpix-ex-power-keepers-69-108"
+ },
+ "ex16-100": {
+  "tc": 3528,
+  "slug": "flareon-star-ex-power-keepers-100-108"
+ },
+ "ex16-101": {
+  "tc": 3529,
+  "slug": "jolteon-star-ex-power-keepers-101-108"
+ },
+ "ex16-102": {
+  "tc": 3530,
+  "slug": "vaporeon-star-ex-power-keepers-102-108"
+ },
+ "dp2-32": {
+  "tc": 3715,
+  "slug": "ninetales-mysterious-treasures-32-123"
+ },
+ "dp2-107": {
+  "tc": 3787,
+  "slug": "vulpix-mysterious-treasures-107-123"
+ },
+ "dp5-5": {
+  "tc": 4098,
+  "slug": "glaceon-majestic-dawn-5-100"
+ },
+ "dp5-7": {
+  "tc": 4100,
+  "slug": "leafeon-majestic-dawn-7-100"
+ },
+ "dp5-18": {
+  "tc": 4110,
+  "slug": "espeon-majestic-dawn-18-100"
+ },
+ "dp5-19": {
+  "tc": 4111,
+  "slug": "flareon-majestic-dawn-19-100"
+ },
+ "dp5-20": {
+  "tc": 4112,
+  "slug": "glaceon-majestic-dawn-20-100"
+ },
+ "dp5-20~exclusiva-de-mazo-dp-majestic-dawn": {
+  "tc": 4112,
+  "slug": "glaceon-majestic-dawn-20-100"
+ },
+ "dp5-20~calendario-countdown": {
+  "tc": 4112,
+  "slug": "glaceon-majestic-dawn-20-100"
+ },
+ "dp5-20~burger-king-platinum": {
+  "tc": 4112,
+  "slug": "glaceon-majestic-dawn-20-100"
+ },
+ "dp5-23": {
+  "tc": 4115,
+  "slug": "jolteon-majestic-dawn-23-100"
+ },
+ "dp5-24": {
+  "tc": 4116,
+  "slug": "leafeon-majestic-dawn-24-100"
+ },
+ "dp5-24~exclusiva-de-mazo-dp-majestic-dawn": {
+  "tc": 4116,
+  "slug": "leafeon-majestic-dawn-24-100"
+ },
+ "dp5-24~burger-king-platinum": {
+  "tc": 4116,
+  "slug": "leafeon-majestic-dawn-24-100"
+ },
+ "dp5-32": {
+  "tc": 4124,
+  "slug": "umbreon-majestic-dawn-32-100"
+ },
+ "dp5-34": {
+  "tc": 4126,
+  "slug": "vaporeon-majestic-dawn-34-100"
+ },
+ "dp5-62": {
+  "tc": 4153,
+  "slug": "eevee-majestic-dawn-62-100"
+ },
+ "dp5-62~burger-king-platinum": {
+  "tc": 4153,
+  "slug": "eevee-majestic-dawn-62-100"
+ },
+ "dp5-63": {
+  "tc": 4154,
+  "slug": "eevee-majestic-dawn-63-100"
+ },
+ "dp5-98": {
+  "tc": 4187,
+  "slug": "glaceon-lv-x-majestic-dawn-98-100"
+ },
+ "dp5-99": {
+  "tc": 4188,
+  "slug": "leafeon-lv-x-majestic-dawn-99-100"
+ },
+ "pl1-36": {
+  "tc": 4525,
+  "slug": "ninetales-platinum-36-127"
+ },
+ "pl1-102": {
+  "tc": 4591,
+  "slug": "vulpix-platinum-102-127"
+ },
+ "pl1-SH6": {
+  "tc": 4622,
+  "slug": "vulpix-platinum-sh6"
+ },
+ "pl2-18": {
+  "tc": 4640,
+  "slug": "espeon-e4-rising-rivals-18-111"
+ },
+ "pl2-19": {
+  "tc": 4641,
+  "slug": "flareon-rising-rivals-19-111"
+ },
+ "pl2-26": {
+  "tc": 4648,
+  "slug": "jolteon-rising-rivals-26-111"
+ },
+ "pl2-34": {
+  "tc": 4656,
+  "slug": "vaporeon-rising-rivals-34-111"
+ },
+ "pl2-41": {
+  "tc": 4663,
+  "slug": "glaceon-rising-rivals-41-111"
+ },
+ "pl2-45": {
+  "tc": 4667,
+  "slug": "leafeon-rising-rivals-45-111"
+ },
+ "pl2-59": {
+  "tc": 4681,
+  "slug": "eevee-rising-rivals-59-111"
+ },
+ "pl2-60": {
+  "tc": 4682,
+  "slug": "flareon-e4-rising-rivals-60-111"
+ },
+ "pl2-60~cracked-ice": {
+  "tc": 4682,
+  "slug": "flareon-e4-rising-rivals-60-111"
+ },
+ "ru1-3": {
+  "tc": 5169,
+  "slug": "ninetales-pokemon-rumble-3-16"
+ },
+ "hgss1-7": {
+  "tc": 5044,
+  "slug": "ninetales-heartgold-and-soulsilver-7-123"
+ },
+ "hgss1-7~exclusiva-de-blister-cracked-ice": {
+  "tc": 5044,
+  "slug": "ninetales-heartgold-and-soulsilver-7-123"
+ },
+ "hgss1-87": {
+  "tc": 5124,
+  "slug": "vulpix-heartgold-and-soulsilver-87-123"
+ },
+ "hgss2-20": {
+  "tc": 5202,
+  "slug": "ninetales-unleashed-20-95"
+ },
+ "hgss2-68": {
+  "tc": 5250,
+  "slug": "vulpix-unleashed-68-95"
+ },
+ "hgss3-2": {
+  "tc": 5280,
+  "slug": "espeon-undaunted-2-90"
+ },
+ "hgss3-2~exclusiva-de-mazo-hgss-undaunted-cracked-ice-holo": {
+  "tc": 5280,
+  "slug": "espeon-undaunted-2-90"
+ },
+ "hgss3-2~exclusiva-de-mazo-hgss-undaunted": {
+  "tc": 5280,
+  "slug": "espeon-undaunted-2-90"
+ },
+ "hgss3-10": {
+  "tc": 5288,
+  "slug": "umbreon-undaunted-10-90"
+ },
+ "hgss3-10~exclusiva-de-mazo-cracked-ice-holo": {
+  "tc": 5288,
+  "slug": "umbreon-undaunted-10-90"
+ },
+ "hgss3-10~exclusiva-de-mazo": {
+  "tc": 5288,
+  "slug": "umbreon-undaunted-10-90"
+ },
+ "hgss3-17": {
+  "tc": 5295,
+  "slug": "leafeon-undaunted-17-90"
+ },
+ "hgss3-17~prerelease": {
+  "tc": 5295,
+  "slug": "leafeon-undaunted-17-90"
+ },
+ "hgss3-17~prerelease-staff": {
+  "tc": 5295,
+  "slug": "leafeon-undaunted-17-90"
+ },
+ "hgss3-26": {
+  "tc": 5304,
+  "slug": "flareon-undaunted-26-90"
+ },
+ "hgss3-28": {
+  "tc": 5306,
+  "slug": "jolteon-undaunted-28-90"
+ },
+ "hgss3-41": {
+  "tc": 5319,
+  "slug": "vaporeon-undaunted-41-90"
+ },
+ "hgss3-47": {
+  "tc": 5325,
+  "slug": "eevee-undaunted-47-90"
+ },
+ "hgss3-48": {
+  "tc": 5326,
+  "slug": "eevee-undaunted-48-90"
+ },
+ "hgss3-81": {
+  "tc": 5359,
+  "slug": "espeon-undaunted-81-90"
+ },
+ "hgss3-86": {
+  "tc": 5364,
+  "slug": "umbreon-undaunted-86-90"
+ },
+ "col1-4": {
+  "tc": 5529,
+  "slug": "espeon-call-of-legends-4-95"
+ },
+ "col1-13": {
+  "tc": 5538,
+  "slug": "leafeon-call-of-legends-13-95"
+ },
+ "col1-17": {
+  "tc": 5542,
+  "slug": "ninetales-call-of-legends-17-95"
+ },
+ "col1-17~exclusiva-de-mazo-call-of-legends": {
+  "tc": 5542,
+  "slug": "ninetales-call-of-legends-17-95"
+ },
+ "col1-22": {
+  "tc": 5547,
+  "slug": "umbreon-call-of-legends-22-95"
+ },
+ "col1-44": {
+  "tc": 5569,
+  "slug": "flareon-call-of-legends-44-95"
+ },
+ "col1-45": {
+  "tc": 5570,
+  "slug": "jolteon-call-of-legends-45-95"
+ },
+ "col1-52": {
+  "tc": 5577,
+  "slug": "vaporeon-call-of-legends-52-95"
+ },
+ "col1-56": {
+  "tc": 5581,
+  "slug": "eevee-call-of-legends-56-95"
+ },
+ "col1-75": {
+  "tc": 5600,
+  "slug": "vulpix-call-of-legends-75-95"
+ },
+ "bw5-6": {
+  "tc": 6112,
+  "slug": "leafeon-dark-explorers-6-108"
+ },
+ "bw5-12": {
+  "tc": 6118,
+  "slug": "flareon-dark-explorers-12-108"
+ },
+ "bw5-12~regional-championships": {
+  "tc": 6118,
+  "slug": "flareon-dark-explorers-12-108"
+ },
+ "bw5-12~regional-championships-staff": {
+  "tc": 6118,
+  "slug": "flareon-dark-explorers-12-108"
+ },
+ "bw5-25": {
+  "tc": 6131,
+  "slug": "vaporeon-dark-explorers-25-108"
+ },
+ "bw5-25~state-championships-staff": {
+  "tc": 6131,
+  "slug": "vaporeon-dark-explorers-25-108"
+ },
+ "bw5-25~state-championships": {
+  "tc": 6131,
+  "slug": "vaporeon-dark-explorers-25-108"
+ },
+ "bw5-30": {
+  "tc": 6136,
+  "slug": "glaceon-dark-explorers-30-108"
+ },
+ "bw5-37": {
+  "tc": 6143,
+  "slug": "jolteon-dark-explorers-37-108"
+ },
+ "bw5-48": {
+  "tc": 6154,
+  "slug": "espeon-dark-explorers-48-108"
+ },
+ "bw5-48~national-championships": {
+  "tc": 6154,
+  "slug": "espeon-dark-explorers-48-108"
+ },
+ "bw5-48~national-championships-staff": {
+  "tc": 6154,
+  "slug": "espeon-dark-explorers-48-108"
+ },
+ "bw5-60": {
+  "tc": 6166,
+  "slug": "umbreon-dark-explorers-60-108"
+ },
+ "bw5-60~regional-championships": {
+  "tc": 6166,
+  "slug": "umbreon-dark-explorers-60-108"
+ },
+ "bw5-60~regional-championships-staff": {
+  "tc": 6166,
+  "slug": "umbreon-dark-explorers-60-108"
+ },
+ "bw5-61": {
+  "tc": 6167,
+  "slug": "umbreon-dark-explorers-61-108"
+ },
+ "bw5-83": {
+  "tc": 6189,
+  "slug": "eevee-dark-explorers-83-108"
+ },
+ "bw5-84": {
+  "tc": 6190,
+  "slug": "eevee-dark-explorers-84-108"
+ },
+ "bw5-84~city-championships": {
+  "tc": 6190,
+  "slug": "eevee-dark-explorers-84-108"
+ },
+ "bw6-18": {
+  "tc": 6235,
+  "slug": "vulpix-dragons-exalted-18-124"
+ },
+ "bw6-19": {
+  "tc": 6236,
+  "slug": "ninetales-dragons-exalted-19-124"
+ },
+ "bw9-11": {
+  "tc": 6693,
+  "slug": "leafeon-plasma-freeze-11-116"
+ },
+ "bw9-11~exclusiva-de-mazo-bw-plasma-freeze": {
+  "tc": 6693,
+  "slug": "leafeon-plasma-freeze-11-116"
+ },
+ "bw9-11~state-championships": {
+  "tc": 6693,
+  "slug": "leafeon-plasma-freeze-11-116"
+ },
+ "bw9-11~state-championships-staff": {
+  "tc": 6693,
+  "slug": "leafeon-plasma-freeze-11-116"
+ },
+ "bw9-11~regional-championships-staff": {
+  "tc": 6693,
+  "slug": "leafeon-plasma-freeze-11-116"
+ },
+ "bw9-12": {
+  "tc": 6694,
+  "slug": "flareon-plasma-freeze-12-116"
+ },
+ "bw9-20": {
+  "tc": 6702,
+  "slug": "vaporeon-plasma-freeze-20-116"
+ },
+ "bw9-23": {
+  "tc": 6705,
+  "slug": "glaceon-plasma-freeze-23-116"
+ },
+ "bw9-23~exclusiva-de-mazo-bw-plasma-freeze": {
+  "tc": 6705,
+  "slug": "glaceon-plasma-freeze-23-116"
+ },
+ "bw9-23~city-championships": {
+  "tc": 6705,
+  "slug": "glaceon-plasma-freeze-23-116"
+ },
+ "bw9-23~city-championships-staff": {
+  "tc": 6705,
+  "slug": "glaceon-plasma-freeze-23-116"
+ },
+ "bw9-34": {
+  "tc": 6716,
+  "slug": "jolteon-plasma-freeze-34-116"
+ },
+ "bw9-48": {
+  "tc": 6730,
+  "slug": "espeon-plasma-freeze-48-116"
+ },
+ "bw9-64": {
+  "tc": 6746,
+  "slug": "umbreon-plasma-freeze-64-116"
+ },
+ "bw9-64~exclusiva-de-mazo": {
+  "tc": 6746,
+  "slug": "umbreon-plasma-freeze-64-116"
+ },
+ "bw9-89": {
+  "tc": 6771,
+  "slug": "eevee-plasma-freeze-89-116"
+ },
+ "bw9-90": {
+  "tc": 6772,
+  "slug": "eevee-plasma-freeze-90-116"
+ },
+ "bw11-20": {
+  "tc": 6944,
+  "slug": "vulpix-legendary-treasures-20-113"
+ },
+ "bw11-21": {
+  "tc": 6945,
+  "slug": "ninetales-legendary-treasures-21-113"
+ },
+ "bw11-RC14": {
+  "tc": 7053,
+  "slug": "eevee-legendary-treasures-rc14-rc25"
+ },
+ "xya-28a": {
+  "tc": 10932,
+  "slug": "jolteon-ex-yellow-a-alternate-28a-83"
+ },
+ "tk-xy-sy-13": {
+  "tc": 7362,
+  "slug": "eevee-xy-trainer-kit-sylveon-13-30"
+ },
+ "tk-xy-sy-15": {
+  "tc": 7364,
+  "slug": "sylveon-xy-trainer-kit-sylveon-15-30"
+ },
+ "tk-xy-sy-21": {
+  "tc": 7370,
+  "slug": "eevee-xy-trainer-kit-sylveon-21-30"
+ },
+ "tk-xy-sy-30": {
+  "tc": 7379,
+  "slug": "sylveon-xy-trainer-kit-sylveon-30-30"
+ },
+ "xy3-7": {
+  "tc": 7537,
+  "slug": "leafeon-furious-fists-7-111"
+ },
+ "xy3-19": {
+  "tc": 7549,
+  "slug": "glaceon-furious-fists-19-111"
+ },
+ "xy3-72": {
+  "tc": 7602,
+  "slug": "sylveon-furious-fists-72-111"
+ },
+ "xy3-72~exclusiva-de-mazo-cracked-ice-holo": {
+  "tc": 7602,
+  "slug": "sylveon-furious-fists-72-111"
+ },
+ "xy3-80": {
+  "tc": 7610,
+  "slug": "eevee-furious-fists-80-111"
+ },
+ "xy5-20": {
+  "tc": 7847,
+  "slug": "vulpix-primal-clash-20-160"
+ },
+ "xy5-20~build-a-bear-workshop-exclusive": {
+  "tc": 7847,
+  "slug": "vulpix-primal-clash-20-160"
+ },
+ "xy5-21": {
+  "tc": 7848,
+  "slug": "ninetales-primal-clash-21-160"
+ },
+ "xy7-13": {
+  "tc": 8148,
+  "slug": "flareon-ancient-origins-13-98"
+ },
+ "xy7-13~cosmos-holo": {
+  "tc": 8148,
+  "slug": "flareon-ancient-origins-13-98"
+ },
+ "xy7-22": {
+  "tc": 8157,
+  "slug": "vaporeon-ancient-origins-22-98"
+ },
+ "xy7-22~cosmos-holo": {
+  "tc": 8157,
+  "slug": "vaporeon-ancient-origins-22-98"
+ },
+ "xy7-26": {
+  "tc": 8161,
+  "slug": "jolteon-ancient-origins-26-98"
+ },
+ "xy7-26~cosmos-holo": {
+  "tc": 8161,
+  "slug": "jolteon-ancient-origins-26-98"
+ },
+ "xy7-63": {
+  "tc": 8198,
+  "slug": "eevee-ancient-origins-63-98"
+ },
+ "xy7-63~build-a-bear-workshop-exclusive": {
+  "tc": 8198,
+  "slug": "eevee-ancient-origins-63-98"
+ },
+ "xy9-52": {
+  "tc": 8476,
+  "slug": "espeon-ex-breakpoint-52-122"
+ },
+ "xy9-52~mundial-2017-kabu-fukase": {
+  "tc": 8476,
+  "slug": "espeon-ex-breakpoint-52-122"
+ },
+ "xy9-117": {
+  "tc": 8541,
+  "slug": "espeon-ex-breakpoint-117-122"
+ },
+ "g1-10": {
+  "tc": 8576,
+  "slug": "leafeon-ex-generations-10-83"
+ },
+ "g1-13": {
+  "tc": 8579,
+  "slug": "ninetales-ex-generations-13-83"
+ },
+ "g1-24": {
+  "tc": 8590,
+  "slug": "vaporeon-ex-generations-24-83"
+ },
+ "g1-28": {
+  "tc": 8594,
+  "slug": "jolteon-ex-generations-28-83"
+ },
+ "g1-28a": {
+  "tc": 10932,
+  "slug": "jolteon-ex-yellow-a-alternate-28a-83"
+ },
+ "g1-RC6": {
+  "tc": 8655,
+  "slug": "flareon-ex-generations-rc6-rc32"
+ },
+ "g1-RC21": {
+  "tc": 8670,
+  "slug": "sylveon-ex-generations-rc21-rc32"
+ },
+ "g1-RC28": {
+  "tc": 8677,
+  "slug": "flareon-ex-generations-rc28-rc32"
+ },
+ "tk-xy-su-4": {
+  "tc": 11831,
+  "slug": "eevee-xy-trainer-kit-suicune-4-30"
+ },
+ "xy10-20": {
+  "tc": 9241,
+  "slug": "glaceon-ex-fates-collide-20-124"
+ },
+ "xy10-55": {
+  "tc": 9152,
+  "slug": "umbreon-ex-fates-collide-55-124"
+ },
+ "xy10-116": {
+  "tc": 9213,
+  "slug": "glaceon-ex-fates-collide-116-124"
+ },
+ "xy10-119": {
+  "tc": 9216,
+  "slug": "umbreon-ex-fates-collide-119-124"
+ },
+ "2016xy-1": {
+  "tc": 12258,
+  "slug": "vulpix-mcdonalds-collection-2016-1-12"
+ },
+ "2016xy-12": {
+  "tc": 12632,
+  "slug": "eevee-mcdonalds-collection-2016-12-12"
+ },
+ "xy12-14": {
+  "tc": 8989,
+  "slug": "vulpix-evolutions-14-108"
+ },
+ "xy12-15": {
+  "tc": 8990,
+  "slug": "ninetales-evolutions-15-108"
+ },
+ "xy12-15~exclusiva-de-mazo-xy-evolutions-non-holo": {
+  "tc": 8990,
+  "slug": "ninetales-evolutions-15-108"
+ },
+ "xy12-16": {
+  "tc": 8991,
+  "slug": "ninetales-break-evolutions-16-108"
+ },
+ "sm1-61": {
+  "tc": 8742,
+  "slug": "espeon-gx-sun-and-moon-61-149"
+ },
+ "sm1-80": {
+  "tc": 8761,
+  "slug": "umbreon-gx-sun-and-moon-80-149"
+ },
+ "sm1-101": {
+  "tc": 8782,
+  "slug": "eevee-sun-and-moon-101-149"
+ },
+ "sm1-101~cosmos-holo": {
+  "tc": 8782,
+  "slug": "eevee-sun-and-moon-101-149"
+ },
+ "sm1-101~general-mills-promo": {
+  "tc": 8782,
+  "slug": "eevee-sun-and-moon-101-149"
+ },
+ "sm1-101a": {
+  "tc": 13736,
+  "slug": "eevee-yellow-a-alternate-101a-149"
+ },
+ "sm1-140": {
+  "tc": 8821,
+  "slug": "espeon-gx-sun-and-moon-140-149"
+ },
+ "sm1-142": {
+  "tc": 8823,
+  "slug": "umbreon-gx-sun-and-moon-142-149"
+ },
+ "sm1-152": {
+  "tc": 9491,
+  "slug": "espeon-gx-sun-and-moon-152-149"
+ },
+ "sm1-154": {
+  "tc": 9493,
+  "slug": "umbreon-gx-sun-and-moon-154-149"
+ },
+ "sm2-21": {
+  "tc": 8851,
+  "slug": "alolan-vulpix-guardians-rising-21-145"
+ },
+ "sm2-21~mundial-2017-zachary-bokhari": {
+  "tc": 8851,
+  "slug": "alolan-vulpix-guardians-rising-21-145"
+ },
+ "sm2-21~mundial-2017-diego-cassiraga": {
+  "tc": 8851,
+  "slug": "alolan-vulpix-guardians-rising-21-145"
+ },
+ "sm2-21~toys-r-us-promo": {
+  "tc": 8851,
+  "slug": "alolan-vulpix-guardians-rising-21-145"
+ },
+ "sm2-21~build-a-bear-workshop-exclusive": {
+  "tc": 8851,
+  "slug": "alolan-vulpix-guardians-rising-21-145"
+ },
+ "sm2-22": {
+  "tc": 8852,
+  "slug": "alolan-ninetales-gx-guardians-rising-22-145"
+ },
+ "sm2-22~mundial-2017-zachary-bokhari": {
+  "tc": 8852,
+  "slug": "alolan-ninetales-gx-guardians-rising-22-145"
+ },
+ "sm2-92": {
+  "tc": 8922,
+  "slug": "sylveon-gx-guardians-rising-92-145"
+ },
+ "sm2-132": {
+  "tc": 8962,
+  "slug": "alolan-ninetales-gx-guardians-rising-132-145"
+ },
+ "sm2-140": {
+  "tc": 8970,
+  "slug": "sylveon-gx-guardians-rising-140-145"
+ },
+ "sm2-150": {
+  "tc": 9475,
+  "slug": "alolan-ninetales-gx-guardians-rising-150-145"
+ },
+ "sm2-158": {
+  "tc": 9337,
+  "slug": "sylveon-gx-guardians-rising-158-145"
+ },
+ "sm3-27": {
+  "tc": 9705,
+  "slug": "alolan-vulpix-burning-shadows-27-147"
+ },
+ "sm3-28": {
+  "tc": 9706,
+  "slug": "alolan-ninetales-burning-shadows-28-147"
+ },
+ "sm3-28~exclusiva-de-mazo-cracked-ice-holo": {
+  "tc": 9706,
+  "slug": "alolan-ninetales-burning-shadows-28-147"
+ },
+ "sm3-28~water-web-holo": {
+  "tc": 9706,
+  "slug": "alolan-ninetales-burning-shadows-28-147"
+ },
+ "sm5-13": {
+  "tc": 10166,
+  "slug": "leafeon-gx-ultra-prism-13-156"
+ },
+ "sm5-30": {
+  "tc": 10183,
+  "slug": "alolan-vulpix-ultra-prism-30-156"
+ },
+ "sm5-39": {
+  "tc": 10191,
+  "slug": "glaceon-gx-ultra-prism-39-156"
+ },
+ "sm5-104": {
+  "tc": 10256,
+  "slug": "eevee-ultra-prism-104-156"
+ },
+ "sm5-105": {
+  "tc": 10257,
+  "slug": "eevee-ultra-prism-105-156"
+ },
+ "sm5-139": {
+  "tc": 10291,
+  "slug": "leafeon-gx-ultra-prism-139-156"
+ },
+ "sm5-141": {
+  "tc": 10293,
+  "slug": "glaceon-gx-ultra-prism-141-156"
+ },
+ "sm5-157": {
+  "tc": 10309,
+  "slug": "leafeon-gx-ultra-prism-157-156"
+ },
+ "sm5-159": {
+  "tc": 10311,
+  "slug": "glaceon-gx-ultra-prism-159-156"
+ },
+ "sm6-87": {
+  "tc": 10422,
+  "slug": "sylveon-forbidden-light-87-131"
+ },
+ "2018sm-11": {
+  "tc": 12207,
+  "slug": "eevee-mcdonalds-collection-2018-11-12"
+ },
+ "sm8-53": {
+  "tc": 11622,
+  "slug": "alolan-vulpix-lost-thunder-53-214"
+ },
+ "sm8-89": {
+  "tc": 11658,
+  "slug": "espeon-lost-thunder-89-214"
+ },
+ "sm8-89~battle-academy-2020": {
+  "tc": 11658,
+  "slug": "espeon-lost-thunder-89-214"
+ },
+ "sm8-89~exclusiva-de-blister-cosmos-holo": {
+  "tc": 11658,
+  "slug": "espeon-lost-thunder-89-214"
+ },
+ "sm8-120": {
+  "tc": 11689,
+  "slug": "umbreon-lost-thunder-120-214"
+ },
+ "sm8-120~exclusiva-de-blister-cosmos-holo": {
+  "tc": 11689,
+  "slug": "umbreon-lost-thunder-120-214"
+ },
+ "sm8-132": {
+  "tc": 11701,
+  "slug": "alolan-ninetales-gx-lost-thunder-132-214"
+ },
+ "sm8-155": {
+  "tc": 11724,
+  "slug": "eevee-lost-thunder-155-214"
+ },
+ "sm8-155~exclusiva-de-mazo-let-s-play-eevee-cracked-ice-holo": {
+  "tc": 11724,
+  "slug": "eevee-lost-thunder-155-214"
+ },
+ "sm8-205": {
+  "tc": 11774,
+  "slug": "alolan-ninetales-gx-lost-thunder-205-214"
+ },
+ "sm8-225": {
+  "tc": 11794,
+  "slug": "alolan-ninetales-gx-lost-thunder-225-214"
+ },
+ "sm9-15": {
+  "tc": 12001,
+  "slug": "vulpix-team-up-15-181"
+ },
+ "sm9-15~mundial-2019-kaya-lichtleitner": {
+  "tc": 12001,
+  "slug": "vulpix-team-up-15-181"
+ },
+ "sm9-16": {
+  "tc": 12002,
+  "slug": "ninetales-team-up-16-181"
+ },
+ "sm9-16~mundial-2019-kaya-lichtleitner": {
+  "tc": 12002,
+  "slug": "ninetales-team-up-16-181"
+ },
+ "sm9-111": {
+  "tc": 12097,
+  "slug": "alolan-ninetales-team-up-111-181"
+ },
+ "sm9-120": {
+  "tc": 12106,
+  "slug": "eevee-and-snorlax-gx-team-up-120-181"
+ },
+ "sm9-171": {
+  "tc": 12157,
+  "slug": "eevee-and-snorlax-gx-team-up-171-181"
+ },
+ "sm9-191": {
+  "tc": 12240,
+  "slug": "eevee-and-snorlax-gx-team-up-191-181"
+ },
+ "sm10-130": {
+  "tc": 12420,
+  "slug": "gardevoir-and-sylveon-gx-unbroken-bonds-130-214"
+ },
+ "sm10-204": {
+  "tc": 12497,
+  "slug": "gardevoir-and-sylveon-gx-unbroken-bonds-204-214"
+ },
+ "sm10-205": {
+  "tc": 12498,
+  "slug": "gardevoir-and-sylveon-gx-unbroken-bonds-205-214"
+ },
+ "sm10-225": {
+  "tc": 12517,
+  "slug": "gardevoir-and-sylveon-gx-unbroken-bonds-225-214"
+ },
+ "sm11-72": {
+  "tc": 12957,
+  "slug": "espeon-and-deoxys-gx-unified-minds-72-236"
+ },
+ "sm11-72~mundial-2019-henry-brand": {
+  "tc": 12957,
+  "slug": "espeon-and-deoxys-gx-unified-minds-72-236"
+ },
+ "sm11-125": {
+  "tc": 13010,
+  "slug": "umbreon-and-darkrai-gx-unified-minds-125-236"
+ },
+ "sm115-18": {
+  "tc": 13205,
+  "slug": "vaporeon-hidden-fates-18-68"
+ },
+ "sm115-23": {
+  "tc": 13210,
+  "slug": "jolteon-hidden-fates-23-68"
+ },
+ "sm115-48": {
+  "tc": 13235,
+  "slug": "eevee-hidden-fates-48-68"
+ },
+ "sm115-49": {
+  "tc": 13236,
+  "slug": "eevee-hidden-fates-49-68"
+ },
+ "sm115-49~battle-academy-2020-n-o-26-charizard": {
+  "tc": 13236,
+  "slug": "eevee-hidden-fates-49-68"
+ },
+ "sm115-49~battle-academy-2020-n-o-36-charizard": {
+  "tc": 13236,
+  "slug": "eevee-hidden-fates-49-68"
+ },
+ "sm115-49~battle-academy-2020": {
+  "tc": 13236,
+  "slug": "eevee-hidden-fates-49-68"
+ },
+ "sma-SV8": {
+  "tc": 13492,
+  "slug": "alolan-vulpix-hidden-fates-sv8-sv94"
+ },
+ "sma-SV41": {
+  "tc": 13321,
+  "slug": "eevee-hidden-fates-sv41-sv94"
+ },
+ "sma-SV46": {
+  "tc": 13528,
+  "slug": "leafeon-gx-hidden-fates-sv46-sv94"
+ },
+ "sma-SV53": {
+  "tc": 13535,
+  "slug": "alolan-ninetales-gx-hidden-fates-sv53-sv94"
+ },
+ "sma-SV55": {
+  "tc": 13537,
+  "slug": "glaceon-gx-hidden-fates-sv55-sv94"
+ },
+ "sma-SV60": {
+  "tc": 13542,
+  "slug": "espeon-gx-hidden-fates-sv60-sv94"
+ },
+ "sma-SV69": {
+  "tc": 13551,
+  "slug": "umbreon-gx-hidden-fates-sv69-sv94"
+ },
+ "sma-SV76": {
+  "tc": 13558,
+  "slug": "sylveon-gx-hidden-fates-sv76-sv94"
+ },
+ "2019sm-12": {
+  "tc": 14776,
+  "slug": "eevee-mcdonalds-collection-2019-12-12"
+ },
+ "sm12-25": {
+  "tc": 14469,
+  "slug": "flareon-cosmic-eclipse-25-236"
+ },
+ "sm12-39": {
+  "tc": 14483,
+  "slug": "alolan-vulpix-cosmic-eclipse-39-236"
+ },
+ "sm12-42": {
+  "tc": 14486,
+  "slug": "vaporeon-cosmic-eclipse-42-236"
+ },
+ "sm12-70": {
+  "tc": 14514,
+  "slug": "jolteon-cosmic-eclipse-70-236"
+ },
+ "sm12-145": {
+  "tc": 14589,
+  "slug": "alolan-ninetales-cosmic-eclipse-145-236"
+ },
+ "sm12-145~sm-p-japanese-exclusive": {
+  "tc": 14589,
+  "slug": "alolan-ninetales-cosmic-eclipse-145-236"
+ },
+ "sm12-155": {
+  "tc": 14599,
+  "slug": "sylveon-cosmic-eclipse-155-236"
+ },
+ "sm12-166": {
+  "tc": 14610,
+  "slug": "eevee-cosmic-eclipse-166-236"
+ },
+ "sm12-167": {
+  "tc": 14611,
+  "slug": "eevee-cosmic-eclipse-167-236"
+ },
+ "swshp-SWSH041": {
+  "tc": 15515,
+  "slug": "flareon-sword-and-shield-promos-swsh041"
+ },
+ "swshp-SWSH042": {
+  "tc": 15516,
+  "slug": "eevee-sword-and-shield-promos-swsh042"
+ },
+ "swshp-SWSH065": {
+  "tc": 15982,
+  "slug": "eevee-v-sword-and-shield-promos-swsh065"
+ },
+ "swshp-SWSH065~battle-academy-2022": {
+  "tc": 15982,
+  "slug": "eevee-v-sword-and-shield-promos-swsh065"
+ },
+ "swshp-SWSH072": {
+  "tc": 16845,
+  "slug": "vaporeon-sword-and-shield-promos-swsh072"
+ },
+ "swshp-SWSH087": {
+  "tc": 33782,
+  "slug": "eevee-vmax-sword-and-shield-promos-swsh087"
+ },
+ "swshp-SWSH094": {
+  "tc": 34015,
+  "slug": "jolteon-sword-and-shield-promos-swsh094"
+ },
+ "swshp-SWSH095": {
+  "tc": 34016,
+  "slug": "eevee-sword-and-shield-promos-swsh095"
+ },
+ "swshp-SWSH118": {
+  "tc": 34819,
+  "slug": "eevee-sword-and-shield-promos-swsh118"
+ },
+ "swshp-SWSH127": {
+  "tc": 35378,
+  "slug": "eevee-sword-and-shield-promos-swsh127"
+ },
+ "swshp-SWSH129": {
+  "tc": 35380,
+  "slug": "umbreon-sword-and-shield-promos-swsh129"
+ },
+ "swshp-SWSH134": {
+  "tc": 35665,
+  "slug": "dark-sylveon-v-sword-and-shield-promos-swsh134"
+ },
+ "swshp-SWSH149": {
+  "tc": 35396,
+  "slug": "flareon-v-sword-and-shield-promos-swsh149"
+ },
+ "swshp-SWSH149~prize-pack": {
+  "tc": 35396,
+  "slug": "flareon-v-sword-and-shield-promos-swsh149"
+ },
+ "swshp-SWSH150": {
+  "tc": 35397,
+  "slug": "vaporeon-v-sword-and-shield-promos-swsh150"
+ },
+ "swshp-SWSH150~prize-pack": {
+  "tc": 35397,
+  "slug": "vaporeon-v-sword-and-shield-promos-swsh150"
+ },
+ "swshp-SWSH151": {
+  "tc": 35398,
+  "slug": "jolteon-v-sword-and-shield-promos-swsh151"
+ },
+ "swshp-SWSH151~prize-pack": {
+  "tc": 35398,
+  "slug": "jolteon-v-sword-and-shield-promos-swsh151"
+ },
+ "swshp-SWSH174": {
+  "tc": 36052,
+  "slug": "espeon-sword-and-shield-promos-swsh174"
+ },
+ "swshp-SWSH175": {
+  "tc": 36053,
+  "slug": "eevee-sword-and-shield-promos-swsh175"
+ },
+ "swshp-SWSH179": {
+  "tc": 36327,
+  "slug": "flareon-v-sword-and-shield-promos-swsh179"
+ },
+ "swshp-SWSH180": {
+  "tc": 36324,
+  "slug": "flareon-vmax-sword-and-shield-promos-swsh180"
+ },
+ "swshp-SWSH181": {
+  "tc": 36328,
+  "slug": "vaporeon-v-sword-and-shield-promos-swsh181"
+ },
+ "swshp-SWSH182": {
+  "tc": 36325,
+  "slug": "vaporeon-vmax-sword-and-shield-promos-swsh182"
+ },
+ "swshp-SWSH183": {
+  "tc": 36329,
+  "slug": "jolteon-v-sword-and-shield-promos-swsh183"
+ },
+ "swshp-SWSH184": {
+  "tc": 36326,
+  "slug": "jolteon-vmax-sword-and-shield-promos-swsh184"
+ },
+ "swshp-SWSH190": {
+  "tc": 37275,
+  "slug": "eevee-sword-and-shield-promos-swsh190"
+ },
+ "swshp-SWSH191": {
+  "tc": 37276,
+  "slug": "leafeon-sword-and-shield-promos-swsh191"
+ },
+ "swshp-SWSH192": {
+  "tc": 37277,
+  "slug": "glaceon-sword-and-shield-promos-swsh192"
+ },
+ "swshp-SWSH194": {
+  "tc": 36941,
+  "slug": "leafeon-v-sword-and-shield-promos-swsh194"
+ },
+ "swshp-SWSH195": {
+  "tc": 36942,
+  "slug": "leafeon-vstar-sword-and-shield-promos-swsh195"
+ },
+ "swshp-SWSH195~prize-pack": {
+  "tc": 36942,
+  "slug": "leafeon-vstar-sword-and-shield-promos-swsh195"
+ },
+ "swshp-SWSH196": {
+  "tc": 36943,
+  "slug": "glaceon-v-sword-and-shield-promos-swsh196"
+ },
+ "swshp-SWSH197": {
+  "tc": 36944,
+  "slug": "glaceon-vstar-sword-and-shield-promos-swsh197"
+ },
+ "swshp-SWSH197~prize-pack": {
+  "tc": 36944,
+  "slug": "glaceon-vstar-sword-and-shield-promos-swsh197"
+ },
+ "swshp-SWSH201": {
+  "tc": 37437,
+  "slug": "espeon-v-sword-and-shield-promos-swsh201"
+ },
+ "swshp-SWSH202": {
+  "tc": 37438,
+  "slug": "sylveon-v-sword-and-shield-promos-swsh202"
+ },
+ "swshp-SWSH203": {
+  "tc": 37439,
+  "slug": "umbreon-v-sword-and-shield-promos-swsh203"
+ },
+ "swshp-SWSH211": {
+  "tc": 38240,
+  "slug": "sylveon-sword-and-shield-promos-swsh211"
+ },
+ "swshp-SWSH212": {
+  "tc": 38241,
+  "slug": "eevee-sword-and-shield-promos-swsh212"
+ },
+ "swshp-SWSH230": {
+  "tc": 38512,
+  "slug": "radiant-eevee-sword-and-shield-promos-swsh230"
+ },
+ "swsh1-22": {
+  "tc": 15155,
+  "slug": "vulpix-sword-and-shield-022-202"
+ },
+ "swsh1-23": {
+  "tc": 15156,
+  "slug": "ninetales-sword-and-shield-023-202"
+ },
+ "swsh2-24": {
+  "tc": 15268,
+  "slug": "vulpix-rebel-clash-024-192"
+ },
+ "swsh2-25": {
+  "tc": 15269,
+  "slug": "ninetales-rebel-clash-025-192"
+ },
+ "swsh2-26": {
+  "tc": 15270,
+  "slug": "ninetales-v-rebel-clash-026-192"
+ },
+ "swsh2-177": {
+  "tc": 15421,
+  "slug": "ninetales-v-rebel-clash-177-192"
+ },
+ "fut2020-2": {
+  "tc": 15984,
+  "slug": "eevee-on-the-ball-pokemon-futsal-002-005"
+ },
+ "fut2020-2~pokemon-futsal": {
+  "tc": 15984,
+  "slug": "eevee-on-the-ball-pokemon-futsal-002-005"
+ },
+ "swsh3.5-6": {
+  "tc": 16226,
+  "slug": "vulpix-champions-path-006-073"
+ },
+ "swsh4-26": {
+  "tc": 16658,
+  "slug": "flareon-vivid-voltage-026-185"
+ },
+ "swsh4-26~cosmos-holo": {
+  "tc": 16658,
+  "slug": "flareon-vivid-voltage-026-185"
+ },
+ "swsh4-30": {
+  "tc": 16662,
+  "slug": "vaporeon-vivid-voltage-030-185"
+ },
+ "swsh4-30~cosmos-holo": {
+  "tc": 16662,
+  "slug": "vaporeon-vivid-voltage-030-185"
+ },
+ "swsh4-47": {
+  "tc": 16679,
+  "slug": "jolteon-vivid-voltage-047-185"
+ },
+ "swsh4-47~cosmos-holo": {
+  "tc": 16679,
+  "slug": "jolteon-vivid-voltage-047-185"
+ },
+ "swsh4-130": {
+  "tc": 16762,
+  "slug": "eevee-vivid-voltage-130-185"
+ },
+ "swsh4-130~reverse-cosmos-holo": {
+  "tc": 16762,
+  "slug": "eevee-vivid-voltage-130-185"
+ },
+ "swsh4.5-52": {
+  "tc": 33630,
+  "slug": "eevee-shining-fates-052-072"
+ },
+ "swsh7-7": {
+  "tc": 35142,
+  "slug": "leafeon-v-evolving-skies-007-203"
+ },
+ "swsh7-7~prize-pack": {
+  "tc": 35142,
+  "slug": "leafeon-v-evolving-skies-007-203"
+ },
+ "swsh7-8": {
+  "tc": 35143,
+  "slug": "leafeon-vmax-evolving-skies-008-203"
+ },
+ "swsh7-8~prize-pack": {
+  "tc": 35143,
+  "slug": "leafeon-vmax-evolving-skies-008-203"
+ },
+ "swsh7-18": {
+  "tc": 35153,
+  "slug": "flareon-vmax-evolving-skies-018-203"
+ },
+ "swsh7-18~prize-pack": {
+  "tc": 35153,
+  "slug": "flareon-vmax-evolving-skies-018-203"
+ },
+ "swsh7-30": {
+  "tc": 35165,
+  "slug": "vaporeon-vmax-evolving-skies-030-203"
+ },
+ "swsh7-30~prize-pack": {
+  "tc": 35165,
+  "slug": "vaporeon-vmax-evolving-skies-030-203"
+ },
+ "swsh7-40": {
+  "tc": 35175,
+  "slug": "glaceon-v-evolving-skies-040-203"
+ },
+ "swsh7-40~prize-pack": {
+  "tc": 35175,
+  "slug": "glaceon-v-evolving-skies-040-203"
+ },
+ "swsh7-40~holiday-calendar": {
+  "tc": 35175,
+  "slug": "glaceon-v-evolving-skies-040-203"
+ },
+ "swsh7-41": {
+  "tc": 35176,
+  "slug": "glaceon-vmax-evolving-skies-041-203"
+ },
+ "swsh7-41~prize-pack": {
+  "tc": 35176,
+  "slug": "glaceon-vmax-evolving-skies-041-203"
+ },
+ "swsh7-41~holiday-calendar": {
+  "tc": 35176,
+  "slug": "glaceon-vmax-evolving-skies-041-203"
+ },
+ "swsh7-51": {
+  "tc": 35186,
+  "slug": "jolteon-vmax-evolving-skies-051-203"
+ },
+ "swsh7-51~prize-pack": {
+  "tc": 35186,
+  "slug": "jolteon-vmax-evolving-skies-051-203"
+ },
+ "swsh7-64": {
+  "tc": 35199,
+  "slug": "espeon-v-evolving-skies-064-203"
+ },
+ "swsh7-64~prize-pack": {
+  "tc": 35199,
+  "slug": "espeon-v-evolving-skies-064-203"
+ },
+ "swsh7-65": {
+  "tc": 35200,
+  "slug": "espeon-vmax-evolving-skies-065-203"
+ },
+ "swsh7-65~prize-pack": {
+  "tc": 35200,
+  "slug": "espeon-vmax-evolving-skies-065-203"
+ },
+ "swsh7-74": {
+  "tc": 35209,
+  "slug": "sylveon-v-evolving-skies-074-203"
+ },
+ "swsh7-74~prize-pack": {
+  "tc": 35209,
+  "slug": "sylveon-v-evolving-skies-074-203"
+ },
+ "swsh7-75": {
+  "tc": 35210,
+  "slug": "sylveon-vmax-evolving-skies-075-203"
+ },
+ "swsh7-75~prize-pack": {
+  "tc": 35210,
+  "slug": "sylveon-vmax-evolving-skies-075-203"
+ },
+ "swsh7-94": {
+  "tc": 35229,
+  "slug": "umbreon-v-evolving-skies-094-203"
+ },
+ "swsh7-94~prize-pack": {
+  "tc": 35229,
+  "slug": "umbreon-v-evolving-skies-094-203"
+ },
+ "swsh7-94~exclusiva-de-mazo-non-holo": {
+  "tc": 35229,
+  "slug": "umbreon-v-evolving-skies-094-203"
+ },
+ "swsh7-95": {
+  "tc": 35230,
+  "slug": "umbreon-vmax-evolving-skies-095-203"
+ },
+ "swsh7-95~prize-pack": {
+  "tc": 35230,
+  "slug": "umbreon-vmax-evolving-skies-095-203"
+ },
+ "swsh7-125": {
+  "tc": 35260,
+  "slug": "eevee-evolving-skies-125-203"
+ },
+ "swsh7-166": {
+  "tc": 35301,
+  "slug": "leafeon-v-evolving-skies-166-203"
+ },
+ "swsh7-167": {
+  "tc": 35302,
+  "slug": "leafeon-v-evolving-skies-167-203"
+ },
+ "swsh7-169": {
+  "tc": 35304,
+  "slug": "flareon-v-evolving-skies-169-203"
+ },
+ "swsh7-172": {
+  "tc": 35307,
+  "slug": "vaporeon-v-evolving-skies-172-203"
+ },
+ "swsh7-174": {
+  "tc": 35309,
+  "slug": "glaceon-v-evolving-skies-174-203"
+ },
+ "swsh7-175": {
+  "tc": 35310,
+  "slug": "glaceon-v-evolving-skies-175-203"
+ },
+ "swsh7-177": {
+  "tc": 35312,
+  "slug": "jolteon-v-evolving-skies-177-203"
+ },
+ "swsh7-179": {
+  "tc": 35314,
+  "slug": "espeon-v-evolving-skies-179-203"
+ },
+ "swsh7-180": {
+  "tc": 35315,
+  "slug": "espeon-v-evolving-skies-180-203"
+ },
+ "swsh7-183": {
+  "tc": 35318,
+  "slug": "sylveon-v-evolving-skies-183-203"
+ },
+ "swsh7-184": {
+  "tc": 35319,
+  "slug": "sylveon-v-evolving-skies-184-203"
+ },
+ "swsh7-188": {
+  "tc": 35323,
+  "slug": "umbreon-v-evolving-skies-188-203"
+ },
+ "swsh7-189": {
+  "tc": 35324,
+  "slug": "umbreon-v-evolving-skies-189-203"
+ },
+ "swsh7-204": {
+  "tc": 35339,
+  "slug": "leafeon-vmax-evolving-skies-204-203"
+ },
+ "swsh7-205": {
+  "tc": 35340,
+  "slug": "leafeon-vmax-evolving-skies-205-203"
+ },
+ "swsh7-208": {
+  "tc": 35343,
+  "slug": "glaceon-vmax-evolving-skies-208-203"
+ },
+ "swsh7-209": {
+  "tc": 35344,
+  "slug": "glaceon-vmax-evolving-skies-209-203"
+ },
+ "swsh7-211": {
+  "tc": 35346,
+  "slug": "sylveon-vmax-evolving-skies-211-203"
+ },
+ "swsh7-212": {
+  "tc": 35347,
+  "slug": "sylveon-vmax-evolving-skies-212-203"
+ },
+ "swsh7-214": {
+  "tc": 35349,
+  "slug": "umbreon-vmax-evolving-skies-214-203"
+ },
+ "swsh7-215": {
+  "tc": 35350,
+  "slug": "umbreon-vmax-evolving-skies-215-203"
+ },
+ "swsh8-28": {
+  "tc": 35785,
+  "slug": "vulpix-fusion-strike-028-264"
+ },
+ "swsh8-29": {
+  "tc": 35786,
+  "slug": "vulpix-fusion-strike-029-264"
+ },
+ "swsh8-29~battle-academy-2022-n-o-13-cinderace": {
+  "tc": 35786,
+  "slug": "vulpix-fusion-strike-029-264"
+ },
+ "swsh8-29~battle-academy-2022-n-o-18-cinderace": {
+  "tc": 35786,
+  "slug": "vulpix-fusion-strike-029-264"
+ },
+ "swsh8-29~battle-academy-2022-n-o-31-cinderace": {
+  "tc": 35786,
+  "slug": "vulpix-fusion-strike-029-264"
+ },
+ "swsh8-30": {
+  "tc": 35787,
+  "slug": "ninetales-fusion-strike-030-264"
+ },
+ "swsh8-30~battle-academy-2022-n-o-7-cinderace": {
+  "tc": 35787,
+  "slug": "ninetales-fusion-strike-030-264"
+ },
+ "swsh8-30~battle-academy-2022-n-o-23-cinderace": {
+  "tc": 35787,
+  "slug": "ninetales-fusion-strike-030-264"
+ },
+ "swsh8-31": {
+  "tc": 35788,
+  "slug": "ninetales-fusion-strike-031-264"
+ },
+ "swsh8-205": {
+  "tc": 35962,
+  "slug": "eevee-fusion-strike-205-264"
+ },
+ "swsh8-270": {
+  "tc": 36027,
+  "slug": "espeon-vmax-fusion-strike-270-264"
+ },
+ "swsh9tg-TG01": {
+  "tc": 37244,
+  "slug": "flareon-brilliant-stars-tg01-tg30"
+ },
+ "swsh9tg-TG02": {
+  "tc": 37245,
+  "slug": "vaporeon-brilliant-stars-tg02-tg30"
+ },
+ "swsh9tg-TG04": {
+  "tc": 37247,
+  "slug": "jolteon-brilliant-stars-tg04-tg30"
+ },
+ "swsh9tg-TG11": {
+  "tc": 37254,
+  "slug": "eevee-brilliant-stars-tg11-tg30"
+ },
+ "swsh9tg-TG14": {
+  "tc": 37257,
+  "slug": "sylveon-v-brilliant-stars-tg14-tg30"
+ },
+ "swsh9tg-TG15": {
+  "tc": 37258,
+  "slug": "sylveon-vmax-brilliant-stars-tg15-tg30"
+ },
+ "swsh9tg-TG22": {
+  "tc": 37265,
+  "slug": "umbreon-v-brilliant-stars-tg22-tg30"
+ },
+ "swsh9tg-TG23": {
+  "tc": 37266,
+  "slug": "umbreon-vmax-brilliant-stars-tg23-tg30"
+ },
+ "swsh10-013": {
+  "tc": 37999,
+  "slug": "leafeon-astral-radiance-013-189"
+ },
+ "swsh10-038": {
+  "tc": 38024,
+  "slug": "glaceon-astral-radiance-038-189"
+ },
+ "swsh10-119": {
+  "tc": 38105,
+  "slug": "eevee-astral-radiance-119-189"
+ },
+ "swsh10.5-035": {
+  "tc": 38450,
+  "slug": "sylveon-pokemon-go-035-078"
+ },
+ "swsh10.5-054": {
+  "tc": 38469,
+  "slug": "eevee-pokemon-go-054-078"
+ },
+ "swsh12-017": {
+  "tc": 39254,
+  "slug": "vulpix-silver-tempest-017-195"
+ },
+ "swsh12-018": {
+  "tc": 39255,
+  "slug": "ninetales-silver-tempest-018-195"
+ },
+ "swsh12-033": {
+  "tc": 39270,
+  "slug": "alolan-vulpix-v-silver-tempest-033-195"
+ },
+ "swsh12-033~prize-pack": {
+  "tc": 39270,
+  "slug": "alolan-vulpix-v-silver-tempest-033-195"
+ },
+ "swsh12-033~holiday-calendar": {
+  "tc": 39270,
+  "slug": "alolan-vulpix-v-silver-tempest-033-195"
+ },
+ "swsh12-034": {
+  "tc": 39271,
+  "slug": "alolan-vulpix-vstar-silver-tempest-034-195"
+ },
+ "swsh12-034~prize-pack": {
+  "tc": 39271,
+  "slug": "alolan-vulpix-vstar-silver-tempest-034-195"
+ },
+ "swsh12-173": {
+  "tc": 39410,
+  "slug": "alolan-vulpix-v-silver-tempest-173-195"
+ },
+ "swsh12-197": {
+  "tc": 39434,
+  "slug": "alolan-vulpix-vstar-silver-tempest-197-195"
+ },
+ "swsh12.5-013": {
+  "tc": 39861,
+  "slug": "leafeon-v-crown-zenith-013-159"
+ },
+ "swsh12.5-014": {
+  "tc": 39862,
+  "slug": "leafeon-vstar-crown-zenith-014-159"
+ },
+ "swsh12.5-038": {
+  "tc": 39886,
+  "slug": "glaceon-v-crown-zenith-038-159"
+ },
+ "swsh12.5-108": {
+  "tc": 39956,
+  "slug": "eevee-v-crown-zenith-108-159"
+ },
+ "swsh12.5gg-GG35": {
+  "tc": 40043,
+  "slug": "leafeon-vstar-crown-zenith-gg35-gg70"
+ },
+ "swsh12.5gg-GG40": {
+  "tc": 40048,
+  "slug": "glaceon-vstar-crown-zenith-gg40-gg70"
+ },
+ "sv03-028": {
+  "tc": 42137,
+  "slug": "vulpix-obsidian-flames-028-197"
+ },
+ "sv03-029": {
+  "tc": 42138,
+  "slug": "ninetales-obsidian-flames-029-197"
+ },
+ "sv03-086": {
+  "tc": 42195,
+  "slug": "espeon-obsidian-flames-086-197"
+ },
+ "sv03-086~best-buy-exclusive": {
+  "tc": 42195,
+  "slug": "espeon-obsidian-flames-086-197"
+ },
+ "sv03-130": {
+  "tc": 42239,
+  "slug": "umbreon-obsidian-flames-130-197"
+ },
+ "sv03-130~trick-or-trade": {
+  "tc": 42239,
+  "slug": "umbreon-obsidian-flames-130-197"
+ },
+ "sv03-130~gamestop-exclusive": {
+  "tc": 42239,
+  "slug": "umbreon-obsidian-flames-130-197"
+ },
+ "sv03-130~ebgames-exclusive": {
+  "tc": 42239,
+  "slug": "umbreon-obsidian-flames-130-197"
+ },
+ "sv03-130~obsidian-flames-stamped": {
+  "tc": 42239,
+  "slug": "umbreon-obsidian-flames-130-197"
+ },
+ "sv03-166": {
+  "tc": 42275,
+  "slug": "eevee-obsidian-flames-166-197"
+ },
+ "sv03-199": {
+  "tc": 42308,
+  "slug": "ninetales-obsidian-flames-199-197"
+ },
+ "sv03.5-037": {
+  "tc": 42406,
+  "slug": "vulpix-scarlet-and-violet-151-037-165"
+ },
+ "sv03.5-038": {
+  "tc": 42407,
+  "slug": "ninetales-ex-scarlet-and-violet-151-038-165"
+ },
+ "sv03.5-133": {
+  "tc": 42502,
+  "slug": "eevee-scarlet-and-violet-151-133-165"
+ },
+ "sv03.5-133~pokemon-together": {
+  "tc": 42502,
+  "slug": "eevee-scarlet-and-violet-151-133-165"
+ },
+ "sv03.5-133~holiday-calendar": {
+  "tc": 42502,
+  "slug": "eevee-scarlet-and-violet-151-133-165"
+ },
+ "sv03.5-134": {
+  "tc": 42503,
+  "slug": "vaporeon-scarlet-and-violet-151-134-165"
+ },
+ "sv03.5-135": {
+  "tc": 42504,
+  "slug": "jolteon-scarlet-and-violet-151-135-165"
+ },
+ "sv03.5-136": {
+  "tc": 42505,
+  "slug": "flareon-scarlet-and-violet-151-136-165"
+ },
+ "sv03.5-186": {
+  "tc": 42555,
+  "slug": "ninetales-ex-scarlet-and-violet-151-186-165"
+ },
+ "sv06-011": {
+  "tc": 45048,
+  "slug": "leafeon-twilight-masquerade-011-167"
+ },
+ "sv06-026": {
+  "tc": 45063,
+  "slug": "vulpix-twilight-masquerade-026-167"
+ },
+ "sv06-027": {
+  "tc": 45064,
+  "slug": "ninetales-twilight-masquerade-027-167"
+ },
+ "sv06-054": {
+  "tc": 45091,
+  "slug": "glaceon-twilight-masquerade-054-167"
+ },
+ "sv06-135": {
+  "tc": 45172,
+  "slug": "eevee-twilight-masquerade-135-167"
+ },
+ "sv06-188": {
+  "tc": 45225,
+  "slug": "eevee-twilight-masquerade-188-167"
+ },
+ "sv06.5-022": {
+  "tc": 45672,
+  "slug": "sylveon-shrouded-fable-022-064"
+ },
+ "sv06.5-050": {
+  "tc": 45700,
+  "slug": "eevee-shrouded-fable-050-064"
+ },
+ "sv07-113": {
+  "tc": 46098,
+  "slug": "eevee-stellar-crown-113-142"
+ },
+ "sv08-016": {
+  "tc": 46354,
+  "slug": "vulpix-surging-sparks-016-191"
+ },
+ "sv08-017": {
+  "tc": 46355,
+  "slug": "ninetales-surging-sparks-017-191"
+ },
+ "sv08-086": {
+  "tc": 46424,
+  "slug": "sylveon-ex-surging-sparks-086-191"
+ },
+ "sv08-086~prize-pack": {
+  "tc": 46424,
+  "slug": "sylveon-ex-surging-sparks-086-191"
+ },
+ "sv08-143": {
+  "tc": 46481,
+  "slug": "eevee-surging-sparks-143-191"
+ },
+ "sv08-143~gym": {
+  "tc": 46481,
+  "slug": "eevee-surging-sparks-143-191"
+ },
+ "sv08-143~prize-pack-cosmos-holo": {
+  "tc": 46481,
+  "slug": "eevee-surging-sparks-143-191"
+ },
+ "2024sv-9": {
+  "tc": 47232,
+  "slug": "umbreon-mcdonalds-dragon-discovery-2024-009-015"
+ },
+ "2024sv-13": {
+  "tc": 47236,
+  "slug": "eevee-mcdonalds-dragon-discovery-2024-013-015"
+ },
+ "sv08.5-005": {
+  "tc": 47039,
+  "slug": "leafeon-prismatic-evolutions-005-131"
+ },
+ "sv08.5-005~poke-ball-pattern": {
+  "tc": 47039,
+  "slug": "leafeon-prismatic-evolutions-005-131"
+ },
+ "sv08.5-005~master-ball-pattern": {
+  "tc": 47039,
+  "slug": "leafeon-prismatic-evolutions-005-131"
+ },
+ "sv08.5-005~cosmos-holo": {
+  "tc": 47039,
+  "slug": "leafeon-prismatic-evolutions-005-131"
+ },
+ "sv08.5-006": {
+  "tc": 47040,
+  "slug": "leafeon-ex-prismatic-evolutions-006-131"
+ },
+ "sv08.5-006~prize-pack": {
+  "tc": 47040,
+  "slug": "leafeon-ex-prismatic-evolutions-006-131"
+ },
+ "sv08.5-006~prismatic-evolutions-stamp": {
+  "tc": 47040,
+  "slug": "leafeon-ex-prismatic-evolutions-006-131"
+ },
+ "sv08.5-013": {
+  "tc": 47047,
+  "slug": "flareon-prismatic-evolutions-013-131"
+ },
+ "sv08.5-013~poke-ball-pattern": {
+  "tc": 47047,
+  "slug": "flareon-prismatic-evolutions-013-131"
+ },
+ "sv08.5-013~master-ball-pattern": {
+  "tc": 47047,
+  "slug": "flareon-prismatic-evolutions-013-131"
+ },
+ "sv08.5-014": {
+  "tc": 47048,
+  "slug": "flareon-ex-prismatic-evolutions-014-131"
+ },
+ "sv08.5-014~prize-pack": {
+  "tc": 47048,
+  "slug": "flareon-ex-prismatic-evolutions-014-131"
+ },
+ "sv08.5-014~prismatic-evolutions-stamp": {
+  "tc": 47048,
+  "slug": "flareon-ex-prismatic-evolutions-014-131"
+ },
+ "sv08.5-022": {
+  "tc": 47056,
+  "slug": "vaporeon-prismatic-evolutions-022-131"
+ },
+ "sv08.5-022~poke-ball-pattern": {
+  "tc": 47056,
+  "slug": "vaporeon-prismatic-evolutions-022-131"
+ },
+ "sv08.5-022~master-ball-pattern": {
+  "tc": 47056,
+  "slug": "vaporeon-prismatic-evolutions-022-131"
+ },
+ "sv08.5-023": {
+  "tc": 47057,
+  "slug": "vaporeon-ex-prismatic-evolutions-023-131"
+ },
+ "sv08.5-023~prize-pack": {
+  "tc": 47057,
+  "slug": "vaporeon-ex-prismatic-evolutions-023-131"
+ },
+ "sv08.5-023~prismatic-evolutions-stamp": {
+  "tc": 47057,
+  "slug": "vaporeon-ex-prismatic-evolutions-023-131"
+ },
+ "sv08.5-025": {
+  "tc": 47059,
+  "slug": "glaceon-prismatic-evolutions-025-131"
+ },
+ "sv08.5-025~poke-ball-pattern": {
+  "tc": 47059,
+  "slug": "glaceon-prismatic-evolutions-025-131"
+ },
+ "sv08.5-025~master-ball-pattern": {
+  "tc": 47059,
+  "slug": "glaceon-prismatic-evolutions-025-131"
+ },
+ "sv08.5-025~cosmos-holo": {
+  "tc": 47059,
+  "slug": "glaceon-prismatic-evolutions-025-131"
+ },
+ "sv08.5-026": {
+  "tc": 47060,
+  "slug": "glaceon-ex-prismatic-evolutions-026-131"
+ },
+ "sv08.5-026~prize-pack": {
+  "tc": 47060,
+  "slug": "glaceon-ex-prismatic-evolutions-026-131"
+ },
+ "sv08.5-026~prismatic-evolutions-stamp": {
+  "tc": 47060,
+  "slug": "glaceon-ex-prismatic-evolutions-026-131"
+ },
+ "sv08.5-026~holiday-calendar": {
+  "tc": 47060,
+  "slug": "glaceon-ex-prismatic-evolutions-026-131"
+ },
+ "sv08.5-029": {
+  "tc": 47063,
+  "slug": "jolteon-prismatic-evolutions-029-131"
+ },
+ "sv08.5-029~poke-ball-pattern": {
+  "tc": 47063,
+  "slug": "jolteon-prismatic-evolutions-029-131"
+ },
+ "sv08.5-029~master-ball-pattern": {
+  "tc": 47063,
+  "slug": "jolteon-prismatic-evolutions-029-131"
+ },
+ "sv08.5-030": {
+  "tc": 47064,
+  "slug": "jolteon-ex-prismatic-evolutions-030-131"
+ },
+ "sv08.5-030~prize-pack": {
+  "tc": 47064,
+  "slug": "jolteon-ex-prismatic-evolutions-030-131"
+ },
+ "sv08.5-030~prismatic-evolutions-stamp": {
+  "tc": 47064,
+  "slug": "jolteon-ex-prismatic-evolutions-030-131"
+ },
+ "sv08.5-033": {
+  "tc": 47067,
+  "slug": "espeon-prismatic-evolutions-033-131"
+ },
+ "sv08.5-033~poke-ball-pattern": {
+  "tc": 47067,
+  "slug": "espeon-prismatic-evolutions-033-131"
+ },
+ "sv08.5-033~master-ball-pattern": {
+  "tc": 47067,
+  "slug": "espeon-prismatic-evolutions-033-131"
+ },
+ "sv08.5-033~cosmos-holo": {
+  "tc": 47067,
+  "slug": "espeon-prismatic-evolutions-033-131"
+ },
+ "sv08.5-034": {
+  "tc": 47068,
+  "slug": "espeon-ex-prismatic-evolutions-034-131"
+ },
+ "sv08.5-034~prize-pack": {
+  "tc": 47068,
+  "slug": "espeon-ex-prismatic-evolutions-034-131"
+ },
+ "sv08.5-034~prismatic-evolutions-stamp": {
+  "tc": 47068,
+  "slug": "espeon-ex-prismatic-evolutions-034-131"
+ },
+ "sv08.5-040": {
+  "tc": 47074,
+  "slug": "sylveon-prismatic-evolutions-040-131"
+ },
+ "sv08.5-040~poke-ball-pattern": {
+  "tc": 47074,
+  "slug": "sylveon-prismatic-evolutions-040-131"
+ },
+ "sv08.5-040~master-ball-pattern": {
+  "tc": 47074,
+  "slug": "sylveon-prismatic-evolutions-040-131"
+ },
+ "sv08.5-040~pokemon-day": {
+  "tc": 47074,
+  "slug": "sylveon-prismatic-evolutions-040-131"
+ },
+ "sv08.5-040~cosmos-holo": {
+  "tc": 47074,
+  "slug": "sylveon-prismatic-evolutions-040-131"
+ },
+ "sv08.5-041": {
+  "tc": 47075,
+  "slug": "sylveon-ex-prismatic-evolutions-041-131"
+ },
+ "sv08.5-041~prismatic-evolutions-stamp": {
+  "tc": 47075,
+  "slug": "sylveon-ex-prismatic-evolutions-041-131"
+ },
+ "sv08.5-059": {
+  "tc": 47093,
+  "slug": "umbreon-prismatic-evolutions-059-131"
+ },
+ "sv08.5-059~poke-ball-pattern": {
+  "tc": 47093,
+  "slug": "umbreon-prismatic-evolutions-059-131"
+ },
+ "sv08.5-059~master-ball-pattern": {
+  "tc": 47093,
+  "slug": "umbreon-prismatic-evolutions-059-131"
+ },
+ "sv08.5-060": {
+  "tc": 47094,
+  "slug": "umbreon-ex-prismatic-evolutions-060-131"
+ },
+ "sv08.5-060~prize-pack": {
+  "tc": 47094,
+  "slug": "umbreon-ex-prismatic-evolutions-060-131"
+ },
+ "sv08.5-060~prismatic-evolutions-stamp": {
+  "tc": 47094,
+  "slug": "umbreon-ex-prismatic-evolutions-060-131"
+ },
+ "sv08.5-074": {
+  "tc": 47108,
+  "slug": "eevee-prismatic-evolutions-074-131"
+ },
+ "sv08.5-074~poke-ball-pattern": {
+  "tc": 47108,
+  "slug": "eevee-prismatic-evolutions-074-131"
+ },
+ "sv08.5-074~master-ball-pattern": {
+  "tc": 47108,
+  "slug": "eevee-prismatic-evolutions-074-131"
+ },
+ "sv08.5-074~pokemon-day-2025-reverse-cosmos-holo": {
+  "tc": 47108,
+  "slug": "eevee-prismatic-evolutions-074-131"
+ },
+ "sv08.5-075": {
+  "tc": 47109,
+  "slug": "eevee-ex-prismatic-evolutions-075-131"
+ },
+ "sv08.5-075~prize-pack": {
+  "tc": 47109,
+  "slug": "eevee-ex-prismatic-evolutions-075-131"
+ },
+ "sv08.5-075~prismatic-evolutions-stamp": {
+  "tc": 47109,
+  "slug": "eevee-ex-prismatic-evolutions-075-131"
+ },
+ "sv08.5-144": {
+  "tc": 47178,
+  "slug": "leafeon-ex-prismatic-evolutions-144-131"
+ },
+ "sv08.5-146": {
+  "tc": 47180,
+  "slug": "flareon-ex-prismatic-evolutions-146-131"
+ },
+ "sv08.5-149": {
+  "tc": 47183,
+  "slug": "vaporeon-ex-prismatic-evolutions-149-131"
+ },
+ "sv08.5-150": {
+  "tc": 47184,
+  "slug": "glaceon-ex-prismatic-evolutions-150-131"
+ },
+ "sv08.5-153": {
+  "tc": 47187,
+  "slug": "jolteon-ex-prismatic-evolutions-153-131"
+ },
+ "sv08.5-155": {
+  "tc": 47189,
+  "slug": "espeon-ex-prismatic-evolutions-155-131"
+ },
+ "sv08.5-156": {
+  "tc": 47190,
+  "slug": "sylveon-ex-prismatic-evolutions-156-131"
+ },
+ "sv08.5-161": {
+  "tc": 47195,
+  "slug": "umbreon-ex-prismatic-evolutions-161-131"
+ },
+ "sv08.5-167": {
+  "tc": 47201,
+  "slug": "eevee-ex-prismatic-evolutions-167-131"
+ },
+ "me01-019": {
+  "tc": 51083,
+  "slug": "vulpix-mega-evolution-019-132"
+ },
+ "me01-020": {
+  "tc": 51084,
+  "slug": "ninetales-mega-evolution-020-132"
+ },
+ "me01-138": {
+  "tc": 51202,
+  "slug": "vulpix-mega-evolution-138-132"
+ },
+ "me04-008": {
+  "tc": 65971,
+  "slug": "vulpix-chaos-rising-008-086"
+ },
+ "me04-009": {
+  "tc": 65972,
+  "slug": "ninetales-chaos-rising-009-086"
+ },
+ "30th-009": {
+  "tc": 89626,
+  "slug": "vulpix-30th-celebration-009-128"
+ },
+ "30th-010": {
+  "tc": 89510,
+  "slug": "ninetales-30th-celebration-010-128"
+ },
+ "30th-069": {
+  "tc": 89603,
+  "slug": "espeon-30th-celebration-069-128"
+ },
+ "30th-070": {
+  "tc": 89605,
+  "slug": "espeon-ex-30th-celebration-070-128"
+ },
+ "30th-071": {
+  "tc": 89606,
+  "slug": "sylveon-ex-30th-celebration-071-128"
+ },
+ "30th-091": {
+  "tc": 89638,
+  "slug": "umbreon-30th-celebration-091-128"
+ },
+ "30th-092": {
+  "tc": 89629,
+  "slug": "umbreon-ex-30th-celebration-092-128"
+ },
+ "30th-116": {
+  "tc": 89639,
+  "slug": "eevee-30th-celebration-116-128"
+ },
+ "30th-116~exclusiva-de-blister-30th-celebration": {
+  "tc": 89639,
+  "slug": "eevee-30th-celebration-116-128"
+ },
+ "30th-117": {
+  "tc": 89528,
+  "slug": "eevee-30th-celebration-117-128"
+ },
+ "30th-118": {
+  "tc": 89529,
+  "slug": "eevee-30th-celebration-118-128"
+ },
+ "30th-153": {
+  "tc": 89653,
+  "slug": "sylveon-ex-30th-celebration-153-128"
+ },
+ "bw1-88": {
+  "tc": 5719,
+  "slug": "minccino-black-and-white-88-114"
+ },
+ "bw1-89": {
+  "tc": 5720,
+  "slug": "cinccino-black-and-white-89-114"
+ },
+ "bw2-84": {
+  "tc": 5844,
+  "slug": "minccino-emerging-powers-84-98"
+ },
+ "bw2-85": {
+  "tc": 5845,
+  "slug": "cinccino-emerging-powers-85-98"
+ },
+ "tk-bw-z-4": {
+  "tc": 7323,
+  "slug": "minccino-bw-trainer-kit-zoroark-4-30"
+ },
+ "tk-bw-z-19": {
+  "tc": 7338,
+  "slug": "minccino-bw-trainer-kit-zoroark-19-30"
+ },
+ "bw4-84": {
+  "tc": 6075,
+  "slug": "minccino-next-destinies-84-99"
+ },
+ "bw4-85": {
+  "tc": 6076,
+  "slug": "cinccino-next-destinies-85-99"
+ },
+ "bw6-109": {
+  "tc": 6326,
+  "slug": "minccino-dragons-exalted-109-124"
+ },
+ "bw11-104": {
+  "tc": 7028,
+  "slug": "minccino-legendary-treasures-104-113"
+ },
+ "bw11-105": {
+  "tc": 7029,
+  "slug": "cinccino-legendary-treasures-105-113"
+ },
+ "bw11-RC18": {
+  "tc": 7057,
+  "slug": "minccino-legendary-treasures-rc18-rc25"
+ },
+ "bw11-RC19": {
+  "tc": 7058,
+  "slug": "cinccino-legendary-treasures-rc19-rc25"
+ },
+ "xy10-86": {
+  "tc": 9183,
+  "slug": "minccino-fates-collide-86-124"
+ },
+ "xy10-87": {
+  "tc": 9184,
+  "slug": "minccino-fates-collide-87-124"
+ },
+ "xy10-88": {
+  "tc": 9185,
+  "slug": "cinccino-fates-collide-88-124"
+ },
+ "xy10-89": {
+  "tc": 9186,
+  "slug": "cinccino-fates-collide-89-124"
+ },
+ "sm2-21a": {
+  "tc": 11981,
+  "slug": "alolan-vulpix-yellow-a-alternate-21a-145"
+ },
+ "sm4-85": {
+  "tc": 10095,
+  "slug": "minccino-crimson-invasion-85-111"
+ },
+ "sm4-86": {
+  "tc": 10096,
+  "slug": "cinccino-crimson-invasion-86-111"
+ },
+ "swshp-SWSH009": {
+  "tc": 15183,
+  "slug": "cinccino-sword-and-shield-promos-swsh009"
+ },
+ "swsh1-145": {
+  "tc": 15083,
+  "slug": "minccino-sword-and-shield-145-202"
+ },
+ "swsh1-146": {
+  "tc": 15084,
+  "slug": "minccino-sword-and-shield-146-202"
+ },
+ "swsh1-147": {
+  "tc": 15085,
+  "slug": "cinccino-sword-and-shield-147-202"
+ },
+ "swsh4.5sv-SV093": {
+  "tc": 33744,
+  "slug": "minccino-shining-fates-sv093-sv122"
+ },
+ "swsh4.5sv-SV094": {
+  "tc": 33745,
+  "slug": "cinccino-shining-fates-sv094-sv122"
+ },
+ "swsh9-124": {
+  "tc": 37181,
+  "slug": "minccino-brilliant-stars-124-172"
+ },
+ "swsh9-125": {
+  "tc": 37182,
+  "slug": "cinccino-brilliant-stars-125-172"
+ },
+ "sv05-136": {
+  "tc": 44626,
+  "slug": "minccino-temporal-forces-136-162"
+ },
+ "sv05-137": {
+  "tc": 44627,
+  "slug": "cinccino-temporal-forces-137-162"
+ },
+ "sv05-182": {
+  "tc": 44672,
+  "slug": "minccino-temporal-forces-182-162"
+ },
+ "sv05-183": {
+  "tc": 44673,
+  "slug": "cinccino-temporal-forces-183-162"
+ },
+ "sv09-125": {
+  "tc": 48037,
+  "slug": "minccino-journey-together-125-159"
+ },
+ "sv09-126": {
+  "tc": 48038,
+  "slug": "cinccino-journey-together-126-159"
+ },
+ "sv10.5b-075": {
+  "tc": 50020,
+  "slug": "minccino-black-bolt-075-086"
+ },
+ "sv10.5b-076": {
+  "tc": 50021,
+  "slug": "cinccino-black-bolt-076-086"
+ },
+ "sv10.5b-152": {
+  "tc": 50097,
+  "slug": "minccino-black-bolt-152-086"
+ },
+ "sv10.5b-153": {
+  "tc": 50098,
+  "slug": "cinccino-black-bolt-153-086"
+ },
+ "me04-072": {
+  "tc": 66036,
+  "slug": "minccino-chaos-rising-072-086"
+ },
+ "me04-073": {
+  "tc": 66037,
+  "slug": "cinccino-ex-chaos-rising-073-086"
+ },
+ "me04-105": {
+  "tc": 66068,
+  "slug": "cinccino-ex-chaos-rising-105-086"
+ },
+ "me04-119": {
+  "tc": 66082,
+  "slug": "cinccino-ex-chaos-rising-119-086"
+ }
+}

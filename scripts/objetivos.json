@@ -1,0 +1,13 @@
+{
+  "_comentario": "Los Pokémon que se coleccionan. Se reúnen por número de Pokédex, no por nombre: así entran las cartas compartidas (Eevee & Snorlax GX) y las que solo llevan al Pokémon en la ilustración, y se quedan fuera los Entrenadores que llevan el nombre. La Vulpix de Alola tiene el mismo número que la de Kanto: entra sola. Para añadir un Pokémon basta con una línea más.",
+  "_criterio": "Arturo (03-10-2026): Eevee y Vulpix SOLO ellos, sin ninguna evolución. Minccino y Cinccino, la línea entera.",
+
+  "principales": [
+    { "dex": 133, "id": "eevee",    "nombre": "Eevee",    "tipo": "normal" },
+    { "dex": 37,  "id": "vulpix",   "nombre": "Vulpix",   "tipo": "fuego" },
+    { "dex": 572, "id": "minccino", "nombre": "Minccino", "tipo": "normal", "linea": "minccino", "orden": 1 },
+    { "dex": 573, "id": "cinccino", "nombre": "Cinccino", "tipo": "normal", "linea": "minccino", "orden": 2 }
+  ],
+
+  "familias": []
+}

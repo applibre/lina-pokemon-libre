@@ -1,0 +1,134 @@
+# Cada lunes busca cartas nuevas de tus 17 Pokémon (inglés y japonés). Si hay y todo
+# cuadra, las deja en data/novedades.json y tu app te pregunta al abrirla:
+# «Actualización disponible: Delta Reign · 12 cartas nuevas  [Añadir] [Descartar]».
+# Tu catálogo no cambia hasta que pulsas Añadir. Si algo no cuadra (una carta que
+# cambia o desaparece, una foto que falta, una prueba que falla) no se publica nada.
+name: Buscar novedades
+
+on:
+  schedule:
+    - cron: '17 6 * * 1'     # lunes 06:17 UTC
+  workflow_dispatch:
+    inputs:
+      simular:
+        description: 'Prueba: quita la 30th Classic Collection del catálogo para comprobar que el proceso la vuelve a proponer'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: novedades
+  cancel-in-progress: false
+
+jobs:
+  buscar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - run: pip install pillow
+
+      # las fichas ya bajadas no se piden otra vez: es más rápido y trata bien a TCGdex
+      - uses: actions/cache@v4
+        with:
+          path: scripts/.cache
+          key: novedades-${{ github.run_id }}
+          restore-keys: novedades-
+
+      - name: Simulacro (solo si se pide a mano)
+        if: inputs.simular
+        run: |
+          python - <<'PY'
+          import json, os
+          c = json.load(open('data/catalogo.json', encoding='utf-8'))
+          quitar = {'30th-c'}
+          gone = [x['id'] for x in c['cartas'] if x['s'] in quitar]
+          c['cartas'] = [x for x in c['cartas'] if x['s'] not in quitar]
+          for s in quitar: c['sets'].pop(s, None)
+          json.dump(c, open('data/catalogo.json', 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
+          for i in gone:
+              for f in (f'data/cartas/{i}.webp', f'data/cartas/g/{i}.webp'):
+                  if os.path.exists(f): os.remove(f)
+          print('quitadas para el simulacro:', gone)
+          PY
+
+      - name: Buscar novedades
+        id: buscar
+        run: |
+          set +e
+          bash scripts/buscar-novedades.sh
+          echo "codigo=$?" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Nada nuevo
+        if: steps.buscar.outputs.codigo == '3'
+        run: echo "### Sin novedades esta semana" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Algo no cuadra
+        if: steps.buscar.outputs.codigo != '0' && steps.buscar.outputs.codigo != '3'
+        run: |
+          echo "### La búsqueda falló y no se propone nada. Tu app sigue igual." >> "$GITHUB_STEP_SUMMARY"
+          exit 1
+
+      - name: Dejar las novedades esperando tu aprobación
+        id: preparar
+        if: steps.buscar.outputs.codigo == '0'
+        run: |
+          set +e
+          node scripts/preparar-novedades.mjs scripts/.cache/catalogo-publicado.json
+          echo "codigo=$?" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Ya estaban esperando
+        if: steps.preparar.outputs.codigo == '3'
+        run: |
+          echo "### Nada nuevo desde la última vez: las novedades pendientes siguen esperando en la app" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Probar la app con las novedades
+        if: steps.preparar.outputs.codigo == '0'
+        run: |
+          cd app
+          npm ci
+          node pruebas/servir-prod.mjs 8410 &
+          sleep 3
+          node pruebas/datos.mjs http://localhost:8410/lina-pokemon-libre/
+          node pruebas/uso.mjs http://localhost:8410/lina-pokemon-libre/
+          node pruebas/novedades.mjs http://localhost:8410/lina-pokemon-libre/
+
+      - name: Publicar
+        if: steps.preparar.outputs.codigo == '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SIMULACRO: ${{ inputs.simular && 'si' || '' }}
+        run: |
+          cat scripts/.cache/resumen.md >> "$GITHUB_STEP_SUMMARY"
+          NUEVAS=$(node -p "require('./data/novedades.json').cartas.length")
+          git config user.name "Novedades de Lina Pokémon Libre"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git commit -m "Novedades esperando aprobación en la app: $NUEVAS cartas"
+          if [ -n "$SIMULACRO" ]; then
+            # el simulacro no toca la app publicada: sube a una rama aparte para probar el envío
+            git push origin "HEAD:refs/heads/simulacro/${{ github.run_id }}"
+            echo "### Simulacro: se habría publicado (rama simulacro/${{ github.run_id }})" >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          # si alguien publicó mientras tanto, se pone encima; si choca, no se publica nada
+          git pull --rebase origin master
+          git push origin HEAD:master
+          gh api -X POST "repos/${{ github.repository }}/pages/builds" >/dev/null || true
+          echo "### Publicado: tu app te preguntará por $NUEVAS cartas nuevas al abrirla" >> "$GITHUB_STEP_SUMMARY"

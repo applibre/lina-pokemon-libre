@@ -1,0 +1,608 @@
+{
+ "mfb-1": {
+  "tp": 523985,
+  "nombre": "Bulbasaur",
+  "set": "My First Battle",
+  "num": ""
+ },
+ "mfb-2": {
+  "tp": 524007,
+  "nombre": "Ivysaur",
+  "set": "My First Battle",
+  "num": ""
+ },
+ "mfb-9": {
+  "tp": 524082,
+  "nombre": "Charmander",
+  "set": "My First Battle",
+  "num": ""
+ },
+ "mfb-10": {
+  "tp": 524085,
+  "nombre": "Charmeleon",
+  "set": "My First Battle",
+  "num": ""
+ },
+ "mfb-17": {
+  "tp": 524060,
+  "nombre": "Pikachu",
+  "set": "My First Battle",
+  "num": ""
+ },
+ "mfb-18": {
+  "tp": 524062,
+  "nombre": "Raichu",
+  "set": "My First Battle",
+  "num": ""
+ },
+ "mfb-25": {
+  "tp": 524047,
+  "nombre": "Squirtle",
+  "set": "My First Battle",
+  "num": ""
+ },
+ "mfb-26": {
+  "tp": 524048,
+  "nombre": "Wartortle",
+  "set": "My First Battle",
+  "num": ""
+ },
+ "cel25cc-CC001": {
+  "tp": 250319,
+  "nombre": "Blastoise",
+  "set": "Celebrations: Classic Collection",
+  "num": ""
+ },
+ "cel25cc-CC002": {
+  "tp": 250320,
+  "nombre": "Charizard",
+  "set": "Celebrations: Classic Collection",
+  "num": ""
+ },
+ "cel25cc-CC003": {
+  "tp": 250321,
+  "nombre": "Venusaur",
+  "set": "Celebrations: Classic Collection",
+  "num": ""
+ },
+ "cel25cc-CC008": {
+  "tp": 250325,
+  "nombre": "______'s Pikachu",
+  "set": "Celebrations: Classic Collection",
+  "num": ""
+ },
+ "xyp-XY202": {
+  "tp": 127434,
+  "nombre": "Pikachu - XY202 (Pokemon League)",
+  "set": "League & Championship Cards",
+  "num": ""
+ },
+ "dpp-DP45": {
+  "tp": 84202,
+  "nombre": "Charizard G LV.X - DP45",
+  "set": "Diamond and Pearl Promos",
+  "num": ""
+ },
+ "fut2020-1": {
+  "tp": 223761,
+  "nombre": "Pikachu on the Ball - 001/005 (Pokemon Futsal)",
+  "set": "Miscellaneous Cards & Products",
+  "num": ""
+ },
+ "basep-11": {
+  "tp": 85074,
+  "nombre": "Eevee",
+  "set": "WoTC Promo",
+  "num": "11/53"
+ },
+ "ecard3-H12": {
+  "tp": 86337,
+  "nombre": "Jolteon (H12)",
+  "set": "Skyridge",
+  "num": "H12/H32"
+ },
+ "ecard3-H30": {
+  "tp": 90140,
+  "nombre": "Umbreon (H30)",
+  "set": "Skyridge",
+  "num": "H30/H32"
+ },
+ "ex11-4": {
+  "tp": 85327,
+  "nombre": "Espeon (Delta Species)",
+  "set": "EX Delta Species",
+  "num": "4/113"
+ },
+ "ex11-5": {
+  "tp": 85501,
+  "nombre": "Flareon (Delta Species)",
+  "set": "EX Delta Species",
+  "num": "5/113"
+ },
+ "ex11-7": {
+  "tp": 86349,
+  "nombre": "Jolteon (Delta Species)",
+  "set": "EX Delta Species",
+  "num": "7/113"
+ },
+ "ex11-17": {
+  "tp": 90151,
+  "nombre": "Umbreon (Delta Species)",
+  "set": "EX Delta Species",
+  "num": "17/113"
+ },
+ "ex11-18": {
+  "tp": 90290,
+  "nombre": "Vaporeon (Delta Species)",
+  "set": "EX Delta Species",
+  "num": "18/113"
+ },
+ "ex11-68": {
+  "tp": 85097,
+  "nombre": "Eevee - 068/113",
+  "set": "EX Delta Species",
+  "num": "68/113"
+ },
+ "ex15-8": {
+  "tp": 87781,
+  "nombre": "Ninetales (Delta Species)",
+  "set": "EX Dragon Frontiers",
+  "num": "8/101"
+ },
+ "ex15-70": {
+  "tp": 90449,
+  "nombre": "Vulpix (Delta Species)",
+  "set": "EX Dragon Frontiers",
+  "num": "70/101"
+ },
+ "pop5-16": {
+  "tp": 85329,
+  "nombre": "Espeon Star",
+  "set": "POP Series 5",
+  "num": "016/017"
+ },
+ "pop5-17": {
+  "tp": 90153,
+  "nombre": "Umbreon Star",
+  "set": "POP Series 5",
+  "num": "017/017"
+ },
+ "ru1-3": {
+  "tp": 87775,
+  "nombre": "Ninetales",
+  "set": "Rumble",
+  "num": "3"
+ },
+ "bwp-BW66": {
+  "tp": 87779,
+  "nombre": "Ninetales - BW66",
+  "set": "Black and White Promos",
+  "num": "BW66"
+ },
+ "bwp-BW87": {
+  "tp": 91600,
+  "nombre": "Leafeon - BW87",
+  "set": "Black and White Promos",
+  "num": "BW87"
+ },
+ "bwp-BW88": {
+  "tp": 91599,
+  "nombre": "Flareon - BW88",
+  "set": "Black and White Promos",
+  "num": "BW88"
+ },
+ "bwp-BW89": {
+  "tp": 90289,
+  "nombre": "Vaporeon - BW89",
+  "set": "Black and White Promos",
+  "num": "BW89"
+ },
+ "bwp-BW90": {
+  "tp": 85748,
+  "nombre": "Glaceon - BW90",
+  "set": "Black and White Promos",
+  "num": "BW90"
+ },
+ "bwp-BW91": {
+  "tp": 86348,
+  "nombre": "Jolteon - BW91",
+  "set": "Black and White Promos",
+  "num": "BW91"
+ },
+ "bwp-BW92": {
+  "tp": 85326,
+  "nombre": "Espeon - BW92",
+  "set": "Black and White Promos",
+  "num": "BW92"
+ },
+ "bwp-BW93": {
+  "tp": 90150,
+  "nombre": "Umbreon - BW93",
+  "set": "Black and White Promos",
+  "num": "BW93"
+ },
+ "bwp-BW94": {
+  "tp": 85095,
+  "nombre": "Eevee - BW94",
+  "set": "Black and White Promos",
+  "num": "BW94"
+ },
+ "bwp-BW97": {
+  "tp": 85096,
+  "nombre": "Eevee - BW97",
+  "set": "Black and White Promos",
+  "num": "BW97"
+ },
+ "xyp-XY04": {
+  "tp": 89729,
+  "nombre": "Sylveon - XY04",
+  "set": "XY Promos",
+  "num": "XY04"
+ },
+ "xyp-XY96": {
+  "tp": 114005,
+  "nombre": "Umbreon",
+  "set": "XY Promos",
+  "num": "XY96"
+ },
+ "bw11-RC14": {
+  "tp": 85094,
+  "nombre": "Eevee",
+  "set": "Legendary Treasures: Radiant Collection",
+  "num": "RC14/RC25"
+ },
+ "xya-28a": {
+  "tp": 131697,
+  "nombre": "Jolteon EX - 28a/83",
+  "set": "Alternate Art Promos",
+  "num": "028a/083"
+ },
+ "g1-RC6": {
+  "tp": 113747,
+  "nombre": "Flareon EX",
+  "set": "Generations: Radiant Collection",
+  "num": "RC6/RC32"
+ },
+ "g1-RC21": {
+  "tp": 113763,
+  "nombre": "Sylveon EX",
+  "set": "Generations: Radiant Collection",
+  "num": "RC21/RC32"
+ },
+ "g1-RC28": {
+  "tp": 113748,
+  "nombre": "Flareon EX (Full Art)",
+  "set": "Generations: Radiant Collection",
+  "num": "RC28/RC32"
+ },
+ "g1-RC32": {
+  "tp": 113764,
+  "nombre": "Sylveon EX (Full Art)",
+  "set": "Generations: Radiant Collection",
+  "num": "RC32/RC32"
+ },
+ "sma-SV8": {
+  "tp": 197762,
+  "nombre": "Alolan Vulpix",
+  "set": "Hidden Fates: Shiny Vault",
+  "num": "SV8/SV94"
+ },
+ "sma-SV41": {
+  "tp": 197811,
+  "nombre": "Eevee",
+  "set": "Hidden Fates: Shiny Vault",
+  "num": "SV41/SV94"
+ },
+ "sma-SV46": {
+  "tp": 197770,
+  "nombre": "Leafeon GX",
+  "set": "Hidden Fates: Shiny Vault",
+  "num": "SV46/SV94"
+ },
+ "sma-SV53": {
+  "tp": 197789,
+  "nombre": "Alolan Ninetales GX",
+  "set": "Hidden Fates: Shiny Vault",
+  "num": "SV53/SV94"
+ },
+ "sma-SV55": {
+  "tp": 197795,
+  "nombre": "Glaceon GX",
+  "set": "Hidden Fates: Shiny Vault",
+  "num": "SV55/SV94"
+ },
+ "sma-SV60": {
+  "tp": 197808,
+  "nombre": "Espeon GX",
+  "set": "Hidden Fates: Shiny Vault",
+  "num": "SV60/SV94"
+ },
+ "sma-SV69": {
+  "tp": 197823,
+  "nombre": "Umbreon GX",
+  "set": "Hidden Fates: Shiny Vault",
+  "num": "SV69/SV94"
+ },
+ "sma-SV76": {
+  "tp": 197830,
+  "nombre": "Sylveon GX",
+  "set": "Hidden Fates: Shiny Vault",
+  "num": "SV76/SV94"
+ },
+ "swsh9tg-TG01": {
+  "tp": 264210,
+  "nombre": "Flareon",
+  "set": "SWSH09: Brilliant Stars Trainer Gallery",
+  "num": "TG01/TG30"
+ },
+ "swsh9tg-TG02": {
+  "tp": 264211,
+  "nombre": "Vaporeon",
+  "set": "SWSH09: Brilliant Stars Trainer Gallery",
+  "num": "TG02/TG30"
+ },
+ "swsh9tg-TG04": {
+  "tp": 264213,
+  "nombre": "Jolteon",
+  "set": "SWSH09: Brilliant Stars Trainer Gallery",
+  "num": "TG04/TG30"
+ },
+ "swsh9tg-TG11": {
+  "tp": 264218,
+  "nombre": "Eevee",
+  "set": "SWSH09: Brilliant Stars Trainer Gallery",
+  "num": "TG11/TG30"
+ },
+ "swsh9tg-TG14": {
+  "tp": 264209,
+  "nombre": "Sylveon V",
+  "set": "SWSH09: Brilliant Stars Trainer Gallery",
+  "num": "TG14/TG30"
+ },
+ "swsh9tg-TG15": {
+  "tp": 264208,
+  "nombre": "Sylveon VMAX",
+  "set": "SWSH09: Brilliant Stars Trainer Gallery",
+  "num": "TG15/TG30"
+ },
+ "swsh9tg-TG22": {
+  "tp": 264207,
+  "nombre": "Umbreon V",
+  "set": "SWSH09: Brilliant Stars Trainer Gallery",
+  "num": "TG22/TG30"
+ },
+ "swsh9tg-TG23": {
+  "tp": 264206,
+  "nombre": "Umbreon VMAX",
+  "set": "SWSH09: Brilliant Stars Trainer Gallery",
+  "num": "TG23/TG30"
+ },
+ "swsh12.5gg-GG35": {
+  "tp": 477060,
+  "nombre": "Leafeon VSTAR",
+  "set": "SWSH: Crown Zenith: Galarian Gallery",
+  "num": "GG35/GG70"
+ },
+ "swsh12.5gg-GG40": {
+  "tp": 477061,
+  "nombre": "Glaceon VSTAR",
+  "set": "SWSH: Crown Zenith: Galarian Gallery",
+  "num": "GG40/GG70"
+ },
+ "svp-043": {
+  "tp": 512492,
+  "nombre": "Eevee - 043",
+  "set": "SV: Scarlet & Violet Promo Cards",
+  "num": "043"
+ },
+ "svp-167": {
+  "tp": 611826,
+  "nombre": "Flareon - 167 (Cosmos Holo)",
+  "set": "SV: Scarlet & Violet Promo Cards",
+  "num": "167"
+ },
+ "svp-168": {
+  "tp": 611827,
+  "nombre": "Vaporeon - 168 (Cosmos Holo)",
+  "set": "SV: Scarlet & Violet Promo Cards",
+  "num": "168"
+ },
+ "svp-169": {
+  "tp": 653353,
+  "nombre": "Jolteon - 169 (Cosmos Holo)",
+  "set": "SV: Scarlet & Violet Promo Cards",
+  "num": "169"
+ },
+ "svp-170": {
+  "tp": 611829,
+  "nombre": "Leafeon - 170 (Cosmos Holo)",
+  "set": "SV: Scarlet & Violet Promo Cards",
+  "num": "170"
+ },
+ "svp-171": {
+  "tp": 611830,
+  "nombre": "Glaceon - 171 (Cosmos Holo)",
+  "set": "SV: Scarlet & Violet Promo Cards",
+  "num": "171"
+ },
+ "svp-172": {
+  "tp": 611831,
+  "nombre": "Sylveon - 172 (Cosmos Holo)",
+  "set": "SV: Scarlet & Violet Promo Cards",
+  "num": "172"
+ },
+ "svp-173": {
+  "tp": 610758,
+  "nombre": "Eevee - 173",
+  "set": "SV: Scarlet & Violet Promo Cards",
+  "num": "173"
+ },
+ "svp-174": {
+  "tp": 632083,
+  "nombre": "Eevee ex - 174",
+  "set": "SV: Scarlet & Violet Promo Cards",
+  "num": "174"
+ },
+ "svp-175": {
+  "tp": 655095,
+  "nombre": "Espeon ex - 175",
+  "set": "SV: Scarlet & Violet Promo Cards",
+  "num": "175"
+ },
+ "svp-176": {
+  "tp": 655094,
+  "nombre": "Umbreon ex - 176",
+  "set": "SV: Scarlet & Violet Promo Cards",
+  "num": "176"
+ },
+ "svp-200": {
+  "tp": 637077,
+  "nombre": "Eevee - 200 (Cosmos Holo)",
+  "set": "SV: Scarlet & Violet Promo Cards",
+  "num": "200"
+ },
+ "2024sv-9": {
+  "tp": 614378,
+  "nombre": "Umbreon",
+  "set": "McDonald's Promos 2024",
+  "num": "009/015"
+ },
+ "2024sv-13": {
+  "tp": 614382,
+  "nombre": "Eevee",
+  "set": "McDonald's Promos 2024",
+  "num": "013/015"
+ },
+ "30th-009": {
+  "tp": 716443,
+  "nombre": "Vulpix",
+  "set": "ME: 30th Celebration",
+  "num": "009/128"
+ },
+ "30th-010": {
+  "tp": 716444,
+  "nombre": "Ninetales",
+  "set": "ME: 30th Celebration",
+  "num": "010/128"
+ },
+ "30th-069": {
+  "tp": 696678,
+  "nombre": "Espeon",
+  "set": "ME: 30th Celebration",
+  "num": "069/128"
+ },
+ "30th-070": {
+  "tp": 696834,
+  "nombre": "Espeon ex",
+  "set": "ME: 30th Celebration",
+  "num": "070/128"
+ },
+ "30th-071": {
+  "tp": 696677,
+  "nombre": "Sylveon ex - 071/128",
+  "set": "ME: 30th Celebration",
+  "num": "071/128"
+ },
+ "30th-091": {
+  "tp": 696679,
+  "nombre": "Umbreon",
+  "set": "ME: 30th Celebration",
+  "num": "091/128"
+ },
+ "30th-092": {
+  "tp": 696835,
+  "nombre": "Umbreon ex",
+  "set": "ME: 30th Celebration",
+  "num": "092/128"
+ },
+ "30th-116": {
+  "tp": 714357,
+  "nombre": "Eevee - 116/128",
+  "set": "ME: 30th Celebration",
+  "num": "116/128"
+ },
+ "30th-117": {
+  "tp": 696832,
+  "nombre": "Eevee - 117/128",
+  "set": "ME: 30th Celebration",
+  "num": "117/128"
+ },
+ "30th-118": {
+  "tp": 696833,
+  "nombre": "Eevee - 118/128",
+  "set": "ME: 30th Celebration",
+  "num": "118/128"
+ },
+ "30th-153": {
+  "tp": 716231,
+  "nombre": "Sylveon ex - 153/128",
+  "set": "ME: 30th Celebration",
+  "num": "153/128"
+ },
+ "ja-20037": {
+  "tp": 157722,
+  "nombre": "Eevee (105)",
+  "set": "SM - Ultra Prism",
+  "num": "105/156"
+ },
+ "ja-21864": {
+  "tp": 117782,
+  "nombre": "Glaceon EX",
+  "set": "XY - Fates Collide",
+  "num": "20/124"
+ },
+ "bwp-BW13": {
+  "tp": 87475,
+  "nombre": "Minccino - BW13 (Cosmos Holo)",
+  "set": "Black and White Promos",
+  "num": "BW13"
+ },
+ "bw11-RC18": {
+  "tp": 87479,
+  "nombre": "Minccino",
+  "set": "Legendary Treasures: Radiant Collection",
+  "num": "RC18/RC25"
+ },
+ "bw11-RC19": {
+  "tp": 84321,
+  "nombre": "Cinccino",
+  "set": "Legendary Treasures: Radiant Collection",
+  "num": "RC19/RC25"
+ },
+ "swsh4.5sv-SV093": {
+  "tp": 232479,
+  "nombre": "Minccino",
+  "set": "Shining Fates: Shiny Vault",
+  "num": "SV093/SV122"
+ },
+ "swsh4.5sv-SV094": {
+  "tp": 232480,
+  "nombre": "Cinccino",
+  "set": "Shining Fates: Shiny Vault",
+  "num": "SV094/SV122"
+ },
+ "ja-38297": {
+  "tp": 276973,
+  "nombre": "Eevee",
+  "set": "Pokemon GO",
+  "num": "054/078"
+ },
+ "ja-41530": {
+  "tp": 516060,
+  "nombre": "Vulpix",
+  "set": "SV: Scarlet & Violet 151",
+  "num": "037/165"
+ },
+ "ja-41626": {
+  "tp": 516696,
+  "nombre": "Eevee",
+  "set": "SV: Scarlet & Violet 151",
+  "num": "133/165"
+ },
+ "sm2-21a": {
+  "tp": 174488,
+  "nombre": "Alolan Vulpix",
+  "set": "Alternate Art Promos",
+  "num": ""
+ }
+}

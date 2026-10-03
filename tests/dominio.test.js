@@ -1,0 +1,575 @@
+/* Pruebas del dominio de Lina Pokémon Libre.
+   Se ejecutan con:  node --test tests/dominio.test.js
+   Usan el catálogo de verdad, no uno inventado: si el catálogo se
+   rompe al regenerarlo, estas pruebas se enteran. */
+
+const test = require('node:test');
+const assert = require('node:assert');
+const D = require('./dominio-referencia.js');
+const catalogo = require('../data/catalogo.json');
+const manifiesto = require('../data/manifiesto.json');
+
+const { porId, porPokemon } = D.indexar(catalogo);
+const CARTAS = catalogo.cartas;
+const SETS = catalogo.sets;
+
+/* ================= el catálogo ================= */
+
+test('el catálogo tiene las cartas que debe', () => {
+  assert.ok(CARTAS.length > 400, `solo ${CARTAS.length} cartas`);
+  assert.strictEqual(CARTAS.length, manifiesto.cartas);
+  assert.strictEqual(Object.keys(SETS).length, manifiesto.sets);
+});
+
+test('no hay identificadores repetidos', () => {
+  assert.strictEqual(new Set(CARTAS.map((c) => c.id)).size, CARTAS.length);
+});
+
+test('toda carta tiene lo imprescindible para reconocerla en la mano', () => {
+  for (const c of CARTAS) {
+    assert.ok(c.id && c.n, `sin id o nombre: ${JSON.stringify(c)}`);
+    assert.ok(c.s && SETS[c.s], `${c.id} apunta a un set que no existe: ${c.s}`);
+    assert.ok(c.num !== undefined && c.num !== '', `${c.id} sin número`);
+    assert.ok(Array.isArray(c.p) && c.p.length, `${c.id} sin Pokémon asignado`);
+    assert.ok(Array.isArray(c.v) && c.v.length, `${c.id} sin variantes`);
+  }
+});
+
+test('toda carta tiene su imagen descargada, en los dos tamaños', () => {
+  /* Las imágenes viven en el repositorio: la app no depende de que
+     ningún servidor ajeno siga en pie. Se comprueba el fichero de
+     verdad, no un campo del catálogo. */
+  const fs = require('node:fs');
+  const path = require('node:path');
+  const dir = path.join(__dirname, '..', 'data', 'cartas');
+
+  const faltan = [];
+  for (const c of CARTAS) {
+    for (const sub of ['', 'g']) {
+      const f = path.join(dir, sub, `${c.id}.webp`);
+      if (!fs.existsSync(f)) faltan.push(path.relative(dir, f));
+      else if (fs.statSync(f).size < 800) faltan.push(`${path.relative(dir, f)} (vacío)`);
+    }
+  }
+  assert.strictEqual(faltan.length, 0, `sin fichero: ${faltan.slice(0, 6).join(', ')}`);
+});
+
+test('ninguna carta se queda sin su foto real', () => {
+  /* Arturo lo dejó claro: una carta que existe pero se ve vacía no
+     tiene sentido. bajar-imagenes.py apunta en sin-foto.json las que
+     acaban con ficha dibujada; tiene que estar vacío. */
+  const sinFoto = require('../scripts/sin-foto.json');
+  assert.deepStrictEqual(sinFoto, [], `sin foto: ${sinFoto.join(', ')}`);
+});
+
+test('el catálogo no enlaza a ningún servidor', () => {
+  const texto = JSON.stringify(catalogo);
+  assert.ok(!/https?:\/\//.test(texto), 'el catálogo contiene enlaces externos');
+});
+
+test('ninguna carta del juego digital se ha colado', () => {
+  const digitales = CARTAS.filter((c) => /^(A\d|P-A)/.test(c.s));
+  assert.strictEqual(digitales.length, 0, `${digitales.length} cartas de TCG Pocket`);
+});
+
+test('están Eevee, Vulpix, Minccino y Cinccino, y ninguna evolución de Eevee ni de Vulpix', () => {
+  const ids = manifiesto.pokemon.map((p) => p.id);
+  assert.deepStrictEqual(ids, ['eevee', 'vulpix', 'minccino', 'cinccino']);
+  for (const p of ids) assert.ok((porPokemon.get(p) || []).length > 0, `${p} sin cartas`);
+  assert.ok(manifiesto.pokemon.every((p) => p.principal), 'todos se ven: no hay familias opcionales');
+  // la Vulpix de Alola tiene el mismo número de Pokédex: es Vulpix
+  assert.ok(CARTAS.some((c) => c.n === 'Alolan Vulpix' && c.p.includes('vulpix')), 'falta la Vulpix de Alola');
+  // Arturo: de Eevee y Vulpix, solo ellos
+  const evoluciones = /\b(Vaporeon|Jolteon|Flareon|Espeon|Umbreon|Leafeon|Glaceon|Sylveon|Ninetales)\b/;
+  const coladas = CARTAS.filter((c) => evoluciones.test(c.n) && !/\b(Eevee|Vulpix)\b/.test(c.n));
+  assert.deepStrictEqual(coladas.map((c) => `${c.id} ${c.n}`), []);
+});
+
+test('las cartas emblemáticas están donde deben', () => {
+  const eevee = porId.get('base2-51');
+  assert.strictEqual(eevee.n, 'Eevee');
+  assert.strictEqual(SETS[eevee.s].n, 'Jungle');
+  assert.strictEqual(eevee.num, '51');
+
+  const vulpix = porId.get('base1-68');
+  assert.strictEqual(vulpix.n, 'Vulpix');
+  assert.strictEqual(SETS[vulpix.s].n, 'Base Set');
+
+  const cinccino = porId.get('bw1-89');
+  assert.strictEqual(cinccino.n, 'Cinccino');
+});
+
+/* Inglesas y japonesas son dos colecciones con su propia línea de tiempo. Las
+   inglesas empiezan en 1999; las japonesas, en 1996, cuando salió el primer
+   sobre en Japón. */
+const INGLESES = Object.entries(SETS).filter(([, s]) => !s.ja);
+const JAPONESES = Object.entries(SETS).filter(([, s]) => s.ja);
+
+test('el catálogo inglés abarca de 1999 a hoy', () => {
+  const fechas = INGLESES.map(([, s]) => s.rel).filter(Boolean).sort();
+  assert.ok(fechas[0].startsWith('1999'), `el más antiguo es ${fechas[0]}`);
+  assert.ok(fechas[fechas.length - 1] >= '2026', `el más nuevo es ${fechas.at(-1)}`);
+});
+
+test('las expansiones inglesas están ordenadas por fecha', () => {
+  const ordenados = [...INGLESES].sort((a, b) => a[1].o - b[1].o);
+  for (let i = 1; i < ordenados.length; i++) {
+    const antes = ordenados[i - 1][1].rel || '9999';
+    const ahora = ordenados[i][1].rel || '9999';
+    assert.ok(antes <= ahora, `${ordenados[i - 1][1].n} (${antes}) va antes que ${ordenados[i][1].n} (${ahora})`);
+  }
+});
+
+test('las expansiones japonesas con fecha están ordenadas por ella, y las que no la tienen van detrás', () => {
+  const ordenados = [...JAPONESES].sort((a, b) => a[1].o - b[1].o);
+  assert.ok(ordenados.filter(([, s]) => s.rel).length > 50, 'casi ninguna japonesa tiene fecha');
+  let vistoSinFecha = false;
+  let previa = '';
+  for (const [, s] of ordenados) {
+    if (!s.rel) { vistoSinFecha = true; continue; }
+    assert.ok(!vistoSinFecha, `${s.n} tiene fecha pero va detrás de una que no`);
+    assert.ok(previa <= s.rel, `${s.n} (${s.rel}) va después de una más nueva (${previa})`);
+    previa = s.rel;
+  }
+  const fechas = ordenados.map(([, s]) => s.rel).filter(Boolean);
+  assert.ok(fechas[0] >= '1996' && fechas[0] < '1997', `la primera japonesa es de ${fechas[0]}`);
+});
+
+test('las cartas de pareja se cuentan en el Pokémon que toca', () => {
+  /* Reunir por número de Pokédex y no por nombre es lo que hace que
+     estas entren. Su compañero (Snorlax, Gardevoir, Darkrai…) no es de
+     los nuestros, así que la carta pertenece a uno solo — y eso está
+     bien: sale en la lista de Eevee, que es donde se busca. */
+  const parejas = CARTAS.filter((c) => c.n.includes('&'));
+  assert.ok(parejas.length >= 3, `solo ${parejas.length} cartas de pareja`);
+
+  const snorlax = parejas.find((c) => c.n === 'Eevee & Snorlax GX');
+  assert.ok(snorlax, 'falta «Eevee & Snorlax GX»');
+  assert.deepStrictEqual(snorlax.p, ['eevee']);
+
+});
+
+test('todo Pokémon asignado a una carta existe en el manifiesto', () => {
+  const conocidos = new Set(manifiesto.pokemon.map((p) => p.id));
+  for (const c of CARTAS) {
+    for (const p of c.p) assert.ok(conocidos.has(p), `${c.id} apunta a «${p}», que no existe`);
+  }
+});
+
+test('ninguna carta se cuela sin ser de los nuestros', () => {
+  // Entrenadores como «Gengar Spirit Link» llevan el nombre pero no
+  // son el Pokémon: se filtran por categoría al generar el catálogo.
+  const sospechosas = CARTAS.filter((c) => /Spirit Link|Doll$/i.test(c.n));
+  assert.strictEqual(sospechosas.length, 0,
+    `se han colado Entrenadores: ${sospechosas.map((c) => c.n).join(', ')}`);
+});
+
+/* ================= tener y no tener ================= */
+
+test('una colección vacía no tiene nada', () => {
+  assert.strictEqual(D.tengo({}, 'base2-51'), false);
+  assert.strictEqual(D.cuantas({}, 'base2-51'), 0);
+});
+
+test('marcar una variante hace que tenga la carta', () => {
+  const col = D.conVariante({}, 'base2-51', 'holo', 1);
+  assert.strictEqual(D.tengo(col, 'base2-51'), true);
+  assert.strictEqual(D.tengoVariante(col, 'base2-51', 'holo'), true);
+  assert.strictEqual(D.tengoVariante(col, 'base2-51', 'firstEdition'), false);
+  assert.strictEqual(D.cuantas(col, 'base2-51'), 1);
+});
+
+test('varias variantes de la misma carta se suman', () => {
+  let col = D.conVariante({}, 'base2-51', 'holo', 1);
+  col = D.conVariante(col, 'base2-51', 'firstEdition', 2);
+  assert.strictEqual(D.cuantas(col, 'base2-51'), 3);
+  assert.strictEqual(D.cuantas(col, 'base2-51', 'firstEdition'), 2);
+});
+
+test('poner una variante a cero la quita, y sin variantes se quita la carta', () => {
+  let col = D.conVariante({}, 'base2-51', 'holo', 1);
+  col = D.conVariante(col, 'base2-51', 'holo', 0);
+  assert.strictEqual(D.tengo(col, 'base2-51'), false);
+  assert.ok(!('base2-51' in col), 'no debe quedar basura en la colección');
+});
+
+test('cambiar la colección no modifica la anterior', () => {
+  const antes = D.conVariante({}, 'base2-51', 'holo', 1);
+  const copia = JSON.parse(JSON.stringify(antes));
+  D.conVariante(antes, 'base2-51', 'reverse', 1);
+  D.alternar(antes, porId.get('base2-51'));
+  assert.deepStrictEqual(antes, copia, 'la colección original se ha tocado');
+});
+
+test('un toque marca y otro desmarca', () => {
+  const carta = porId.get('base2-51');
+  const col1 = D.alternar({}, carta);
+  assert.strictEqual(D.tengo(col1, carta.id), true);
+  const col2 = D.alternar(col1, carta);
+  assert.strictEqual(D.tengo(col2, carta.id), false);
+});
+
+test('el toque elige la variante más común de la carta', () => {
+  assert.strictEqual(D.variantePrincipal({ v: ['normal', 'holo'] }), 'normal');
+  assert.strictEqual(D.variantePrincipal({ v: ['holo', 'firstEdition'] }), 'holo');
+  assert.strictEqual(D.variantePrincipal({ v: ['wPromo'] }), 'wPromo');
+  assert.strictEqual(D.variantePrincipal({ v: [] }), 'normal');
+});
+
+/* ================= progreso ================= */
+
+test('el progreso cuenta cartas, no ejemplares', () => {
+  const cartas = porPokemon.get('eevee');
+  let col = {};
+  col = D.conVariante(col, cartas[0].id, 'holo', 3);   // tres copias
+  col = D.conVariante(col, cartas[1].id, 'normal', 1);
+  const p = D.progreso(cartas, col);
+  assert.strictEqual(p.tengo, 2, 'tres copias de una carta siguen siendo una carta');
+  assert.strictEqual(p.total, cartas.length);
+  assert.strictEqual(p.faltan, cartas.length - 2);
+});
+
+test('el progreso vacío y el completo salen bien', () => {
+  const cartas = porPokemon.get('cinccino');
+  assert.strictEqual(D.progreso(cartas, {}).porcentaje, 0);
+  const todas = cartas.reduce((col, c) => D.alternar(col, c), {});
+  const p = D.progreso(cartas, todas);
+  assert.strictEqual(p.porcentaje, 100);
+  assert.strictEqual(p.faltan, 0);
+});
+
+test('el progreso por Pokémon devuelve uno por cada uno', () => {
+  const lista = D.progresoPorPokemon(CARTAS, {}, manifiesto.pokemon);
+  assert.strictEqual(lista.length, manifiesto.pokemon.length);
+  for (const p of lista) {
+    assert.ok(p.total > 0, `${p.id} sin cartas`);
+    assert.strictEqual(p.tengo, 0);
+  }
+});
+
+/* ================= búsqueda y filtros ================= */
+
+test('la búsqueda ignora acentos, mayúsculas y signos', () => {
+  const a = D.filtrar(CARTAS, {}, { texto: 'POKEMON' }).length;
+  const b = D.filtrar(CARTAS, {}, { texto: 'pokémon' }).length;
+  assert.strictEqual(a, b);
+  assert.ok(D.filtrar(CARTAS, {}, { texto: 'cinccino' }).length > 0);
+});
+
+test('se puede buscar por número de carta y por set', () => {
+  const porNumero = D.filtrar(porPokemon.get('vulpix'), {}, { texto: '68' });
+  assert.ok(porNumero.some((c) => c.id === 'base1-68'));
+
+  const porNombreDeSet = D.filtrar(CARTAS, {}, { texto: 'jungle' });
+  assert.ok(porNombreDeSet.every((c) => SETS[c.s].n.toLowerCase().includes('jungle')
+    || c._b.includes('jungle')));
+  assert.ok(porNombreDeSet.some((c) => c.id === 'base2-51'));
+});
+
+test('varias palabras se exigen todas', () => {
+  const r = D.filtrar(CARTAS, {}, { texto: 'eevee jungle' });
+  assert.ok(r.length >= 1);
+  assert.ok(r.every((c) => c._b.includes('eevee') && c._b.includes('jungle')));
+});
+
+test('una búsqueda sin resultados devuelve lista vacía, no todo', () => {
+  assert.strictEqual(D.filtrar(CARTAS, {}, { texto: 'zzzznoexiste' }).length, 0);
+});
+
+test('el filtro de tengo / me faltan reparte todas las cartas', () => {
+  const cartas = porPokemon.get('vulpix');
+  const col = D.alternar({}, cartas[0]);
+  const tengo = D.filtrar(cartas, col, { estado: 'tengo' });
+  const faltan = D.filtrar(cartas, col, { estado: 'faltan' });
+  assert.strictEqual(tengo.length, 1);
+  assert.strictEqual(tengo.length + faltan.length, cartas.length);
+});
+
+test('los filtros se combinan', () => {
+  const r = D.filtrar(CARTAS, {}, { texto: 'vulpix', set: 'base1' });
+  assert.ok(r.length > 0);
+  assert.ok(r.every((c) => c.s === 'base1' && c._b.includes('vulpix')));
+});
+
+/* ================= orden ================= */
+
+test('el orden por defecto es cronológico y, dentro del set, por número', () => {
+  const r = D.ordenar(porPokemon.get('vulpix'));
+  for (let i = 1; i < r.length; i++) {
+    const a = r[i - 1], b = r[i];
+    assert.ok(a._o < b._o || (a._o === b._o
+      && String(a.num).localeCompare(String(b.num), 'en', { numeric: true }) <= 0),
+    `${a.id} no debería ir antes que ${b.id}`);
+  }
+  assert.strictEqual(r[0].s, 'base1', 'la primera Vulpix debe ser la del Base Set');
+});
+
+test('el número se ordena como número, no como texto', () => {
+  const set = D.filtrar(CARTAS, {}, { set: 'base1' });
+  const nums = D.ordenar(set).map((c) => parseInt(c.num, 10)).filter((n) => !isNaN(n));
+  for (let i = 1; i < nums.length; i++) {
+    assert.ok(nums[i - 1] <= nums[i], `${nums[i - 1]} va antes que ${nums[i]}`);
+  }
+});
+
+test('ordenar por precio pone las caras primero', () => {
+  const r = D.ordenar(CARTAS.filter((c) => c.eur), 'precio');
+  assert.ok(r[0].eur >= r[r.length - 1].eur);
+  assert.ok(r[0].eur > 100, `la más cara sale a ${r[0].eur} €`);
+});
+
+test('agrupar por set respeta el orden cronológico', () => {
+  const grupos = D.porSet(porPokemon.get('eevee'), SETS);
+  assert.ok(grupos.length > 5);
+  for (let i = 1; i < grupos.length; i++) {
+    assert.ok(grupos[i - 1].set.o < grupos[i].set.o);
+  }
+  assert.ok(grupos[0].cartas.length > 0);
+});
+
+/* ================= lista de compra ================= */
+
+test('la lista de faltantes trae solo las que faltan', () => {
+  // sin variantes con su mismo número, para que «ese número» identifique a una sola carta
+  const cartas = porPokemon.get('cinccino').filter((c, _, a) => a.filter((x) => x.num === c.num).length === 1);
+  const col = D.alternar({}, cartas[0]);
+  const texto = D.listaDeFaltantes(cartas, col, SETS, 'Cinccino');
+
+  assert.ok(texto.includes(`me faltan ${cartas.length - 1} de ${cartas.length}`));
+  assert.ok(!texto.includes(`   ${cartas[0].num} `), 'ha listado una que sí tengo');
+  for (const c of cartas.slice(1)) assert.ok(texto.includes(c.n));
+});
+
+test('la lista agrupa por set y se puede leer tal cual', () => {
+  const texto = D.listaDeFaltantes(porPokemon.get('vulpix'), {}, SETS, 'Vulpix');
+  assert.ok(texto.includes('— Base Set (1999)'));
+  assert.ok(texto.split('\n').length > 10);
+  assert.ok(texto.endsWith('applibre.github.io/lina-pokemon-libre'));
+});
+
+test('el coste de lo que falta suma solo lo que tiene precio', () => {
+  const cartas = porPokemon.get('eevee');
+  const c = D.costeDeFaltantes(cartas, {});
+  assert.strictEqual(c.cartas, cartas.length);
+  assert.ok(c.conPrecio <= c.cartas);
+  assert.ok(c.eur > 0);
+});
+
+/* ================= enlaces y formato ================= */
+
+test('con identificador, el enlace de TCGplayer abre la página de esa carta', () => {
+  const e = D.enlaces(porId.get('base2-51'), SETS);   // Eevee de Jungle
+  assert.strictEqual(e.tcgplayer.url, `https://www.tcgplayer.com/product/${porId.get('base2-51').tp_id}`);
+  assert.strictEqual(e.tcgplayer.directo, true);
+});
+
+test('sin identificador, el enlace es una búsqueda y se dice', () => {
+  const sinId = CARTAS.find((c) => !c.tp_id);
+  const e = D.enlaces(sinId, SETS);
+  assert.ok(e.tcgplayer.url.includes('/search/'));
+  assert.strictEqual(e.tcgplayer.directo, false);
+  assert.ok(e.tcgplayer.texto.startsWith('Buscar'));
+  assert.ok(!/[ ]/.test(e.tcgplayer.url), 'la URL lleva espacios sin codificar');
+});
+
+test('con identificador, el enlace de TCG Collector abre la página de esa carta', () => {
+  const con = CARTAS.find((c) => c.tc_id);
+  if (!con) return;   // aún no localizadas
+  const e = D.enlaces(con, SETS);
+  assert.strictEqual(e.tcgcollector.url, `https://www.tcgcollector.com/cards/${con.tc_id}/${con.tc_slug}`);
+  assert.strictEqual(e.tcgcollector.directo, true);
+});
+
+/* Una dirección de TCG Collector siempre empieza por el nombre de la
+   carta. Si no empieza por él es que apunta a otra carta, y eso es peor
+   que no tener enlace: mandaría a comprar la que no es. */
+test('todas las direcciones de TCG Collector empiezan por el nombre de su carta', () => {
+  // como escribe TCG Collector: «Sabrina's Gengar» → sabrinas-gengar
+  const flojo = (t) => D.normaliza(String(t)
+    .replace(/&/g, ' and ').replace(/[☆★]/g, ' star ').replace(/['_]/g, '')).replace(/ /g, '-');
+  for (const c of CARTAS) {
+    if (!c.tc_id) continue;
+    assert.ok(Number.isInteger(c.tc_id) && c.tc_id > 0, `${c.id}: id raro ${c.tc_id}`);
+    assert.ok(typeof c.tc_slug === 'string' && c.tc_slug.length > 3, `${c.id}: dirección vacía`);
+    assert.ok(c.tc_slug.startsWith(flojo(c.n) + '-'), `${c.id}: «${c.tc_slug}» no empieza por «${c.n}»`);
+  }
+});
+
+test('la mayoría de las cartas tiene enlace directo a una tienda (TCG Collector o TCGplayer)', () => {
+  // las promos traídas de la tienda Carpeta (scripts/traer-de-carpeta.py) enlazan a TCGplayer
+  const directos = CARTAS.filter((c) => c.tc_id || c.tp_id).length;
+  assert.ok(directos / CARTAS.length > 0.9, `solo ${directos} de ${CARTAS.length}`);
+});
+
+test('ninguna carta enlaza a Cardmarket', () => {
+  const e = D.enlaces(porId.get('base2-51'), SETS);
+  assert.ok(!JSON.stringify(e).includes('cardmarket.com'));
+});
+
+/* TCGplayer es el mercado americano: vende las inglesas. Las japonesas
+   se compran en otro sitio y su botón abre una búsqueda, que es lo
+   honesto. Por eso la cuenta va solo sobre las inglesas. */
+test('la mayoría de las cartas inglesas tiene enlace directo a TCGplayer', () => {
+  const inglesas = CARTAS.filter((c) => c.l !== 'ja');
+  const directos = inglesas.filter((c) => c.tp_id).length;
+  assert.ok(directos / inglesas.length > 0.8, `solo ${directos} de ${inglesas.length}`);
+  for (const c of CARTAS) if (c.tp_id) assert.ok(Number.isInteger(c.tp_id) && c.tp_id > 0, `${c.id}: id raro ${c.tp_id}`);
+});
+
+test('las japonesas están marcadas y todas enlazan a su página', () => {
+  const ja = CARTAS.filter((c) => c.l === 'ja');
+  if (!ja.length) return;   // aún no traídas
+  for (const c of ja) {
+    assert.ok(c.id.startsWith('ja-'), `${c.id}: identificador sin marcar`);
+    // TCG Collector, o TCGplayer para las promos que TCG Collector no lista (scripts/traer-de-carpeta.py)
+    assert.ok(c.tc_id || c.tp_id, `${c.id}: sin página a la que enlazar`);
+    assert.ok((SETS[c.s] || {}).ja, `${c.id}: su colección no está marcada como japonesa`);
+  }
+  // y ninguna inglesa se ha colado con la marca
+  for (const c of CARTAS) {
+    if (c.id.startsWith('ja-')) assert.strictEqual(c.l, 'ja', `${c.id}: japonesa sin marca`);
+  }
+});
+
+/* El número que enseña la app tiene que ser el que está impreso en la
+   carta. No lo era: las promos no llevan total y salían «SM108/248», las
+   subcolecciones llevan el suyo con letras y salían «TG03/30». Cada caso
+   de aquí se comprobó mirando la foto de esa carta. */
+test('el número se enseña como en la carta', () => {
+  const casos = [
+    ['base2-51', '51/64'],         // normal
+    ['base1-68', '68/102'],
+    ['swshp-SWSH009', 'SWSH009'],  // las promos no llevan total
+    ['svp-173', '173'],
+    ['swshp-SWSH065', 'SWSH065'],
+    ['sma-SV41', 'SV41/SV94'],     // las subcolecciones, el suyo
+    ['bw11-RC14', 'RC14/RC25'],
+    ['pl1-SH6', 'SH6'],            // las SH de Platinum no llevan total (mirado en la foto)
+  ];
+  for (const [id, esperado] of casos) {
+    const c = porId.get(id);
+    if (!c) continue;
+    assert.strictEqual(D.numeroCompleto(c, SETS), esperado, `${id}: enseña otro número`);
+  }
+});
+
+test('ninguna carta enseña un total que no está impreso', () => {
+  // las que sí lo llevan impreso, comprobadas mirando la foto (la Kids' WB «5/5»)
+  const impresos = require('../scripts/numeros-impresos.json');
+  for (const c of CARTAS) {
+    if (impresos[c.id]) continue;
+    const set = SETS[c.s] || {};
+    if (!/\bpromos?\b/i.test(set.n || '')) continue;
+    assert.ok(!D.numeroCompleto(c, SETS).includes('/'),
+      `${c.id}: las promos no llevan total y enseña ${D.numeroCompleto(c, SETS)}`);
+  }
+});
+
+test('la ficha no enseña precios ni textos en inglés', () => {
+  const c = porId.get('base2-51');
+  const filas = D.datosDeCarta(c, SETS, CARTAS.filter((x) => x.p.includes('eevee')), 'Eevee');
+  const texto = JSON.stringify(filas);
+  assert.ok(!/€|\$|precio/i.test(texto), 'hay precios en la ficha');
+  assert.ok(filas.some(([k]) => k === 'Ilustración'), 'falta quién la dibujó');
+  assert.ok(!c.txt && !c.imp, 'el catálogo sigue trayendo texto o impresiones');
+});
+
+test('los precios se escriben a la española y a la americana', () => {
+  assert.strictEqual(D.euros(466.22), '466,22 €');
+  assert.strictEqual(D.dolares(897.19), '$897.19');
+  assert.strictEqual(D.euros(null), '');
+});
+
+test('las variantes tienen nombre en castellano', () => {
+  assert.strictEqual(D.nombreVariante('reverse'), 'Reverse holo');
+  assert.strictEqual(D.nombreVariante('firstEdition'), '1.ª edición');
+  // ninguna variante del catálogo se queda sin nombre: las formas de siempre, o una de `nv`
+  const usadas = new Set(CARTAS.flatMap((c) => [...c.v, ...(c.vn ? [c.vn] : [])]));
+  for (const v of usadas) {
+    assert.ok(D.NOMBRE_VARIANTE[v] || catalogo.nv?.[v], `la variante «${v}» no tiene nombre`);
+  }
+});
+
+test('sin cartas gigantes (oversize / jumbo / Box Topper): Arturo no las quiere', () => {
+  const gigantes = CARTAS.filter((c) => /jumbo|oversize/i.test(`${c.id} ${c.vn || ''} ${c.v.join(' ')}`) || ['bt', 'lcbt'].includes(c.s));
+  assert.deepStrictEqual(gigantes.map((c) => c.id), []);
+  assert.ok(!SETS.bt && !SETS.lcbt, 'siguen los sets de cartas gigantes');
+  assert.ok(!Object.keys(catalogo.nv || {}).some((k) => /jumbo/.test(k)));
+});
+
+test('una variante solo es carta si se distingue a simple vista (revisión a ojo del 03-10-2026)', () => {
+  const porId = new Map(CARTAS.map((c) => [c.id, c]));
+  // cada carta-variante dice en qué se distingue
+  for (const c of CARTAS.filter((x) => x.vn)) assert.ok(catalogo.nd?.[c.vn], `${c.id}: no dice en qué se distingue`);
+  assert.match(catalogo.nd['prize-pack'], /Prize Pack/);
+  // la «Mirror Holo / Mirror Foil / Reverse Holofoil» japonesa es el reverse holo japonés: contador, no otra carta
+  assert.ok(!CARTAS.some((c) => c.l === 'ja' && /^(mirror|reverse-holofoil)/.test(c.vn || '')), 'queda algún reverse japonés como carta');
+  // exclusivas de mazo idénticas a la normal → contador; la de Futsal y las de Family Pokémon ya llevan el sello en la normal
+  for (const id of ['bw9-64~exclusiva-de-mazo', 'col1-17~exclusiva-de-mazo-call-of-legends', 'swsh7-94~exclusiva-de-mazo-non-holo',
+    'fut2020-2~pokemon-futsal', 'ja-35109~cinderace-stamped', 'sm12-145~sm-p-japanese-exclusive']) assert.ok(!porId.has(id), `${id} sigue siendo carta`);
+  // lo que estuviera marcado en ellas tiene adónde ir
+  for (const [id, [destino]] of Object.entries(catalogo.mv || {})) {
+    assert.ok(!porId.has(id), `${id} está en mv pero sigue siendo carta`);
+    assert.ok(porId.has(destino), `${id} → ${destino}, que no existe`);
+  }
+  // las que siguen siendo carta, sí se distinguen: sellos, brillos, Mundiales…
+  for (const id of ['xy5-20~build-a-bear-workshop-exclusive', 'sm2-21~build-a-bear-workshop-exclusive', 'swshp-SWSH009~prerelease-staff',
+    'sv08-143~gym', 'sm2-21~toys-r-us-promo']) assert.ok(porId.has(id), `falta ${id}`);
+  // una carta sin foto real no entra: la Umbreon holo 068/092 solo tiene un cartel «画像募集中»
+  assert.ok(!porId.has('ja-29049'), 'entró una carta con un cartel en vez de foto');
+});
+
+test('cada variante especial (sello, Cosmos Holo, Jumbo…) es otra carta, con su foto', () => {
+  const fs = require('node:fs');
+  const path = require('node:path');
+  const nv = catalogo.nv || {};
+  const porId = new Map(CARTAS.map((c) => [c.id, c]));
+  const variantes = CARTAS.filter((c) => c.vn);
+  assert.ok(variantes.length >= 45, `solo ${variantes.length} cartas-variante`);
+  assert.ok(Object.keys(nv).length >= 30, `solo ${Object.keys(nv).length} nombres de variante`);
+
+  // la Eevee de Jungle… y en concreto, la Vulpix de XY Furious Fists con el logo de Build-A-Bear es una carta aparte
+  const oso = porId.get('xy5-20~build-a-bear-workshop-exclusive');
+  assert.ok(oso, 'falta la Vulpix de Build-A-Bear');
+  assert.strictEqual(oso.n, 'Vulpix');
+  assert.strictEqual(oso.s, 'xy5');
+  assert.ok(oso.tp_id, 'sin enlace a su producto de TCGplayer');
+  assert.ok(!porId.get('xy5-20').v.includes('build-a-bear-workshop-exclusive'), 'el logo sigue como contador de la carta base');
+
+  for (const c of variantes) {
+    const [base] = c.id.split('~');
+    const b = porId.get(base);
+    assert.ok(b, `${c.id}: no existe su carta base`);
+    assert.strictEqual(c.s, b.s, `${c.id}: otro set que su base`);
+    assert.strictEqual(c.num, b.num, `${c.id}: otro número que su base`);
+    assert.strictEqual(c.id, `${base}~${c.vn}`, `${c.id}: el id no cuadra con su variante`);
+    assert.ok(nv[c.vn], `${c.id}: «${c.vn}» sin nombre`);
+    assert.ok(c.tp_id, `${c.id}: sin producto de TCGplayer`);
+    assert.ok(c.v.length > 0 && c.v.every((v) => D.NOMBRE_VARIANTE[v]), `${c.id}: formas raras ${c.v}`);
+    // se ve distinta de su base: foto propia, en sus dos tamaños
+    for (const d of ['', 'g/']) {
+      assert.ok(fs.existsSync(path.join(__dirname, '..', 'data', 'cartas', `${d}${c.id}.webp`)), `${c.id}: falta la foto ${d}`);
+    }
+  }
+  // detrás de su base, para verlas juntas
+  const orden = CARTAS.map((c) => c.id);
+  for (const c of variantes) {
+    const i = orden.indexOf(c.id);
+    assert.ok(orden[i - 1].split('~')[0] === c.id.split('~')[0], `${c.id}: no va detrás de su carta base`);
+  }
+  // sin variante repetida, y la que es carta ya no es contador de su base
+  for (const c of CARTAS) {
+    assert.strictEqual(new Set(c.v).size, c.v.length, `${c.id} tiene variantes repetidas`);
+    assert.ok(c.v.length > 0, `${c.id} sin variantes`);
+    for (const k of c.v) assert.ok(!porId.has(`${c.id}~${k}`), `${c.id}: «${k}» es contador Y carta`);
+  }
+  // las que no tenían foto siguen como contador en su base: son pocas
+  const contadores = CARTAS.flatMap((c) => c.v.filter((k) => !D.NOMBRE_VARIANTE[k]));
+  assert.ok(contadores.length <= 20, `${contadores.length} variantes sin foto como contador`);
+  for (const k of contadores) assert.ok(nv[k], `«${k}» sin nombre`);
+
+  // toda clave de nv la usa alguna carta (nada huérfano)
+  const usadas = new Set(CARTAS.flatMap((c) => [...c.v, ...(c.vn ? [c.vn] : [])]));
+  for (const k of Object.keys(nv)) assert.ok(usadas.has(k), `«${k}» está en nv pero ninguna carta la usa`);
+});
+

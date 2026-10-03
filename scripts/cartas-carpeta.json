@@ -1,0 +1,1352 @@
+{
+"sets": {
+"ja-tp24124": {
+"n": "Two Ambitions",
+"rel": "2003-10-24",
+"tot": 80,
+"ja": true,
+"cod": ""
+},
+"ja-tp24138": {
+"n": "PCG-P Promotional cards",
+"rel": "2004-02-01",
+"tot": 0,
+"ja": true,
+"cod": ""
+},
+"ja-tp24137": {
+"n": "DP-P Promotional cards",
+"rel": "2006-12-01",
+"tot": 0,
+"ja": true,
+"cod": ""
+},
+"ja-tp23908": {
+"n": "XY Promos",
+"rel": "2013-08-01",
+"tot": 78,
+"ja": true,
+"cod": "XY-P"
+},
+"ja-tp23881": {
+"n": "Sun & Moon Promos",
+"rel": "2016-11-01",
+"tot": 0,
+"ja": true,
+"cod": "SM-P"
+},
+"ja-tp23876": {
+"n": "Sword & Shield Promos",
+"rel": "2019-11-01",
+"tot": 0,
+"ja": true,
+"cod": "S-P"
+},
+"ja-tp23793": {
+"n": "Ceruledge ex Stellar Tera Type Starter Set",
+"rel": "2024-08-30",
+"tot": 22,
+"ja": true,
+"cod": "svL"
+},
+"ja-tp23779": {
+"n": "SV-P Promotional Cards",
+"rel": "2024-10-18",
+"tot": 0,
+"ja": true,
+"cod": "SV-P"
+},
+"ja-tp24324": {
+"n": "Generations Start Decks",
+"rel": "2024-11-22",
+"tot": 175,
+"ja": true,
+"cod": ""
+},
+"ja-tp24423": {
+"n": "M-P Promotional Cards",
+"rel": "2025-08-08",
+"tot": 0,
+"ja": true,
+"cod": "M-P"
+}
+},
+"cartas": [
+{
+"id": "ja-tp612829",
+"n": "Eevee",
+"p": [
+"eevee"
+],
+"s": "ja-tp24124",
+"num": "054",
+"r": "Common",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "",
+"l": "ja",
+"ni": "054/080",
+"tp_id": 612829,
+"j": {
+"e": "Basic",
+"ps": 50
+}
+},
+{
+"id": "ja-tp613426",
+"n": "Eevee",
+"p": [
+"eevee"
+],
+"s": "ja-tp24138",
+"num": "111",
+"r": "",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "",
+"l": "ja",
+"ni": "111",
+"tp_id": 613426,
+"j": {
+"e": "Basic",
+"ps": 50
+}
+},
+{
+"id": "ja-tp613341",
+"n": "Eevee",
+"p": [
+"eevee"
+],
+"s": "ja-tp24137",
+"num": "063",
+"r": "",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "",
+"l": "ja",
+"ni": "063",
+"tp_id": 613341,
+"j": {
+"e": "Basic",
+"ps": 60
+}
+},
+{
+"id": "ja-tp613342",
+"n": "Eevee",
+"p": [
+"eevee"
+],
+"s": "ja-tp24137",
+"num": "067",
+"r": "",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "",
+"l": "ja",
+"ni": "067",
+"tp_id": 613342,
+"j": {
+"e": "Basic",
+"ps": 60
+}
+},
+{
+"id": "ja-tp635201",
+"n": "Minccino",
+"p": [
+"minccino"
+],
+"s": "ja-11219",
+"num": "022",
+"r": "",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "",
+"l": "ja",
+"ni": "022",
+"tp_id": 635201,
+"j": {
+"e": "Basic",
+"ps": 50
+}
+},
+{
+"id": "ja-tp635127",
+"n": "Cinccino",
+"p": [
+"cinccino"
+],
+"s": "ja-11219",
+"num": "069",
+"r": "",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "",
+"l": "ja",
+"ni": "069",
+"tp_id": 635127,
+"j": {
+"e": "Stage 1",
+"ps": 90
+}
+},
+{
+"id": "ja-tp635138",
+"n": "Eevee",
+"p": [
+"eevee"
+],
+"s": "ja-11219",
+"num": "189",
+"r": "",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "",
+"l": "ja",
+"ni": "189",
+"tp_id": 635138,
+"j": {
+"e": "Basic",
+"ps": 60
+}
+},
+{
+"id": "ja-tp635139",
+"n": "Eevee",
+"p": [
+"eevee"
+],
+"s": "ja-11219",
+"num": "213",
+"r": "",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "",
+"l": "ja",
+"ni": "213",
+"tp_id": 635139,
+"j": {
+"e": "Basic",
+"ps": 60
+}
+},
+{
+"id": "ja-tp635140",
+"n": "Eevee",
+"p": [
+"eevee"
+],
+"s": "ja-11219",
+"num": "235",
+"r": "",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "",
+"l": "ja",
+"ni": "235",
+"tp_id": 635140,
+"j": {
+"e": "Basic",
+"ps": 60
+}
+},
+{
+"id": "ja-tp602015",
+"n": "Vulpix",
+"p": [
+"vulpix"
+],
+"s": "ja-tp23908",
+"num": "110",
+"r": "Common",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "",
+"l": "ja",
+"ni": "110",
+"tp_id": 602015,
+"j": {
+"e": "Basic",
+"ps": 60
+}
+},
+{
+"id": "ja-tp598100",
+"n": "Alolan Vulpix",
+"p": [
+"vulpix"
+],
+"s": "ja-tp23881",
+"num": "023",
+"r": "",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "",
+"l": "ja",
+"ni": "023",
+"tp_id": 598100,
+"j": {
+"e": "Basic",
+"ps": 60
+}
+},
+{
+"id": "ja-tp598129",
+"n": "Alolan Vulpix",
+"p": [
+"vulpix"
+],
+"s": "ja-tp23881",
+"num": "052",
+"r": "",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "",
+"l": "ja",
+"ni": "052",
+"tp_id": 598129,
+"j": {
+"e": "Basic",
+"ps": 60
+}
+},
+{
+"id": "ja-tp598214",
+"n": "Poncho-wearing Eevee",
+"p": [
+"eevee"
+],
+"s": "ja-tp23881",
+"num": "137",
+"r": "",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "",
+"l": "ja",
+"ni": "137",
+"tp_id": 598214,
+"j": {
+"e": "Basic",
+"ps": 60
+}
+},
+{
+"id": "ja-tp598215",
+"n": "Poncho-wearing Eevee",
+"p": [
+"eevee"
+],
+"s": "ja-tp23881",
+"num": "138",
+"r": "",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "",
+"l": "ja",
+"ni": "138",
+"tp_id": 598215,
+"j": {
+"e": "Basic",
+"ps": 60
+}
+},
+{
+"id": "ja-tp598216",
+"n": "Poncho-wearing Eevee",
+"p": [
+"eevee"
+],
+"s": "ja-tp23881",
+"num": "139",
+"r": "",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "",
+"l": "ja",
+"ni": "139",
+"tp_id": 598216,
+"j": {
+"e": "Basic",
+"ps": 60
+}
+},
+{
+"id": "ja-tp598217",
+"n": "Poncho-wearing Eevee",
+"p": [
+"eevee"
+],
+"s": "ja-tp23881",
+"num": "140",
+"r": "",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "",
+"l": "ja",
+"ni": "140",
+"tp_id": 598217,
+"j": {
+"e": "Basic",
+"ps": 60
+}
+},
+{
+"id": "ja-tp598218",
+"n": "Poncho-wearing Eevee",
+"p": [
+"eevee"
+],
+"s": "ja-tp23881",
+"num": "141",
+"r": "",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "",
+"l": "ja",
+"ni": "141",
+"tp_id": 598218,
+"j": {
+"e": "Basic",
+"ps": 60
+}
+},
+{
+"id": "ja-tp598219",
+"n": "Poncho-wearing Eevee",
+"p": [
+"eevee"
+],
+"s": "ja-tp23881",
+"num": "142",
+"r": "",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "",
+"l": "ja",
+"ni": "142",
+"tp_id": 598219,
+"j": {
+"e": "Basic",
+"ps": 60
+}
+},
+{
+"id": "ja-tp598220",
+"n": "Poncho-wearing Eevee",
+"p": [
+"eevee"
+],
+"s": "ja-tp23881",
+"num": "143",
+"r": "",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "",
+"l": "ja",
+"ni": "143",
+"tp_id": 598220,
+"j": {
+"e": "Basic",
+"ps": 60
+}
+},
+{
+"id": "ja-tp598221",
+"n": "Poncho-wearing Eevee",
+"p": [
+"eevee"
+],
+"s": "ja-tp23881",
+"num": "144",
+"r": "",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "",
+"l": "ja",
+"ni": "144",
+"tp_id": 598221,
+"j": {
+"e": "Basic",
+"ps": 60
+}
+},
+{
+"id": "ja-tp598223",
+"n": "Vulpix",
+"p": [
+"vulpix"
+],
+"s": "ja-tp23881",
+"num": "146",
+"r": "",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "",
+"l": "ja",
+"ni": "146",
+"tp_id": 598223,
+"j": {
+"e": "Basic",
+"ps": 60
+}
+},
+{
+"id": "ja-tp598224",
+"n": "Alolan Vulpix",
+"p": [
+"vulpix"
+],
+"s": "ja-tp23881",
+"num": "147",
+"r": "",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "",
+"l": "ja",
+"ni": "147",
+"tp_id": 598224,
+"j": {
+"e": "Basic",
+"ps": 60
+}
+},
+{
+"id": "ja-tp598283",
+"n": "Alolan Vulpix",
+"p": [
+"vulpix"
+],
+"s": "ja-tp23881",
+"num": "206",
+"r": "",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "",
+"l": "ja",
+"ni": "206",
+"tp_id": 598283,
+"j": {
+"e": "Basic",
+"ps": 60
+}
+},
+{
+"id": "ja-tp598320",
+"n": "Eevee",
+"p": [
+"eevee"
+],
+"s": "ja-tp23881",
+"num": "243",
+"r": "",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "",
+"l": "ja",
+"ni": "243",
+"tp_id": 598320,
+"j": {
+"e": "Basic",
+"ps": 50
+}
+},
+{
+"id": "ja-tp598322",
+"n": "Eevee",
+"p": [
+"eevee"
+],
+"s": "ja-tp23881",
+"num": "245",
+"r": "Common",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "",
+"l": "ja",
+"ni": "245",
+"tp_id": 598322,
+"j": {
+"e": "Basic",
+"ps": 60
+}
+},
+{
+"id": "ja-tp598324",
+"n": "Eevee",
+"p": [
+"eevee"
+],
+"s": "ja-tp23881",
+"num": "247",
+"r": "",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "",
+"l": "ja",
+"ni": "247",
+"tp_id": 598324,
+"j": {
+"e": "Basic",
+"ps": 60
+}
+},
+{
+"id": "ja-tp598364",
+"n": "Eevee",
+"p": [
+"eevee"
+],
+"s": "ja-tp23881",
+"num": "287",
+"r": "",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "",
+"l": "ja",
+"ni": "287",
+"tp_id": 598364,
+"j": {
+"e": "Basic",
+"ps": 60
+}
+},
+{
+"id": "ja-tp598370",
+"n": "Alolan Vulpix",
+"p": [
+"vulpix"
+],
+"s": "ja-tp23881",
+"num": "293",
+"r": "",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "",
+"l": "ja",
+"ni": "293",
+"tp_id": 598370,
+"j": {
+"e": "Basic",
+"ps": 60
+}
+},
+{
+"id": "ja-tp598372",
+"n": "Eevee",
+"p": [
+"eevee"
+],
+"s": "ja-tp23881",
+"num": "295",
+"r": "",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "",
+"l": "ja",
+"ni": "295",
+"tp_id": 598372,
+"j": {
+"e": "Basic",
+"ps": 50
+}
+},
+{
+"id": "ja-tp598374",
+"n": "Eevee & Snorlax GX",
+"p": [
+"eevee"
+],
+"s": "ja-tp23881",
+"num": "297",
+"r": "",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "",
+"l": "ja",
+"ni": "297",
+"tp_id": 598374,
+"j": {
+"e": "Basic",
+"ps": 270
+}
+},
+{
+"id": "ja-tp598383",
+"n": "Eevee",
+"p": [
+"eevee"
+],
+"s": "ja-tp23881",
+"num": "306",
+"r": "",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "",
+"l": "ja",
+"ni": "306",
+"tp_id": 598383,
+"j": {
+"e": "Basic",
+"ps": 60
+}
+},
+{
+"id": "ja-tp598387",
+"n": "Eevee",
+"p": [
+"eevee"
+],
+"s": "ja-tp23881",
+"num": "310",
+"r": "",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "",
+"l": "ja",
+"ni": "310",
+"tp_id": 598387,
+"j": {
+"e": "Basic",
+"ps": 60
+}
+},
+{
+"id": "ja-tp598403",
+"n": "Eevee",
+"p": [
+"eevee"
+],
+"s": "ja-tp23881",
+"num": "326",
+"r": "",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "",
+"l": "ja",
+"ni": "326",
+"tp_id": 598403,
+"j": {
+"e": "Basic",
+"ps": 60
+}
+},
+{
+"id": "ja-tp598448",
+"n": "Eevee",
+"p": [
+"eevee"
+],
+"s": "ja-tp23881",
+"num": "371",
+"r": "",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "",
+"l": "ja",
+"ni": "371",
+"tp_id": 598448,
+"j": {
+"e": "Basic",
+"ps": 60
+}
+},
+{
+"id": "ja-tp598455",
+"n": "Eevee",
+"p": [
+"eevee"
+],
+"s": "ja-tp23881",
+"num": "378",
+"r": "",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "",
+"l": "ja",
+"ni": "378",
+"tp_id": 598455,
+"j": {
+"e": "Basic",
+"ps": 60
+}
+},
+{
+"id": "ja-tp598456",
+"n": "Alolan Vulpix",
+"p": [
+"vulpix"
+],
+"s": "ja-tp23881",
+"num": "379",
+"r": "",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "",
+"l": "ja",
+"ni": "379",
+"tp_id": 598456,
+"j": {
+"e": "Basic",
+"ps": 60
+}
+},
+{
+"id": "ja-tp598476",
+"n": "Eevee",
+"p": [
+"eevee"
+],
+"s": "ja-tp23881",
+"num": "399",
+"r": "Common",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "",
+"l": "ja",
+"ni": "399",
+"tp_id": 598476,
+"j": {
+"e": "Basic",
+"ps": 60
+}
+},
+{
+"id": "ja-tp598480",
+"n": "Eevee",
+"p": [
+"eevee"
+],
+"s": "ja-tp23881",
+"num": "403",
+"r": "Common",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "",
+"l": "ja",
+"ni": "403",
+"tp_id": 598480,
+"j": {
+"e": "Basic",
+"ps": 60
+}
+},
+{
+"id": "ja-tp597264",
+"n": "Eevee",
+"p": [
+"eevee"
+],
+"s": "ja-tp23876",
+"num": "044",
+"r": "Common",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "",
+"l": "ja",
+"ni": "044",
+"tp_id": 597264,
+"j": {
+"e": "Basic",
+"ps": 60
+}
+},
+{
+"id": "ja-tp597286",
+"n": "Eevee",
+"p": [
+"eevee"
+],
+"s": "ja-tp23876",
+"num": "075",
+"r": "Common",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "",
+"l": "ja",
+"ni": "075",
+"tp_id": 597286,
+"j": {
+"e": "Basic",
+"ps": 60
+}
+},
+{
+"id": "ja-tp597301",
+"n": "Eevee",
+"p": [
+"eevee"
+],
+"s": "ja-tp23876",
+"num": "100",
+"r": "Common",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "",
+"l": "ja",
+"ni": "100",
+"tp_id": 597301,
+"j": {
+"e": "Basic",
+"ps": 60
+}
+},
+{
+"id": "ja-tp597302",
+"n": "Eevee VMAX",
+"p": [
+"eevee"
+],
+"s": "ja-tp23876",
+"num": "101",
+"r": "Common",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "",
+"l": "ja",
+"ni": "101",
+"tp_id": 597302,
+"j": {
+"e": "VMAX",
+"ps": 300
+}
+},
+{
+"id": "ja-tp597318",
+"n": "Eevee",
+"p": [
+"eevee"
+],
+"s": "ja-tp23876",
+"num": "117",
+"r": "Common",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "",
+"l": "ja",
+"ni": "117",
+"tp_id": 597318,
+"j": {
+"e": "Basic",
+"ps": 60
+}
+},
+{
+"id": "ja-tp597361",
+"n": "Eevee",
+"p": [
+"eevee"
+],
+"s": "ja-tp23876",
+"num": "163",
+"r": "Common",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "",
+"l": "ja",
+"ni": "163",
+"tp_id": 597361,
+"j": {
+"e": "Basic",
+"ps": 60
+}
+},
+{
+"id": "ja-tp597379",
+"n": "Eevee",
+"p": [
+"eevee"
+],
+"s": "ja-tp23876",
+"num": "181",
+"r": "Common",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "",
+"l": "ja",
+"ni": "181",
+"tp_id": 597379,
+"j": {
+"e": "Basic",
+"ps": 60
+}
+},
+{
+"id": "ja-tp597404",
+"n": "Eevee",
+"p": [
+"eevee"
+],
+"s": "ja-tp23876",
+"num": "220",
+"r": "Common",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "",
+"l": "ja",
+"ni": "220",
+"tp_id": 597404,
+"j": {
+"e": "Basic",
+"ps": 60
+}
+},
+{
+"id": "ja-tp597421",
+"n": "Eevee",
+"p": [
+"eevee"
+],
+"s": "ja-tp23876",
+"num": "239",
+"r": "Common",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "",
+"l": "ja",
+"ni": "239",
+"tp_id": 597421,
+"j": {
+"e": "Basic",
+"ps": 60
+}
+},
+{
+"id": "ja-tp588516",
+"n": "Vulpix",
+"p": [
+"vulpix"
+],
+"s": "ja-tp23793",
+"num": "001",
+"r": "",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "",
+"l": "ja",
+"ni": "001/022",
+"tp_id": 588516,
+"j": {
+"e": "Basic",
+"ps": 70
+}
+},
+{
+"id": "ja-tp587788",
+"n": "Eevee",
+"p": [
+"eevee"
+],
+"s": "ja-tp23779",
+"num": "031",
+"r": "Common",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "saino misaki",
+"l": "ja",
+"ni": "031",
+"tp_id": 587788,
+"j": {
+"e": "Basic",
+"ps": 60
+}
+},
+{
+"id": "ja-tp587789",
+"n": "Eevee",
+"p": [
+"eevee"
+],
+"s": "ja-tp23779",
+"num": "032",
+"r": "",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "saino misaki",
+"l": "ja",
+"ni": "032",
+"tp_id": 587789,
+"j": {
+"e": "Basic",
+"ps": 60
+}
+},
+{
+"id": "ja-tp587790",
+"n": "Eevee",
+"p": [
+"eevee"
+],
+"s": "ja-tp23779",
+"num": "033",
+"r": "Common",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "saino misaki",
+"l": "ja",
+"ni": "033",
+"tp_id": 587790,
+"j": {
+"e": "Basic",
+"ps": 60
+}
+},
+{
+"id": "ja-tp587820",
+"n": "Eevee",
+"p": [
+"eevee"
+],
+"s": "ja-tp23779",
+"num": "062",
+"r": "Common",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "YU NAGABA",
+"l": "ja",
+"ni": "062",
+"tp_id": 587820,
+"j": {
+"e": "Basic",
+"ps": 50
+}
+},
+{
+"id": "ja-tp587918",
+"n": "Eevee",
+"p": [
+"eevee"
+],
+"s": "ja-tp23779",
+"num": "196",
+"r": "Promo",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "Susumu Maeya",
+"l": "ja",
+"ni": "196",
+"tp_id": 587918,
+"j": {
+"e": "Basic",
+"ps": 70
+}
+},
+{
+"id": "ja-tp687693",
+"n": "Eevee",
+"p": [
+"eevee"
+],
+"s": "ja-tp23779",
+"num": "198",
+"r": "Promo",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "Susumu Maeya",
+"l": "ja",
+"ni": "198",
+"tp_id": 687693,
+"j": {
+"e": "Basic",
+"ps": 60
+}
+},
+{
+"id": "ja-tp630247",
+"n": "Eevee",
+"p": [
+"eevee"
+],
+"s": "ja-tp24324",
+"num": "093",
+"r": "",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "",
+"l": "ja",
+"ni": "093/175",
+"tp_id": 630247,
+"j": {
+"e": "Basic",
+"ps": 60
+}
+},
+{
+"id": "ja-tp630261",
+"n": "Minccino",
+"p": [
+"minccino"
+],
+"s": "ja-tp24324",
+"num": "107",
+"r": "",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "",
+"l": "ja",
+"ni": "107/175",
+"tp_id": 630261,
+"j": {
+"e": "Basic",
+"ps": 70
+}
+},
+{
+"id": "ja-tp630262",
+"n": "Cinccino",
+"p": [
+"cinccino"
+],
+"s": "ja-tp24324",
+"num": "108",
+"r": "",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "",
+"l": "ja",
+"ni": "108/175",
+"tp_id": 630262,
+"j": {
+"e": "Stage 1",
+"ps": 100
+}
+},
+{
+"id": "ja-tp716664",
+"n": "Eevee",
+"p": [
+"eevee"
+],
+"s": "ja-tp24423",
+"num": "134",
+"r": "Promo",
+"v": [
+"normal"
+],
+"img": null,
+"ill": "UKUMO uiti",
+"l": "ja",
+"ni": "134",
+"tp_id": 716664,
+"j": {
+"e": "Basic",
+"ps": 70
+}
+}
+]
+}

@@ -1,0 +1,9 @@
+{
+ "_nota": "Cartas que el buscador de TCGplayer no da por nombre y número, porque allí la colección se llama de otra manera o sus productos no llevan número. Localizadas a mano, abriendo la ficha de producto y comprobando nombre, colección y fecha. 'nombre' y 'set' son lo que enseña SU ficha, para que scripts/verificar-enlaces.py confirme que sigue siendo esa.",
+ "sm2-21a": {
+  "tp": 174488,
+  "nombre": "Alolan Vulpix",
+  "set": "Alternate Art Promos",
+  "num": "021a/145"
+ }
+}

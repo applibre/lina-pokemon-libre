@@ -1,0 +1,640 @@
+/* ===========================================================
+   Lina Pokémon Libre · generador del catálogo
+   Baja de TCGdex todas las cartas de los Pokémon objetivo y deja
+   en data/ un catálogo compacto que viaja DENTRO de la app.
+
+   Por qué no se consulta ninguna API al abrir la app: la que era
+   la API «oficial» (pokemontcg.io) cerró y pasó a un servicio de
+   pago; devolvía errores 502 al probarla. Una colección no puede
+   depender de que un servicio ajeno siga vivo.
+
+   Uso:
+     node scripts/catalogo.mjs            genera el catálogo
+     node scripts/catalogo.mjs --refresca  ignora la caché local
+     node scripts/catalogo.mjs --imagenes  además comprueba imagen a imagen
+
+   No tiene dependencias: solo Node.
+   =========================================================== */
+
+import { readFile, writeFile, mkdir, readdir } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
+import { createHash } from 'node:crypto';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const AQUI = path.dirname(fileURLToPath(import.meta.url));
+const RAIZ = path.join(AQUI, '..');
+const CACHE = path.join(AQUI, '.cache');
+const DATOS = path.join(RAIZ, 'data');
+
+const API = 'https://api.tcgdex.net/v2/en';
+const ASSETS = 'https://assets.tcgdex.net';
+const RESPALDO = 'https://images.pokemontcg.io';
+
+const refresca = process.argv.includes('--refresca');
+const compruebaImagenes = process.argv.includes('--imagenes');
+
+/* ---------- utilidades de red ----------
+   Con calma: TCGdex es un proyecto comunitario y llegó a bloquear
+   IPs por exceso de peticiones. Concurrencia baja y reintentos. */
+
+const dormir = (ms) => new Promise((r) => setTimeout(r, ms));
+
+async function pedir(url, intentos = 3) {
+  for (let i = 1; i <= intentos; i++) {
+    try {
+      const r = await fetch(url, {
+        headers: { 'User-Agent': 'CartaLibre/1.0 (applibre; coleccion personal)' },
+        signal: AbortSignal.timeout(30000),
+      });
+      if (r.status === 404) return null;
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      return await r.json();
+    } catch (e) {
+      if (i === intentos) throw new Error(`${url} → ${e.message}`);
+      await dormir(600 * i);
+    }
+  }
+}
+
+/** Ejecuta tareas de pocas en pocas, para no atropellar al servidor. */
+async function enTandas(cosas, tamano, fn, alAvanzar) {
+  const salida = [];
+  for (let i = 0; i < cosas.length; i += tamano) {
+    const tanda = cosas.slice(i, i + tamano);
+    salida.push(...await Promise.all(tanda.map(fn)));
+    if (alAvanzar) alAvanzar(Math.min(i + tamano, cosas.length), cosas.length);
+    await dormir(150);
+  }
+  return salida;
+}
+
+/* ---------- caché en disco ----------
+   Una ficha por fichero. La segunda vez el script tarda segundos
+   en vez de minutos, y se puede trabajar sin conexión. */
+
+async function conCache(clave, fn) {
+  const f = path.join(CACHE, `${clave.replace(/[^\w.-]/g, '_')}.json`);
+  if (!refresca && existsSync(f)) {
+    try { return JSON.parse(await readFile(f, 'utf8')); } catch (_) {}
+  }
+  const v = await fn();
+  if (v !== null && v !== undefined) await writeFile(f, JSON.stringify(v));
+  return v;
+}
+
+/* ---------- variantes ----------
+   Rareza es del catálogo; variante es de la impresión física que
+   tienes en la mano. Son cosas distintas y van en campos distintos:
+   confundirlas es el error que han tenido que deshacer varios
+   proyectos parecidos. */
+
+const NOMBRE_VARIANTE = {
+  normal: 'Normal',
+  holo: 'Holo',
+  reverse: 'Reverse holo',
+  firstEdition: '1.ª edición',
+  wPromo: 'Promo',
+};
+
+function variantesDe(carta) {
+  const v = carta.variants || {};
+  const claves = ['normal', 'holo', 'reverse', 'firstEdition', 'wPromo']
+    .filter((k) => v[k]);
+
+  // Algunas promos y sets recién añadidos vienen sin datos de variante.
+  // Se asume la única impresión posible en vez de dejar la carta muda.
+  if (!claves.length) return [carta.rarity === 'Promo' ? 'wPromo' : 'normal'];
+  return claves;
+}
+
+/* ---------- imágenes ----------
+   Cada carta debe enseñarse de verdad. TCGdex sirve la mayoría;
+   para las que no tiene (promos, McDonald's, kits) se prueba el
+   CDN de pokemontcg.io, que sigue en pie aunque su API muriera.
+   Lo que no aparezca por ninguna vía se marca, no se esconde. */
+
+const RESPALDO_SET = {
+  // TCGdex y pokemontcg.io no siempre nombran igual el set
+  smp: 'smp', swshp: 'swshp', svp: 'svp', xyp: 'xyp', bwp: 'bwp',
+  dpp: 'dpp', np: 'np', ecard1: 'ecard1',
+};
+
+function urlTcgdex(carta, calidad = 'low', ext = 'webp') {
+  if (!carta.image) return null;
+  return `${carta.image}/${calidad}.${ext}`;
+}
+
+function urlRespaldo(carta) {
+  const set = carta.set?.id;
+  if (!set) return null;
+  const s = RESPALDO_SET[set] || set;
+  return `${RESPALDO}/${s}/${carta.localId}.png`;
+}
+
+async function existe(url) {
+  if (!url) return false;
+  try {
+    const r = await fetch(url, { method: 'HEAD', signal: AbortSignal.timeout(20000) });
+    return r.ok;
+  } catch (_) { return false; }
+}
+
+/* ---------- generación ---------- */
+
+async function main() {
+  await mkdir(CACHE, { recursive: true });
+  await mkdir(DATOS, { recursive: true });
+
+  const objetivos = JSON.parse(await readFile(path.join(AQUI, 'objetivos.json'), 'utf8'));
+  const tcgcollector = JSON.parse(await readFile(path.join(AQUI, 'tcgcollector.json'), 'utf8').catch(() => '{}'));
+  const tcgplayerExtra = JSON.parse(await readFile(path.join(AQUI, 'tcgplayer.json'), 'utf8').catch(() => '{}'));
+  /* Las que ningún buscador da con nombre y número: localizadas a mano,
+     comprobadas abriendo su página, y con la última palabra sobre las
+     automáticas. */
+  const aMano = async (f) => Object.fromEntries(Object.entries(
+    JSON.parse(await readFile(path.join(AQUI, f), 'utf8').catch(() => '{}')))
+    .filter(([k]) => !k.startsWith('_')));
+  Object.assign(tcgcollector, await aMano('tcgcollector-manual.json'));
+  Object.assign(tcgplayerExtra, await aMano('tcgplayer-manual.json'));
+  const pokemon = [
+    ...objetivos.principales.map((p) => ({ ...p, principal: true })),
+    ...objetivos.familias.map((p) => ({ ...p, principal: false })),
+  ];
+
+  console.log(`Pokémon objetivo: ${pokemon.length} (${objetivos.principales.length} principales)\n`);
+
+  /* 1 · qué cartas hay de cada uno, por número de Pokédex */
+  const porCarta = new Map();   // id → [dex]
+  for (const p of pokemon) {
+    const lista = await conCache(`dex-${p.dex}`, () => pedir(`${API}/cards?dexId=eq:${p.dex}`)) || [];
+    let contadas = 0;
+    for (const c of lista) {
+      const set = c.id.slice(0, c.id.lastIndexOf('-'));
+      if (/^(A\d|P-A)/.test(set)) continue;          // TCG Pocket: cartas digitales
+      if (!porCarta.has(c.id)) porCarta.set(c.id, []);
+      porCarta.get(c.id).push(p.dex);
+      contadas++;
+    }
+    console.log(`  ${p.nombre.padEnd(12)} ${String(contadas).padStart(4)} cartas`);
+  }
+  /* 1b · los sets recientes sin número de Pokédex
+     TCGdex tarda en rellenar el dexId de las novedades: «30th Celebration»
+     trae 158 cartas, con 37 Pikachu, Gengar y Snorlax, y ninguna con dexId,
+     y una búsqueda por Pokédex no las ve. Para los sets de la serie Mega
+     Evolution y de la 30th se lee la lista de cartas y se buscan por nombre.
+     Lo que ya trajo la búsqueda por dexId no se toca. */
+  const listaSets = await conCache('sets-lista', () => pedir(`${API}/sets`)) || [];
+  const recientes = listaSets.map((x) => x.id).filter((id) => /^(me\d|30th)/.test(id));
+  const porNombre = new RegExp(`\\b(${pokemon.map((p) => p.nombre).join('|')})\\b`, 'i');
+  let porNombreNuevas = 0;
+  for (const sid of recientes) {
+    const set = await conCache(`set-${sid}`, () => pedir(`${API}/sets/${sid}`));
+    for (const c of set?.cards || []) {
+      const m = porNombre.exec(c.name);
+      if (!m || porCarta.has(c.id)) continue;
+      const suyo = pokemon.find((p) => p.nombre.toLowerCase() === m[1].toLowerCase());
+      porCarta.set(c.id, [suyo.dex]);
+      porNombreNuevas++;
+    }
+  }
+  console.log(`Por nombre, en sets recientes sin dexId: ${porNombreNuevas} cartas
+`);
+
+  const ids = [...porCarta.keys()].sort();
+  console.log(`\nCartas únicas: ${ids.length}\n`);
+
+  /* 2 · la ficha completa de cada carta */
+  process.stdout.write('Fichas: ');
+  const fichas = (await enTandas(ids, 5,
+    (id) => conCache(`carta-${id}`, () => pedir(`${API}/cards/${id}`)),
+    (n, t) => process.stdout.write(`\rFichas: ${n}/${t}`),
+  )).filter(Boolean);
+  console.log('\n');
+
+  const cartasPokemon = fichas.filter((c) => c.category === 'Pokemon');
+  const descartadas = fichas.length - cartasPokemon.length;
+  if (descartadas) console.log(`Descartados ${descartadas} Entrenadores/Energías con nombre de Pokémon\n`);
+
+  /* 3 · los sets, con su fecha (la lista breve no la trae) */
+  const setsIds = [...new Set(cartasPokemon.map((c) => c.set.id))].sort();
+  process.stdout.write('Sets: ');
+  const setsFichas = (await enTandas(setsIds, 5,
+    (id) => conCache(`set-${id}`, () => pedir(`${API}/sets/${id}`)),
+    (n, t) => process.stdout.write(`\rSets: ${n}/${t}`),
+  )).filter(Boolean);
+  console.log('\n');
+
+  /* Fuera las cartas de Pokémon TCG Pocket: son del juego de móvil, no
+     existen en cartón y no se pueden comprar ni coleccionar. Se mira la
+     serie de cada set y no su identificador, porque los nuevos (B1, B1a,
+     B2…) ya no empiezan por A y se colaban en el catálogo. */
+  const digitales = new Set(setsFichas.filter((s) => s.serie?.id === 'tcgp').map((s) => s.id));
+  const soloPokemon = cartasPokemon.filter((c) => !digitales.has(c.set.id));
+  if (digitales.size) {
+    console.log(`Fuera ${cartasPokemon.length - soloPokemon.length} cartas de Pokémon TCG Pocket`
+      + ` (${[...digitales].join(', ')}): son digitales\n`);
+  }
+
+  let sets = {};
+  for (const s of setsFichas.filter((s) => !digitales.has(s.id))) {
+    sets[s.id] = {
+      n: s.name,
+      rel: s.releaseDate || '',
+      tot: s.cardCount?.official || s.cardCount?.total || 0,
+      logo: s.logo || null,
+      sim: s.symbol || null,
+    };
+  }
+  const orden = Object.keys(sets).sort((a, b) =>
+    (sets[a].rel || '9999').localeCompare(sets[b].rel || '9999') || a.localeCompare(b));
+  orden.forEach((id, i) => { sets[id].o = i; });
+
+  /* 4 · comprobar las imágenes, una a una */
+  let sinImagen = 0, conRespaldo = 0;
+  if (compruebaImagenes) {
+    const dudosas = soloPokemon.filter((c) => !c.image);
+    process.stdout.write(`Imágenes de respaldo: `);
+    const res = await enTandas(dudosas, 6,
+      async (c) => ({ id: c.id, url: await existe(urlRespaldo(c)) ? urlRespaldo(c) : null }),
+      (n, t) => process.stdout.write(`\rImágenes de respaldo: ${n}/${t}`),
+    );
+    const mapa = new Map(res.map((r) => [r.id, r.url]));
+    for (const c of soloPokemon) if (!c.image) c._respaldo = mapa.get(c.id) || null;
+    conRespaldo = res.filter((r) => r.url).length;
+    sinImagen = dudosas.length - conRespaldo;
+    console.log('\n');
+  } else {
+    sinImagen = soloPokemon.filter((c) => !c.image).length;
+  }
+
+  /* 5 · el catálogo compacto */
+  let cartas = soloPokemon.map((c) => {
+    const dexes = porCarta.get(c.id) || [];
+    const suyos = pokemon.filter((p) => dexes.includes(p.dex)).map((p) => p.id);
+    const ficha = {
+      id: c.id,
+      n: c.name,
+      p: suyos,                                  // a qué Pokémon pertenece
+      s: c.set.id,
+      num: c.localId,
+      r: c.rarity || '',
+      v: variantesDe(c),
+      img: c.image ? c.image.replace(`${ASSETS}/`, '') : null,
+      ill: c.illustrator || '',
+    };
+
+    /* Lo que se enseña en la ficha y no caduca: etapa, de quién
+       evoluciona, puntos de salud y tipo. Ni impresiones ni texto de la
+       carta: Arturo los quitó, no le servían. */
+    const ficha_juego = {};
+    if (c.stage) ficha_juego.e = c.stage;
+    if (c.evolveFrom) ficha_juego.de = c.evolveFrom;
+    if (c.hp) ficha_juego.ps = c.hp;
+    if (c.types?.length) ficha_juego.t = c.types;
+    if (Object.keys(ficha_juego).length) ficha.j = ficha_juego;
+
+    /* Precio orientativo de las dos casas: Cardmarket en euros (la
+       referencia en Europa) y TCGplayer en dólares (el mercado grande).
+       El manifiesto guarda la fecha: un precio sin fecha engaña. */
+    const cm = c.pricing?.cardmarket;
+    const eur = cm?.trend ?? cm?.avg ?? cm?.avg7 ?? null;
+    if (eur) ficha.eur = Math.round(eur * 100) / 100;
+
+    const tp = c.pricing?.tcgplayer;
+    if (tp) {
+      const precios = Object.values(tp)
+        .filter((v) => v && typeof v === 'object' && v.marketPrice)
+        .map((v) => v.marketPrice);
+      if (precios.length) ficha.usd = Math.round(Math.min(...precios) * 100) / 100;
+    }
+
+    /* Identificadores de producto en cada tienda: con ellos el enlace
+       abre la página de ESA carta, con su precio en tiempo real, en vez
+       de un buscador genérico. */
+    if (cm?.idProduct) ficha.cm_id = cm.idProduct;
+    const tpIds = Object.values(tp || {})
+      .filter((v) => v && typeof v === 'object' && v.productId)
+      .map((v) => v.productId);
+    if (tpIds.length) ficha.tp_id = Math.min(...tpIds);
+    // y si TCGdex no lo trae (promos, kits, novedades), el que localizó
+    // scripts/tcgplayer.py en el buscador de la propia tienda
+    else if (tcgplayerExtra[c.id]) ficha.tp_id = tcgplayerExtra[c.id].tp;
+    // TCG Collector: localizado una vez por scripts/tcgcollector.py
+    if (tcgcollector[c.id]) { ficha.tc_id = tcgcollector[c.id].tc; ficha.tc_slug = tcgcollector[c.id].slug; }
+    return ficha;
+  }).sort((a, b) =>
+    (sets[a.s]?.o ?? 9999) - (sets[b.s]?.o ?? 9999)
+    || String(a.num).localeCompare(String(b.num), 'en', { numeric: true }));
+
+  /* 5.4 · las que TCGdex no tiene
+     Le faltan productos ingleses enteros: el TCG Classic de 2023, los box
+     topper, la World Collection. Se leen de pkmncards con
+     scripts/cartas-extra.py y entran aquí con la misma forma que las
+     demás; sus imágenes van en imagenes-rescatadas.json. */
+  const extra = JSON.parse(await readFile(path.join(AQUI, 'cartas-extra.json'), 'utf8').catch(() => '[]'));
+  let anadidas = 0;
+  for (const e of extra) {
+    if (cartas.some((c) => c.id === e.id)) continue;
+    // por palabra, no por nombre exacto: «Alolan Vulpix» también es Vulpix
+    const suyos = pokemon.filter((p) => new RegExp(`\\b${p.nombre}\\b`, 'i').test(String(e.n))).map((p) => p.id);
+    if (!suyos.length) { console.log(`  ! ${e.id}: ${e.n} no es de los nuestros`); continue; }
+    if (e.set_n && !sets[e.set]) {
+      sets[e.set] = { n: e.set_n, rel: e.rel || '', tot: e.tot || 0 };
+    }
+    const ficha = {
+      id: e.id, n: e.n, p: suyos, s: e.set, num: e.num,
+      r: e.r || '', v: ['normal'], img: null, ill: e.ill || '',
+    };
+    const j = {};
+    if (e.etapa) j.e = e.etapa;
+    if (e.de) j.de = e.de;
+    if (e.ps) j.ps = e.ps;
+    if (Object.keys(j).length) ficha.j = j;
+    // los enlaces a las tiendas se asignan aquí también: estas cartas
+    // entran después del reparto general y si no se quedarían sin ellos
+    if (tcgplayerExtra[e.id]) ficha.tp_id = tcgplayerExtra[e.id].tp;
+    if (tcgcollector[e.id]) { ficha.tc_id = tcgcollector[e.id].tc; ficha.tc_slug = tcgcollector[e.id].slug; }
+    cartas.push(ficha);
+    anadidas++;
+  }
+  if (anadidas) {
+    // el orden de las colecciones se rehace: han entrado algunas nuevas
+    const orden2 = Object.keys(sets).sort((a, b) =>
+      (sets[a].rel || '9999').localeCompare(sets[b].rel || '9999') || a.localeCompare(b));
+    orden2.forEach((id, i) => { sets[id].o = i; });
+    cartas.sort((a, b) => (sets[a.s]?.o ?? 9999) - (sets[b.s]?.o ?? 9999)
+      || String(a.num).localeCompare(String(b.num), 'en', { numeric: true }));
+    console.log(`De pkmncards     ${anadidas} cartas que TCGdex no tiene
+`);
+  }
+
+  /* 5.5 · las japonesas
+     La misma carta existe en japonés, y muchas solo existen en japonés.
+     Se traen con scripts/japonesas.py de TCG Collector, que es el único
+     sitio donde la base japonesa está completa. Entran como cartas
+     aparte, con su propia colección y marcadas con l:'ja', para que la
+     app pueda enseñar unas, otras o las dos. */
+  const japo = JSON.parse(await readFile(path.join(AQUI, 'japonesas.json'), 'utf8').catch(() => '{}'));
+  const japoSets = JSON.parse(await readFile(path.join(AQUI, 'japonesas-sets.json'), 'utf8').catch(() => '[]'));
+
+  // la web las lista de la más nueva a la más vieja: se le da la vuelta
+  const ordenJapo = new Map(japoSets.map((s, i) => [s.tc, japoSets.length - i]));
+  const nombreJapo = new Map(japoSets.map((s) => [s.tc, s]));
+
+  // Entrenadores con nombre de Pokémon: no son cartas del Pokémon
+  const NO_ES_POKEMON = /\b(doll|spirit link|tool|stadium|candy|supporter)\b/i;
+
+  let japoPuestas = 0;
+  for (const c of Object.values(japo)) {
+    if (!c || !c.n || !c.img || c.fuera) continue;
+    if (NO_ES_POKEMON.test(c.n)) continue;
+    const suyos = pokemon.filter((p) => new RegExp('\\b' + p.nombre + '\\b', 'i').test(c.n)).map((p) => p.id);
+    if (!suyos.length) continue;
+
+    const sid = 'ja-' + c.set_tc;
+    if (!sets[sid]) {
+      const s = nombreJapo.get(c.set_tc) || {};
+      sets[sid] = { n: s.n || c.set_n, rel: '', tot: 0, ja: true, cod: s.cod || c.set_cod || '' };
+    }
+    const id = 'ja-' + c.tc;
+    if (cartas.some((x) => x.id === id)) continue;
+    const trozos = String(c.num || '').split('/');
+    const ficha = {
+      id, n: c.n, p: suyos, s: sid, num: trozos[0] || '',
+      r: (c.r || '').replace(/^[—-]$/, ''), v: ['normal'], img: null, ill: c.ill || '', l: 'ja',
+      ni: c.num || '', tc_id: c.tc, tc_slug: c.slug,
+    };
+    // lo que trae su ficha en TCG Collector, igual que en las inglesas
+    const j = {};
+    if (c.etapa) j.e = c.etapa;
+    if (c.de) j.de = c.de;
+    if (c.ps) j.ps = c.ps;
+    if (Object.keys(j).length) ficha.j = j;
+    cartas.push(ficha);
+    if (trozos[1]) sets[sid].tot = Number(trozos[1]) || sets[sid].tot;
+    japoPuestas++;
+  }
+  /* 5.5b · las que faltaban
+     Cartas de TUS Pokémon que TCGdex y TCG Collector no traen (promos japonesas
+     sueltas, la Kids' WB, promos nuevas de Mega Evolution) y que sí existen en la
+     tienda Carpeta / TCGplayer. Las trae scripts/traer-de-carpeta.py, con su imagen
+     ya guardada, y entran aquí con la misma forma que las demás. */
+  const deCarpeta = JSON.parse(await readFile(path.join(AQUI, 'cartas-carpeta.json'), 'utf8').catch(() => '{"sets":{},"cartas":[]}'));
+  for (const [sid, s] of Object.entries(deCarpeta.sets)) if (!sets[sid]) sets[sid] = { ...s };
+  let deCarpetaPuestas = 0;
+  for (const c of deCarpeta.cartas) {
+    if (!sets[c.s] || cartas.some((x) => x.id === c.id)) continue;
+    cartas.push({ ...c });
+    deCarpetaPuestas++;
+    if (c.l === 'ja') japoPuestas++;
+  }
+  if (deCarpetaPuestas) {
+    // un set inglés nuevo (Kids' WB) entra en su sitio por fecha; las japonesas se reordenan abajo
+    Object.keys(sets).filter((id) => !sets[id].ja)
+      .sort((a, b) => (sets[a].rel || '9999').localeCompare(sets[b].rel || '9999') || a.localeCompare(b))
+      .forEach((id, i) => { sets[id].o = i; });
+    console.log(`De la tienda      ${deCarpetaPuestas} cartas que faltaban
+`);
+  }
+
+  if (japoPuestas) {
+    // las japonesas van detrás de todas las inglesas, en su propio orden
+    const base = Object.keys(sets).length;
+    /* Con fecha (scripts/fechas-japonesas.py, de Pokellector) van por fecha;
+       las que no la tienen, detrás y en el orden que dio TCG Collector. */
+    const fechas = JSON.parse(await readFile(path.join(AQUI, 'fechas-japonesas.json'), 'utf8').catch(() => '{}'));
+    for (const [sid, s] of Object.entries(sets)) if (s.ja && fechas[sid]) s.rel = fechas[sid];
+    const japo2 = Object.entries(sets).filter(([, s]) => s.ja).sort(([a, x], [b, y]) =>
+      (x.rel ? 0 : 1) - (y.rel ? 0 : 1)
+      || (x.rel || '').localeCompare(y.rel || '')
+      || (ordenJapo.get(a.slice(3)) || 0) - (ordenJapo.get(b.slice(3)) || 0));
+    japo2.forEach(([, s], i) => { s.o = base + i; });
+    console.log(`En japonés       ${japoPuestas} cartas en ${Object.values(sets).filter((s) => s.ja).length} colecciones
+`);
+  }
+
+  /* 5.6 · el número tal y como está impreso en la carta
+     Lo que se enseñaba («SM108/248», «TG03/30», «H09/144») no aparece en
+     ninguna carta. Las promos no llevan total, las subcolecciones llevan
+     el suyo con sus letras (TG03/TG30) y el Classic Collection lleva el
+     número de la carta original. Comprobado mirando las fotos. */
+  const impresos = JSON.parse(await readFile(path.join(AQUI, 'numeros-impresos.json'), 'utf8').catch(() => '{}'));
+  const esPromo = (nombre) => /\bpromos?\b/i.test(nombre || '');
+  // cuántas cartas hay con cada prefijo de letras en cada colección
+  const prefijos = {};
+  for (const s of setsFichas) {
+    if (digitales.has(s.id)) continue;
+    const cuenta = {};
+    for (const c of s.cards || []) {
+      const m = /^([A-Za-z]+)\d/.exec(String(c.localId || ''));
+      if (m) cuenta[m[1]] = (cuenta[m[1]] || 0) + 1;
+    }
+    prefijos[s.id] = cuenta;
+  }
+
+  let arreglados = 0;
+  for (const c of cartas) {
+    if (impresos[c.id]) { c.ni = impresos[c.id]; arreglados++; continue; }
+    const set = sets[c.s];
+    if (!set) continue;
+    if (esPromo(set.n)) { c.ni = String(c.num); arreglados++; continue; }
+    const m = /^([A-Za-z]+)(\d+)/.exec(String(c.num));
+    const n = m && (prefijos[c.s] || {})[m[1]];
+    // las «SH» de Platinum no llevan total impreso (pl1-SH6 dice solo «SH6»), y un número
+    // mayor que el total contado es que la lista de TCGdex está incompleta: mejor sin total
+    if (m && m[1].toUpperCase() === 'SH') { c.ni = String(c.num); arreglados++; continue; }
+    if (n && m[1].toUpperCase() !== 'SH' && Number(m[2]) <= n) { c.ni = `${c.num}/${m[1]}${n}`; arreglados++; }
+  }
+  console.log(`Números impresos ${arreglados} cartas con numeración propia
+`);
+
+  /* 5.7 · modo «solo añadir»  (lo usa el buscador semanal de novedades)
+     Con CATALOGO_BASE apuntando al catálogo publicado, lo que ya estaba se
+     deja EXACTAMENTE como estaba —cartas, precios, enlaces— y solo se
+     suman las cartas y colecciones que no existían. Lo único que se
+     recalcula es el orden de las colecciones, para que la nueva entre en
+     su sitio. Así una semana de novedades nunca puede cambiar lo que ya
+     tenías ni las marcas que hayas puesto, que van por identificador. */
+  let preciosDe = new Date().toISOString().slice(0, 10);
+  if (process.env.CATALOGO_BASE) {
+    const base = JSON.parse(await readFile(process.env.CATALOGO_BASE, 'utf8'));
+    const conocidas = new Set(base.cartas.map((c) => c.id));
+    const nuevas = cartas.filter((c) => !conocidas.has(c.id));
+    const setsFinal = {};
+    for (const [id, s] of Object.entries(sets)) setsFinal[id] = base.sets[id] ? { ...base.sets[id], o: s.o } : s;
+    for (const [id, s] of Object.entries(base.sets)) if (!setsFinal[id]) setsFinal[id] = s;
+    cartas = [...base.cartas, ...nuevas];
+    sets = setsFinal;
+    preciosDe = JSON.parse(await readFile(path.join(DATOS, 'manifiesto.json'), 'utf8').catch(() => '{}')).preciosDe || preciosDe;
+    console.log(`Solo añadir: ${base.cartas.length} cartas que ya había + ${nuevas.length} nuevas\n`);
+    if (process.env.NOVEDADES_SALIDA) {
+      const nuevosSets = Object.keys(sets).filter((id) => !base.sets[id]);
+      await writeFile(process.env.NOVEDADES_SALIDA, JSON.stringify({
+        cartas: nuevas.map((c) => ({ id: c.id, n: c.n, s: c.s, num: c.ni || c.num, set: sets[c.s]?.n, ja: c.l === 'ja', p: c.p })),
+        sets: nuevosSets.map((id) => ({ id, n: sets[id].n, ja: !!sets[id].ja })),
+      }, null, 1));
+    }
+  }
+
+  /* 5.8 · variantes (sellos, holos especiales, exclusivas…)
+     scripts/variantes.json lo genera traer-variantes.py desde TCGplayer.
+       · Formas de siempre (Normal, Holo, Reverse, 1.ª ed.): se SUMAN a `v` de la carta.
+       · Variantes especiales (el sello de Pokémon Day 2026, Cosmos Holo, Prize Pack, Jumbo…):
+         son OTRA carta —se ven distintas— y entran como carta propia, con id «<base>~<clave>»,
+         su foto (data/cartas/<id>.webp), su producto de TCGplayer y su precio. Van justo detrás
+         de su carta base. Una variante sin foto no puede ser carta: queda como contador en la
+         ficha de la base, como al principio.
+     `nv` (clave → nombre en castellano) se publica en el catálogo. Idempotente. */
+  const dv = JSON.parse(await readFile(path.join(AQUI, 'variantes.json'), 'utf8').catch(() => '{"nv":{},"cartas":{},"extras":{}}'));
+  const nv = {};
+  let variantesPuestas = 0;
+  const FORMAS = ['normal', 'holo', 'reverse', 'firstEdition', 'wPromo'];
+  const porId = new Map(cartas.map((c) => [c.id, c]));
+  for (const [id, [de, a]] of Object.entries(dv.reemplaza || {})) {
+    const c = porId.get(id);
+    if (c && c.v.length === 1 && c.v[0] === de) { c.v = [a]; variantesPuestas++; }
+  }
+  const ordenForma = (v) => [...FORMAS.filter((k) => v.includes(k)), ...v.filter((k) => !FORMAS.includes(k))];
+  for (const [id, claves] of Object.entries(dv.cartas)) {
+    const c = porId.get(id);
+    if (!c) continue;
+    for (const k of claves) if (!c.v.includes(k)) { c.v.push(k); variantesPuestas++; }
+    c.v = ordenForma(c.v);
+  }
+  const conFoto = (id) => existsSync(path.join(DATOS, 'cartas', `${id}.webp`)) && existsSync(path.join(DATOS, 'cartas', 'g', `${id}.webp`));
+  let cartasVariante = 0, contadores = 0;
+  for (const [bid, ex] of Object.entries(dv.extras || {})) {
+    const base = porId.get(bid);
+    if (!base) continue;
+    for (const [k, d] of Object.entries(ex)) {
+      const vid = `${bid}~${k}`;
+      if (porId.has(vid)) {
+        base.v = base.v.filter((x) => x !== k);
+        const ya = porId.get(vid);   // ya es carta: sus formas son las de su producto (la app mueve lo marcado en una forma que ya no tiene)
+        if (JSON.stringify(ya.v) !== JSON.stringify(ordenForma(d.v))) { ya.v = ordenForma(d.v); variantesPuestas++; }
+        continue;
+      }
+      if (conFoto(vid)) {
+        const nueva = { ...base, id: vid, v: d.v, vn: k, img: null, tp_id: d.tp };
+        for (const x of ['eur', 'usd', 'cm_id', 'tc_id', 'tc_slug']) delete nueva[x];
+        if (d.usd) nueva.usd = d.usd;
+        cartas.push(nueva); porId.set(vid, nueva);
+        base.v = base.v.filter((x) => x !== k);
+        cartasVariante++; variantesPuestas++;
+      } else if (!base.v.includes(k)) {
+        base.v.push(k); contadores++; variantesPuestas++;
+      }
+    }
+  }
+  // revisión a ojo: las variantes que NO se distinguen de su carta (o eran la misma) dejan de ser carta.
+  // `mv` dice a la app adónde mover lo que ya estuviera marcado en ellas.
+  const antesRevision = cartas.length;
+  cartas = cartas.filter((c) => !c.vn || dv.extras?.[c.id.split('~')[0]]?.[c.vn]);
+  for (const id of [...porId.keys()]) if (!cartas.some((c) => c.id === id)) porId.delete(id);
+  const mv = dv.movidas || {};
+  // una clave especial que ya no existe en variantes.json (se renombró) no se queda colgada en `v`
+  for (const c of cartas) c.v = c.v.filter((k) => FORMAS.includes(k) || (dv.extras?.[c.id]?.[k] && !porId.has(`${c.id}~${k}`)));
+  // cada variante, justo detrás de su carta base
+  const detras = new Map();
+  for (const c of cartas) if (c.vn) (detras.get(c.id.split('~')[0]) || detras.set(c.id.split('~')[0], []).get(c.id.split('~')[0])).push(c);
+  cartas = cartas.filter((c) => !c.vn).flatMap((c) => [c, ...(detras.get(c.id) || [])]);
+  for (const c of cartas) for (const k of [c.vn, ...c.v]) if (k && dv.nv[k]) nv[k] = dv.nv[k];
+  // en qué se distingue cada una, y las que tienen una foto que no lo enseña
+  const nd = Object.fromEntries(Object.keys(nv).filter((k) => dv.nd?.[k]).map((k) => [k, dv.nd[k]]));
+  const fr = new Set(JSON.parse(await readFile(path.join(AQUI, 'fotos-referencia.json'), 'utf8').catch(() => '[]')));
+  for (const c of cartas) { if (fr.has(c.id)) c.fr = 1; else delete c.fr; }
+  console.log(`Revisión    ${antesRevision - cartas.length} variantes que no se distinguen, fuera como carta
+`);
+  console.log(`Variantes   ${cartasVariante} cartas-variante nuevas · ${contadores} como contador (sin foto) · ${variantesPuestas} cambios · ${Object.keys(nv).length} nombres
+`);
+
+  /* 5.9 · fuera las cartas gigantes (oversize/jumbo): Arturo no las quiere en la colección.
+     Las Box Topper de la era e-Card (set «bt» de TCGdex) también son gigantes. */
+  const GIGANTE = (c) => c.s === 'bt' || c.s === 'lcbt' || /^jumbo/.test(c.vn || '');
+  const antesGigantes = cartas.length;
+  cartas = cartas.filter((c) => !GIGANTE(c));
+  for (const c of cartas) c.v = c.v.filter((k) => !/^jumbo/.test(k));
+  for (const id of ['bt', 'lcbt']) delete sets[id];
+  for (const k of Object.keys(nv)) if (/^jumbo/.test(k)) { delete nv[k]; delete nd[k]; }
+  console.log(`Gigantes    ${antesGigantes - cartas.length} cartas fuera
+`);
+
+  /* 6 · escribir */
+  const json = JSON.stringify({ sets, cartas, nv: Object.fromEntries(Object.entries(nv).sort()), nd: Object.fromEntries(Object.entries(nd).sort()), mv });
+  const hash = createHash('sha256').update(json).digest('hex').slice(0, 12);
+
+  await writeFile(path.join(DATOS, 'catalogo.json'), json);
+  await writeFile(path.join(DATOS, 'manifiesto.json'), JSON.stringify({
+    version: hash,
+    generado: new Date().toISOString().slice(0, 10),
+    preciosDe,
+    cartas: cartas.length,
+    sets: Object.keys(sets).length,
+    pokemon: pokemon.map(({ dex, id, nombre, tipo, linea, orden, de, principal }) =>
+      ({ dex, id, nombre, tipo, linea, orden, de, principal })),
+  }, null, 1));
+
+  /* 7 · el parte */
+  const items = cartas.reduce((a, c) => a + c.v.length, 0);
+  const kb = (n) => `${Math.round(n / 1024)} KB`;
+  console.log('─'.repeat(52));
+  console.log(`Cartas          ${cartas.length}`);
+  console.log(`Coleccionables  ${items}  (carta × variante)`);
+  console.log(`Sets            ${Object.keys(sets).length}  (${sets[orden[0]].n} ${sets[orden[0]].rel} → ${sets[orden.at(-1)].n} ${sets[orden.at(-1)].rel})`);
+  console.log(`Con imagen      ${cartas.filter((c) => c.img).length} directas` +
+    (conRespaldo ? ` + ${conRespaldo} de respaldo` : '') +
+    (sinImagen ? ` · ${sinImagen} SIN IMAGEN` : ' · ninguna sin imagen'));
+  console.log(`Con precio      ${cartas.filter((c) => c.eur).length} en euros · ${cartas.filter((c) => c.usd).length} en dólares`);
+  console.log(`Enlace directo   TCGplayer ${cartas.filter((c) => c.tp_id).length} · TCG Collector ${cartas.filter((c) => c.tc_id).length}`);
+  console.log(`catalogo.json   ${kb(json.length)}   versión ${hash}`);
+  console.log('─'.repeat(52));
+
+  const porPokemon = {};
+  for (const c of cartas) for (const p of c.p) porPokemon[p] = (porPokemon[p] || 0) + 1;
+  for (const p of pokemon) {
+    console.log(`  ${p.nombre.padEnd(12)} ${String(porPokemon[p.id] || 0).padStart(4)}${p.principal ? '' : '   (familia)'}`);
+  }
+}
+
+main().catch((e) => { console.error('\n✖', e.message); process.exit(1); });

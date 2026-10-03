@@ -1,0 +1,41 @@
+{
+ "version": "9c10d9d68427",
+ "generado": "2026-10-03",
+ "preciosDe": "2026-10-03",
+ "cartas": 483,
+ "sets": 215,
+ "pokemon": [
+  {
+   "dex": 133,
+   "id": "eevee",
+   "nombre": "Eevee",
+   "tipo": "normal",
+   "principal": true
+  },
+  {
+   "dex": 37,
+   "id": "vulpix",
+   "nombre": "Vulpix",
+   "tipo": "fuego",
+   "principal": true
+  },
+  {
+   "dex": 572,
+   "id": "minccino",
+   "nombre": "Minccino",
+   "tipo": "normal",
+   "linea": "minccino",
+   "orden": 1,
+   "principal": true
+  },
+  {
+   "dex": 573,
+   "id": "cinccino",
+   "nombre": "Cinccino",
+   "tipo": "normal",
+   "linea": "minccino",
+   "orden": 2,
+   "principal": true
+  }
+ ]
+}
