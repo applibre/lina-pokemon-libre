@@ -53,6 +53,19 @@ SELLOS = [
     (r'Pokémon Center', 'el sello de Pokémon Center'),
     (r'Library', 'el sello de Play! Pokémon (bibliotecas)'),
     (r'2014 Movie', 'el sello de la película de 2014'),
+    # Partidarios (Entrenadores): premios de torneo y de la Liga
+    (r'25th Anniversary', 'el sello del 25.º aniversario'),
+    (r'^Champion', 'el sello de campeón (Champion)'),
+    (r'^Finalist', 'el sello de finalista'),
+    (r'^Top (\d+)', r'el sello de Top \1 de un torneo'),
+    (r'Player Reward', 'el sello de premio de la Liga (Player Reward)'),
+    (r'International Challenge', 'el sello del International Challenge'),
+    (r'League Cup', 'el sello de la League Cup'),
+    (r'Regional Championship|Regional Stamp', 'el sello del Campeonato Regional'),
+    (r'Ultra Ball League', 'el sello de la Ultra Ball League'),
+    (r'Gym Stamp', 'el sello de GYM (Asia)'),
+    (r'^GYM$|· GYM$', 'el sello de Pokémon TCG GYM'),
+    (r'^(\d{4})-(\d{4})$', r'el sello del Professor Program de la temporada \1-\2'),
 ]
 BRILLOS = [
     (r'Reverse Cosmos', 'reverse holo con brillo Cosmos (puntos y estrellas)'),
@@ -66,6 +79,8 @@ BRILLOS = [
     (r'Energy Symbol', 'reverse holo con el símbolo de energía en el fondo'),
     (r'General Mills', 'brillo holográfico de la promoción de cereales General Mills'),
     (r'Costco', 'brillo Cosmos de los packs de Costco'),
+    (r'Sheen Holo', 'brillo holográfico satinado (Sheen Holo)'),
+    (r'Line Holo', 'brillo holográfico de líneas'),
     (r'30th Celebration|DP Majestic Dawn', 'brillo holográfico Cosmos (puntos y estrellas)'),
 ]
 # variantes que no son un sello ni un brillo: texto completo
@@ -74,11 +89,16 @@ OTRAS = [
     (r'Red Cheeks', 'Lleva el sello E3 y las mejillas ROJAS (las normales son amarillas).'),
     (r'^Shadowless$', 'Sin la sombra a la derecha del recuadro de la ilustración (la normal sí la tiene). '
                       'La 1.ª edición, que tampoco tiene sombra, se marca en la carta normal.'),
+    (r'^Mundial$', 'Carta de un mazo de los Mundiales: banda «NOT TOURNAMENT LEGAL», borde gris, la firma de un campeón '
+                   'y dorso distinto (no vale en torneo). Las de distintos años y jugadores se ven iguales: cuentan como una.'),
     (r'Mundial (\d{4}) · (.+)', r'Carta del mazo del Mundial \1 de \2: borde dorado, su firma y dorso distinto (no vale en torneo).'),
     (r'Black Dot Error', 'Error de impresión: un punto negro sobre la ilustración.'),
     (r'No Rarity Symbol', 'Error de impresión: sin el símbolo de rareza.'),
     (r'Misprint', 'Error de impresión de la promo: lleva el símbolo de 1.ª edición.'),
     (r'Metal Card', 'Carta de metal dorada (Celebrations).'),
+    (r'Full Art', 'Arte completo: la ilustración ocupa toda la carta.'),
+    (r'No E-Reader', 'Sin la tira de puntos del e-Reader en el borde.'),
+    (r'Sin sello de la Liga', 'Sin el sello de la Liga Pokémon que lleva la promo normal (es la del mazo).'),
 ]
 
 

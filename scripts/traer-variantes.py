@@ -33,6 +33,7 @@ import importar as m  # noqa: E402  (pedir() con caché de tcgcsv)
 
 catalogo = json.load(open(os.path.join(RAIZ, 'data', 'catalogo.json'), encoding='utf-8'))
 # las cartas-variante (con `vn`) las crea este mismo script: nunca cuentan como carta base
+variantes_publicadas = [c['id'] for c in catalogo['cartas'] if c.get('vn')]
 catalogo['cartas'] = [c for c in catalogo['cartas'] if not c.get('vn')]
 objetivos = json.load(open(os.path.join(AQUI, 'objetivos.json'), encoding='utf-8'))
 sets = catalogo['sets']
@@ -102,8 +103,8 @@ def nombre_variante(p):
             sello = re.search(r'#(\d+) (\w+) Stamped', n)   # el mismo Pikachu salió con varios números de mazo
             return f'Battle Academy {año}' + (f' · n.º {sello.group(1)} ({sello.group(2)})' if sello else '')
     if re.match(r'^World Championship Decks', g):
-        y = re.search(r'-\s*(\d{4})\s*\(([^)]*)\)', n)
-        return f'Mundial {y.group(1)} · {y.group(2)}' if y else None
+        # Arturo (20-10-2026): las de distintos años y jugadores se ven iguales: UNA sola variante por carta
+        return 'Mundial'
     tg = [limpia(t) for t in etiquetas(n)]
     tg = [t for t in tg if t and not NO_VARIANTE.match(t)]
     for rx, etiq in GRUPOS:
@@ -147,6 +148,9 @@ def asigna(p, cand, etiqueta, idioma, fecha=''):
         return
     k = slug(etiqueta)
     ex = extras[cand[0]['id']]
+    if k == 'mundial' and k in ex:
+        ex[k]['tp'] = min(ex[k]['tp'], p['id'])
+        return
     if k in ex and ex[k]['tp'] != p['id']:
         k = f'{k}-{p["id"]}'   # dos productos con el mismo nombre para la misma carta
     nv[k] = etiqueta
@@ -275,6 +279,20 @@ for bid in list(extras):
         del extras[bid]
 for k in [k for k in nv if not any(k in ex for ex in extras.values())]:
     del nv[k]
+# las Mundiales de cada año y jugador pasaron a ser UNA («…~mundial»): lo marcado en las viejas va ahí
+for vid in variantes_publicadas:
+    b, k = vid.split('~', 1)
+    if k.startswith('mundial-') and vid not in movidas:
+        movidas[vid] = [f'{b}~mundial' if 'mundial' in extras.get(b, {}) else b, None]
+        quitadas['mundial de otro año/jugador → la Mundial de la carta'] += 1
+# lo movido en pasadas anteriores se conserva: la marca vieja puede seguir en el teléfono de Arturo
+try:
+    for vid, d in json.load(open(os.path.join(AQUI, 'variantes.json'), encoding='utf-8')).get('movidas', {}).items():
+        b, k = vid.split('~', 1)
+        if vid not in movidas and k not in extras.get(b, {}):
+            movidas[vid] = d
+except FileNotFoundError:
+    pass
 print('revisión a ojo:', dict(quitadas))
 
 # cada variante especial lleva sus formas (Normal/Holo…) y su precio, según su propio producto de TCGplayer

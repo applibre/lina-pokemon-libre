@@ -20,12 +20,7 @@
 "holiday-calendar": "Holiday Calendar",
 "jr-east-stamp-rally": "JR East Stamp Rally",
 "master-ball-pattern": "Master Ball Pattern",
-"mundial-2006-jimmy-ballard": "Mundial 2006 · Jimmy Ballard",
-"mundial-2007-jun-hasebe": "Mundial 2007 · Jun Hasebe",
-"mundial-2007-tom-roos": "Mundial 2007 · Tom Roos",
-"mundial-2017-diego-cassiraga": "Mundial 2017 · Diego Cassiraga",
-"mundial-2017-zachary-bokhari": "Mundial 2017 · Zachary Bokhari",
-"mundial-2019-kaya-lichtleitner": "Mundial 2019 · Kaya Lichtleitner",
+"mundial": "Mundial",
 "poke-ball-pattern": "Poké Ball Pattern",
 "pokemon-center-exclusive": "Pokémon Center Exclusive",
 "pokemon-day-2025-reverse-cosmos-holo": "Pokémon Day 2025 · Reverse Cosmos Holo",
@@ -60,12 +55,7 @@
 "holiday-calendar": "Lleva un copo de nieve (calendario de Navidad).",
 "jr-east-stamp-rally": "Lleva el sello de la JR East Stamp Rally (Japón).",
 "master-ball-pattern": "Reverse holo con Master Balls en el fondo.",
-"mundial-2006-jimmy-ballard": "Carta del mazo del Mundial 2006 de Jimmy Ballard: borde dorado, su firma y dorso distinto (no vale en torneo).",
-"mundial-2007-jun-hasebe": "Carta del mazo del Mundial 2007 de Jun Hasebe: borde dorado, su firma y dorso distinto (no vale en torneo).",
-"mundial-2007-tom-roos": "Carta del mazo del Mundial 2007 de Tom Roos: borde dorado, su firma y dorso distinto (no vale en torneo).",
-"mundial-2017-diego-cassiraga": "Carta del mazo del Mundial 2017 de Diego Cassiraga: borde dorado, su firma y dorso distinto (no vale en torneo).",
-"mundial-2017-zachary-bokhari": "Carta del mazo del Mundial 2017 de Zachary Bokhari: borde dorado, su firma y dorso distinto (no vale en torneo).",
-"mundial-2019-kaya-lichtleitner": "Carta del mazo del Mundial 2019 de Kaya Lichtleitner: borde dorado, su firma y dorso distinto (no vale en torneo).",
+"mundial": "Carta de un mazo de los Mundiales: banda «NOT TOURNAMENT LEGAL», borde gris, la firma de un campeón y dorso distinto (no vale en torneo). Las de distintos años y jugadores se ven iguales: cuentan como una.",
 "poke-ball-pattern": "Reverse holo con Poké Balls en el fondo.",
 "pokemon-center-exclusive": "Lleva el sello de Pokémon Center.",
 "pokemon-day-2025-reverse-cosmos-holo": "Lleva el sello de Pokémon Day 2025. Reverse holo con brillo Cosmos (puntos y estrellas).",
@@ -909,9 +899,9 @@
 }
 },
 "ex11-68": {
-"mundial-2007-jun-hasebe": {
+"mundial": {
 "tp": 479543,
-"n": "Mundial 2007 · Jun Hasebe",
+"n": "Mundial",
 "v": [
 "normal"
 ],
@@ -919,21 +909,13 @@
 }
 },
 "ex11-69": {
-"mundial-2006-jimmy-ballard": {
+"mundial": {
 "tp": 477611,
-"n": "Mundial 2006 · Jimmy Ballard",
+"n": "Mundial",
 "v": [
 "normal"
 ],
 "usd": 22.53
-},
-"mundial-2007-tom-roos": {
-"tp": 479544,
-"n": "Mundial 2007 · Tom Roos",
-"v": [
-"normal"
-],
-"usd": 7.66
 }
 },
 "gym2-37": {
@@ -1073,20 +1055,13 @@
 }
 },
 "sm2-21": {
-"mundial-2017-zachary-bokhari": {
+"mundial": {
 "tp": 481832,
-"n": "Mundial 2017 · Zachary Bokhari",
+"n": "Mundial",
 "v": [
 "normal"
 ],
 "usd": 2.13
-},
-"mundial-2017-diego-cassiraga": {
-"tp": 481833,
-"n": "Mundial 2017 · Diego Cassiraga",
-"v": [
-"normal"
-]
 },
 "toys-r-us-promo": {
 "tp": 131861,
@@ -1116,9 +1091,9 @@
 }
 },
 "sm9-15": {
-"mundial-2019-kaya-lichtleitner": {
+"mundial": {
 "tp": 482122,
-"n": "Mundial 2019 · Kaya Lichtleitner",
+"n": "Mundial",
 "v": [
 "normal"
 ],
@@ -1433,6 +1408,18 @@
 ]
 },
 "movidas": {
+"ex11-68~mundial-2007-jun-hasebe": [
+"ex11-68~mundial",
+null
+],
+"ex11-69~mundial-2006-jimmy-ballard": [
+"ex11-69~mundial",
+null
+],
+"ex11-69~mundial-2007-tom-roos": [
+"ex11-69~mundial",
+null
+],
 "fut2020-2~pokemon-futsal": [
 "fut2020-2",
 null
@@ -1524,6 +1511,18 @@ null
 "ja-53140~mirror-holo": [
 "ja-53140",
 "reverse"
+],
+"sm2-21~mundial-2017-diego-cassiraga": [
+"sm2-21~mundial",
+null
+],
+"sm2-21~mundial-2017-zachary-bokhari": [
+"sm2-21~mundial",
+null
+],
+"sm9-15~mundial-2019-kaya-lichtleitner": [
+"sm9-15~mundial",
+null
 ]
 },
 "revisar": []
